@@ -28,9 +28,11 @@ Criar um sistema composto por serviços independentes:
 - Cada serviço pode ser escrito em diferentes tecnologias, desde que respeitem o padrão de log e todos os requisitos já listados
 
 #### Modelo de log
+Cada campo deve ser separado por um TAB (__\t__) e finalizado com um LINEFEED (__\n__) (ver descrição de [ASCII](https://pt.wikipedia.org/wiki/ASCII))
+
 | Campo | Descrição | 
 | :- | :- | 
-| __timestamp__ | Momento em que a entrada foi gerada | 
+| __timestamp__ | Momento em que a entrada foi gerada, deve seguir a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | __level__ | Nível de criticidade da entrada | 
 | __message__ | Mensagem de log | 
 
@@ -42,6 +44,13 @@ Criar um sistema composto por serviços independentes:
 | __WARNING__ | Nível de criticidade da alerta, algo aconteceu fora do esperado, mas a rotina deve continuar | 
 | __ERROR__ | Nível de erro, a aplicação não é capaz de processar o pedido e deve sinalizar que um erro aconteceu | 
 | __CRITICAL__ | Nível de erro crítico, a aplicação não é capaz de continuar e será encerrada | 
+
+```
+2024-03-18T23:10:57Z    INFO    Service starting...
+2024-03-18T23:10:57Z    INFO    Connecting on database
+2024-03-18T23:10:57Z    DEBUG    Database running under localhost:5432
+2024-03-18T23:10:58Z    INFO    Listening port 8000
+```
 
 ### Cadastro de clientes
 Esse serviço deve ser capaz de:
