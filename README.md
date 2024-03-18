@@ -61,7 +61,7 @@ Esse serviço deve ser capaz de:
 
 #### Modelo de cliente
 | Nome | Tipo | Descrição | 
-|:-|:-:|:-| 
+|:-|:-|:-| 
 | __id__ | STRING | Identificador único do cliente |
 | __name__ | STRING | Nome do cliente | 
 | __surname__ | STRING | Sobrenome do cliente |
@@ -85,32 +85,32 @@ Esse serviço deve ser capaz de:
 
 #### Modelo de produto
 | Nome | Tipo | Descrição | 
-|:-|:-:|:-| 
+|:-|:-|:-| 
 | __id__ | STRING | Identificador único do produto |
 | __name__ | STRING | Nome do produto | 
 | __dest__ | STRING | Descrição do produto | 
-| __quantity__ | float | Quantidade em estoque desse produto |
+| __quantity__ | INTEGER | Quantidade em estoque desse produto |
 | __created_at__ | TIMESTAMP | Data de criação do registro | 
 | __updated_at__ | TIMESTAMP | Data de criação do registro | 
 
 ### Serviço de cotações de moedas estrangeiras
 Esse serviço deve ser capaz de fornecer a cotação das seguintes moedas:
-- BRL vs EUR
-- BRL vs USD
-- BRL vs GPB
-- BRL vs CNY
+- __BRL__ vs __EUR__
+- __BRL__ vs __USD__
+- __BRL__ vs __GPB__
+- __BRL__ vs __CNY__
 
 Os códigos de moeda, seguem a [ISO-4717](https://pt.iban.com/currency-codes)
 
 Esse serviço deve ser capaz de informar a cotação de uma moeda em específico por meio de rota HTTP e também informar todas elas caso nenhuma moeda seja especificada
 
-Esse serviço pode consultar uma API externa para conseguir os dados [API de cotações](https://economia.awesomeapi.com.br/all), porém essa API possui limitação de requisições, portanto é necessário um mecanismo de cache para que essa consulta aconteça no máximo uma vez ao dia.
+Esse serviço pode consultar uma API externa para conseguir os dados [API de cotações](https://economia.awesomeapi.com.br/all), porém essa API possui limitação de requisições, portanto é necessário um mecanismo de cache para que essa consulta aconteça no máximo uma vez ao dia e a data de atualização do preço deve ser informada sempre que os valores forem consultados
 
 #### Modelo de cotações
 | Nome | Tipo | Descrição | 
-|:-|:-:|:-| 
+|:-|:-|:-| 
 | __code__ | STRING | Código da moeda | 
-| __value__ | float | Descrição do produto | 
+| __value__ | FLOAT | Descrição do produto | 
 | __created_at__ | TIMESTAMP | Data de criação do registro | 
 
 ### Controle de vendas
@@ -125,5 +125,32 @@ Funcionalidades:
 - Alterar produtos nessa venda (quantidade), verificando a disponibilidade, como na inclusão, via API
 - Efetivar uma venda previamente criada e efetivando o uso do produto, ou seja, reduzindo seu estoque disponível no serviço de produtos, via API
 - No momento da efetivação da venda, deve ser informado o preço total em todas as moedas disponíveis no serviço de cotações
+
+#### Modelo de venda
+| Nome | Tipo | Descrição |
+|:-|:-|:-| 
+| __id__ | STRING | Identificador único de cada venda |
+| __client_id__ | STRING | Identificador do cliente da venda |
+| __array<item_venda>__ | ARRAY | Itens contidos na venda |
+| __status__ | INTEGER | Identificador do estado da venda |
+| __created_at__ | TIMESTAMP | Data de criação do registro | 
+| __updated_at__ | TIMESTAMP | Data de criação do registro | 
+
+#### Modelo de item de venda
+| Nome | Tipo | Descrição |
+|:-|:-|:-| 
+| __sell_id__ | STRING | Identificador único de cada venda, referência a venda a qual esse item pertence |
+| __product_id__ | STRING | Identificador do produto contido na venda | 
+| __quantity__ | INTEGER | Quantidade do produto nessa venda |
+| __created_at__ | TIMESTAMP | Data de criação do registro | 
+| __updated_at__ | TIMESTAMP | Data de criação do registro |
+
+#### Estados possíveis de uma venda (INTEGER)
+| Valor | Tipo | Descrição |
+|:- |:- | :- | 
+| __0__| __STARTED__ | Venda criada |
+| __1__| __PROGRESS__ | Venda em progresso (quando o primeiro item é adicionado) |
+| __2__| __DONE__ | Venda finalizada, o estoque deve ser validado e se possível alterado |
+| __3__ | __CANCELED__ | Venda cancelada |
 
 ## Arquitetura
