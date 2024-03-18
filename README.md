@@ -15,6 +15,34 @@ Criar um sistema composto por serviços independentes:
 - Serviço de cotações de moedas estrangeiras
 - Controle de vendas
 
+### Requisitos técnicos
+- Todas as APIs devem ser HTTP REST
+- Todos os serviços devem possuir logs, conforme padrão descrito nesse documento:
+    - Logs para todos os métodos
+    - Logs para todas as transações que alterem algum dado ou estado
+    - Logs para todas as inicializações ou paradas de serviços
+    - Logs de tempo para cada requisição em milisegundos (tempo gasto entre a recepção da requisição e a resposta)
+- Todas as APIs devem possuir testes unitários, com liberdade de escolha da ferramenta (postman, curl via script e etc)
+- Todos os serviços devem estar dentro de um único arquivo docker-compose, capaz de subir toda a infra necessária para o funcionamento de toda a plataforma, com cada serviço rodando necessariamente em um container independente
+- O banco de dados pode ser específico para cada serviço: cada serviço tem o seu repositório, podendo assim ser inclusive, se o aluno optar, em diferentes tecnologias
+- Cada serviço pode ser escrito em diferentes tecnologias, desde que respeitem o padrão de log e todos os requisitos já listados
+
+#### Modelo de log
+| Campo | Descrição | 
+| :- | :- | 
+| __timestamp__ | Momento em que a entrada foi gerada | 
+| __level__ | Nível de criticidade da entrada | 
+| __message__ | Mensagem de log | 
+
+#### Nível de log
+| Nível | Descrição | 
+| :- | :- | 
+| __DEBUG__ | Nível de criticidade de depuração, não deve estar ativo em ambiente produtivo (no momento da avaliação) | 
+| __INFO__ | Nível de criticidade de informação, deve seguir a especificação de logs | 
+| __WARNING__ | Nível de criticidade da alerta, algo aconteceu fora do esperado, mas a rotina deve continuar | 
+| __ERROR__ | Nível de erro, a aplicação não é capaz de processar o pedido e deve sinalizar que um erro aconteceu | 
+| __CRITICAL__ | Nível de erro crítico, a aplicação não é capaz de continuar e será encerrada | 
+
 ### Cadastro de clientes
 Esse serviço deve ser capaz de:
 - Cadastrar um cliente
