@@ -138,6 +138,14 @@ Funcionalidades:
     - Camadas de serviços/controler
     - Camadas de repositórios/storage
     - Camadas de APIs/Handlers
+- Todas as respostas dos serviços devem ser no formato JSON e ter obrigatoriamente os seguintes campos:
+
+| Campo | Tipo | Descrição |
+| :- | :- | :- |
+| __message__ | STRING | Mensagem amigável de retorno |
+| __timestamp__ | TIMESTAMP | Momento em que o servidor retornou | 
+| __elapsed__ | INTEGER | Tempo, em milisegundos, que o servidor demorou para processar a requisição | 
+| __error__ | STRING | Campo para descrição do erro, só deve ser retornado em caso de erro no servidor | 
 
 ### Modelo de log
 Cada campo deve ser separado por um TAB (__\t__) e finalizado com um LINEFEED (__\n__) (ver descrição de [ASCII](https://pt.wikipedia.org/wiki/ASCII))
