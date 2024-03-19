@@ -28,6 +28,8 @@ Esse serviço deve ser capaz de:
 | __id__ | STRING | Identificador único do cliente |
 | __name__ | STRING | Nome do cliente | 
 | __surname__ | STRING | Sobrenome do cliente |
+| __email__ | STRING | Email de contato do cliente |
+| __birthdate__ | DATE | Data de nascimento do cliente |
 | __created_at__ | TIMESTAMP | Data de criação do registro | 
 | __updated_at__ | TIMESTAMP | Data de criação do registro | 
 
