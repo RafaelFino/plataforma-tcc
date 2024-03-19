@@ -185,6 +185,8 @@ Cada campo deve ser separado por um TAB (__\t__) e finalizado com um LINEFEED (_
 ## Dicas
 - O projeto [Simple-python-app](https://github.com/RafaelFino/simple-python-app) pode te ajudar muito, deem uma olhada
 
+- Para entenderem o funcionamento de APIs, existe muita documentação e código python exemplo nesse [Projeto-API](https://github.com/RafaelFino/learnops-api-python). Olhem a parte de documentação, é muito rica
+
 - Usem bibliotecas padrão, não tentem complicar o que é simples
 
 - Saiam da zona de conforto
