@@ -171,3 +171,6 @@ Cada campo deve ser separado por um TAB (__\t__) e finalizado com um LINEFEED (_
 2024-03-18T23:10:57Z    DEBUG    Database running under localhost:5432
 2024-03-18T23:10:58Z    INFO    Listening port 8000
 ```
+
+## Dicas
+O projeto [Simple-python-app](https://github.com/RafaelFino/simple-python-app) pode te ajudar muito, deem uma olhada
