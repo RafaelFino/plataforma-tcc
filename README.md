@@ -131,10 +131,18 @@ Funcionalidades:
     - Logs para todas as inicializações ou paradas de serviços
     - Logs de tempo para cada requisição em milisegundos (tempo gasto entre a recepção da requisição e a resposta)
 - Todas as APIs devem possuir testes unitários, com liberdade de escolha da ferramenta (postman, curl via script e etc)
-- Todos os métodos devem ser testáveis e devem possuir testes
-- Todos os serviços devem estar dentro de um único arquivo docker-compose, capaz de subir toda a infra necessária para o funcionamento de toda a plataforma, com cada serviço rodando necessariamente em um container independente
+- Todos os métodos devem ser testáveis e devem possuir testes, estes chamados por um script chamado __test-code.sh__ que deve estar na raiz do projeto
+- A plataforma toda deve ser totalmente testável por meio de um arquivo chamado __run-tests.sh__ que deve estar na raiz do projeto
+- Todos os serviços devem ser iniciados por meio de um único arquivo __docker-compose.yml__, capaz de subir toda a infra necessária para o funcionamento de toda a plataforma, com cada serviço rodando necessariamente em um container independente. Esse arquivo deve estar na raiz do projeto
 - O banco de dados deve ser específico para cada serviço: cada serviço tem o seu repositório, podendo assim ser inclusive, se o aluno optar, em diferentes tecnologias. Não será permitido que um serviço tenha acesso ao banco de dados do outro serviço
 - Cada serviço pode ser escrito em diferentes tecnologias, desde que respeitem o padrão de log e todos os requisitos já listados
+- O projeto deve ser capaz de rodar plenamente sem nenhuma intervenção extra, ou seja:
+```
+    git clone github.com/<user>/plataforma-tcc
+    test-code.sh <OK>
+    docker-compose up &
+    run-tests.sh <OK>
+```
 - A solução deve seguir um modelo de arquitura de solução com segregação de responsabilidades:
     - Camadas de domínios/entidades
     - Camadas de serviços/controler
