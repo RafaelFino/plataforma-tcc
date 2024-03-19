@@ -173,4 +173,14 @@ Cada campo deve ser separado por um TAB (__\t__) e finalizado com um LINEFEED (_
 ```
 
 ## Dicas
-O projeto [Simple-python-app](https://github.com/RafaelFino/simple-python-app) pode te ajudar muito, deem uma olhada
+- O projeto [Simple-python-app](https://github.com/RafaelFino/simple-python-app) pode te ajudar muito, deem uma olhada
+
+- Usem bibliotecas padrão, não tentem complicar o que é simples
+
+- Saiam da zona de conforto
+
+- Se estiver complicado demais, talvez estejam no caminho errado
+
+- Não se esqueçam de qual problema vocês precisam resolver: sem engenharia de foguete, a coisa é simples. o Foco aqui é aprender e desenvolver as habilidades que ensinamos o tempo todo
+
+- Perguntem sempre e tentem, não tem como ficar bom nisso sem a prática
