@@ -88,6 +88,10 @@ Funcionalidades:
 - Alterar produtos nessa venda (quantidade), verificando a disponibilidade, como na inclusão, via API
 - Efetivar uma venda previamente criada e efetivando o uso do produto, ou seja, reduzindo seu estoque disponível no serviço de produtos, via API
 - No momento da efetivação da venda, deve ser informado o preço total em todas as moedas disponíveis no serviço de cotações
+- Consultar todas as vendas de um determinado produto
+- Consultar o total de vendas, por estado, de um determinado produto
+- Consultar todas as vendas, por estado
+- Cancelar uma determinada venda, previamente criada
 
 #### Modelo de venda
 | Nome | Tipo | Descrição |
@@ -125,8 +129,9 @@ Funcionalidades:
     - Logs para todas as inicializações ou paradas de serviços
     - Logs de tempo para cada requisição em milisegundos (tempo gasto entre a recepção da requisição e a resposta)
 - Todas as APIs devem possuir testes unitários, com liberdade de escolha da ferramenta (postman, curl via script e etc)
+- Todos os métodos devem ser testáveis e devem possuir testes
 - Todos os serviços devem estar dentro de um único arquivo docker-compose, capaz de subir toda a infra necessária para o funcionamento de toda a plataforma, com cada serviço rodando necessariamente em um container independente
-- O banco de dados pode ser específico para cada serviço: cada serviço tem o seu repositório, podendo assim ser inclusive, se o aluno optar, em diferentes tecnologias
+- O banco de dados deve ser específico para cada serviço: cada serviço tem o seu repositório, podendo assim ser inclusive, se o aluno optar, em diferentes tecnologias. Não será permitido que um serviço tenha acesso ao banco de dados do outro serviço
 - Cada serviço pode ser escrito em diferentes tecnologias, desde que respeitem o padrão de log e todos os requisitos já listados
 - A solução deve seguir um modelo de arquitura de solução com segregação de responsabilidades:
     - Camadas de domínios/entidades
