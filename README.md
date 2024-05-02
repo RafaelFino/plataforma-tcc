@@ -69,7 +69,9 @@ Os códigos de moeda, seguem a [ISO-4717](https://pt.iban.com/currency-codes)
 
 Esse serviço deve ser capaz de informar a cotação de uma moeda em específico por meio de rota HTTP e também informar todas elas caso nenhuma moeda seja especificada
 
-Esse serviço pode consultar uma API externa para conseguir os dados [API de cotações](https://economia.awesomeapi.com.br/all), porém essa API possui limitação de requisições, portanto é necessário um mecanismo de cache para que essa consulta aconteça no máximo uma vez ao dia e a data de atualização do preço deve ser informada sempre que os valores forem consultados
+Esse serviço pode consultar uma API externa para conseguir os dados [API de cotações](https://economia.awesomeapi.com.br/all), porém essa API possui limitação de requisições, portanto é necessário um mecanismo de cache para que essa consulta aconteça no máximo uma vez ao dia e a data de atualização do preço deve ser informada sempre que os valores forem consultados.
+
+Não é necessário guardar o histórico de cotações, apenas o valor do dia corrente.
 
 #### Modelo de cotações
 | Nome | Tipo | Descrição | 
