@@ -72,3 +72,4 @@
 2024/05/03 14:08:56 [handlers.Client] Getting all clients
 2024/05/03 14:08:56 [services.Client] Getting all clients
 [GIN] 2024/05/03 - 14:08:56 |[97;42m 200 [0m|     233.204µs |       127.0.0.1 |[97;44m GET     [0m "/clients/"
+2024/05/03 15:45:51 Stopping...

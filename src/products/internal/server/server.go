@@ -16,8 +16,8 @@ type Server struct {
 	srv    *http.Server
 
 	config  *config.Config
-	handler *handlers.Client
-	service *services.Client
+	handler *handlers.Product
+	service *services.Product
 }
 
 func NewServer(config *config.Config) *Server {
@@ -47,6 +47,7 @@ func NewServer(config *config.Config) *Server {
 	s.engine.GET("/products/", s.handler.Get)
 	s.engine.POST("/products/", s.handler.Insert)
 	s.engine.PUT("/products/", s.handler.Update)
+	s.engine.DELETE("/products/", s.handler.Delete)
 
 	s.srv = &http.Server{
 		Addr:    s.makeAddress(),
