@@ -7,37 +7,37 @@ import (
 	"net/http"
 	"time"
 
-	"currency/internal/domain"
+	"currencies/internal/domain"
 )
 
 type Currency struct {
-	url             string
-	data            map[string]*domain.Currency
-	last            time.Time
-	interval        int64
-	minimalInterval int64
+	url      string
+	data     map[string]*domain.Currency
+	last     time.Time
+	interval int64
 }
 
 func NewCurrency(url string) *Currency {
 	return &Currency{
-		url: url,
+		url:      url,
+		interval: 60,
 	}
 }
 
 func (c *Currency) Update() error {
-	if time.Now().After(c.last.Add(time.Duration(c.minimalInterval) * time.Minute){
+	if time.Now().After(c.last.Add(time.Duration(c.interval) * time.Minute)) {
 		log.Printf("[services.Currency] minimal interval not reached")
 		return nil
 	}
 
-	res, err := http.Get(c.url)
+	ret, err := http.Get(c.url)
 	if err != nil {
 		log.Printf("[services.Currency] Error getting url: %s", err)
 		return err
 	}
 
-	defer res.Body.Close()
-	body, err := io.ReadAll(res.Body)
+	defer ret.Body.Close()
+	body, err := io.ReadAll(ret.Body)
 	if err != nil {
 		log.Printf("[services.Currency] Error reading body: %s", err)
 		return err
@@ -56,8 +56,8 @@ func (c *Currency) Update() error {
 	}
 
 	go func() {
-		log.Printf("[services.Currency] waiting %d hours to update", c.interval)
-		time.Sleep(time.Duration(c.interval) * time.Hour)
+		log.Printf("[services.Currency] waiting %d minutes to update", c.interval)
+		time.Sleep(time.Duration(c.interval) * time.Minute)
 		c.Update()
 	}()
 
@@ -87,7 +87,7 @@ func (c *Currency) parserData(data string) error {
 		c.data = make(map[string]*domain.Currency)
 	}
 
-	currencies, err := domain.FromJSONlist(data)
+	currencies, err := domain.FromJSONList(data)
 
 	if err != nil {
 		log.Printf("[services.Currency] Error parsing data: %s", err)

@@ -1,6 +1,9 @@
-package Config
+package config
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"os"
+)
 
 type Config struct {
 	Debug         bool   `json:"debug,omitempty"`
@@ -28,4 +31,12 @@ func (c *Config) ToJSON() (string, error) {
 		return "", err
 	}
 	return string(data), nil
+}
+
+func ConfigClientFromFile(filename string) (*Config, error) {
+	data, err := os.ReadFile(filename)
+	if err != nil {
+		return nil, err
+	}
+	return ConfigFromJSON(string(data))
 }

@@ -1,7 +1,9 @@
 package server
 
 import (
+	"currencies/internal/config"
 	"currencies/internal/handlers"
+	"currencies/internal/services"
 	"fmt"
 	"log"
 	"net/http"
@@ -10,28 +12,27 @@ import (
 )
 
 type Server struct {
-	engine  *gin.Engine
-	srv     *http.Server
-	address string
-	port    int
+	engine *gin.Engine
+	srv    *http.Server
 
-	config          *Config
+	config          *config.Config
 	currencyHandler *handlers.Currency
+	currencyService *services.Currency
 }
 
-func NewServer() *Server {
-	return &Server{
-		engine: gin.Default(),
+func NewServer(config *config.Config) *Server {
+	s := &Server{
+		engine:          gin.Default(),
+		config:          config,
+		currencyService: services.NewCurrency(config.CurrencyURL),
 	}
-}
 
-func (s *Server) Run() error {
+	s.currencyHandler = handlers.NewCurrency(s.currencyService)
+
 	s.srv = &http.Server{
 		Addr:    s.makeAddress(),
 		Handler: s.engine,
 	}
-
-	log.Printf("[server] starting server on %s", s.makeAddress())
 
 	gin.ForceConsoleColor()
 	gin.DefaultWriter = log.Writer()
@@ -47,9 +48,16 @@ func (s *Server) Run() error {
 	s.engine.GET("/currency/", s.currencyHandler.Get)
 	s.engine.POST("/currency/update", s.currencyHandler.Update)
 
-	log.Print("Router started")
+	return s
+}
 
-	return s.srv.ListenAndServe()
+func (s *Server) Run() {
+	log.Printf("[server] starting server on %s", s.makeAddress())
+	err := s.srv.ListenAndServe()
+	if err != nil {
+		log.Printf("[server] error starting server: %s", err)
+		panic(err)
+	}
 }
 
 func (s *Server) Stop() error {
@@ -57,5 +65,5 @@ func (s *Server) Stop() error {
 }
 
 func (s *Server) makeAddress() string {
-	return fmt.Sprintf("%s:%d", s.address, s.port)
+	return fmt.Sprintf("%s:%d", s.config.ServerAddress, s.config.ServerPort)
 }

@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"currency/internal/services"
+	"currencies/internal/services"
 	"log"
 	"net/http"
 	"time"
@@ -34,16 +34,7 @@ func (c *Currency) Update(ctx *gin.Context) {
 func (c *Currency) Get(ctx *gin.Context) {
 	start := time.Now()
 
-	ret, err := c.service.Get()
-
-	if err != nil {
-		log.Printf("[handlers.Currency] Error getting currencies: %s", err.Error())
-		ctx.IndentedJSON(http.StatusInternalServerError, gin.H{
-			"elapsed":   time.Since(start).Milliseconds(),
-			"error":     err.Error(),
-			"timestamp": time.Now().Format(time.RFC3339),
-		})
-	}
+	ret := c.service.GetCurrency()
 
 	body := make(map[string]string)
 
@@ -65,7 +56,7 @@ func (c *Currency) GetByCode(ctx *gin.Context) {
 
 	code := ctx.Param("code")
 
-	ret, err := c.service.GetByCode(code)
+	ret, err := c.service.GetCurrencyByCode(code)
 
 	if err != nil {
 		log.Printf("[handlers.Currency] Error getting currency: %s (%s)", err.Error(), code)

@@ -1,6 +1,9 @@
 package domain
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"log"
+)
 
 type Currency struct {
 	Code       string  `json:"code"`
@@ -22,7 +25,7 @@ func NewCurrency() *Currency {
 
 func FromJSON(data string) (*Currency, error) {
 	currency := &Currency{}
-	err := json.Unmarshal(data, currency)
+	err := json.Unmarshal([]byte(data), currency)
 	if err != nil {
 		return nil, err
 	}
@@ -38,10 +41,11 @@ func FromJSONList(data string) (map[string]*Currency, error) {
 	return currencies, nil
 }
 
-func (c *Currency) ToJSON() (string, error) {
+func (c *Currency) ToJSON() string {
 	data, err := json.MarshalIndent(c, "", " ")
 	if err != nil {
-		return "", err
+		log.Printf("[domain.Currency] Error converting currency to json: %s", err)
+		return ""
 	}
-	return string(data), nil
+	return string(data)
 }
