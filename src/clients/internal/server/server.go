@@ -15,21 +15,21 @@ type Server struct {
 	engine *gin.Engine
 	srv    *http.Server
 
-	config         *config.Config
-	clientsHandler *handlers.Clients
-	clientsService *services.Clients
+	config        *config.Config
+	clientHandler *handlers.Client
+	clientService *services.Client
 }
 
 func NewServer(config *config.Config) *Server {
 	s := &Server{
-		engine:         gin.Default(),
-		config:         config,
-		clientsService: services.NewClients(),
+		engine:        gin.Default(),
+		config:        config,
+		clientService: services.NewClient(config),
 	}
 
 	log.Printf("[server] Starting server with config: %+v", config)
 
-	s.clientsHandler = handlers.NewClients()
+	s.clientHandler = handlers.NewClient()
 
 	gin.ForceConsoleColor()
 	gin.DefaultWriter = log.Writer()
@@ -43,10 +43,10 @@ func NewServer(config *config.Config) *Server {
 	}
 
 	s.engine = gin.Default()
-	s.engine.GET("/clients/:id", s.clientsHandler.GetById)
-	s.engine.GET("/clients/", s.clientsHandler.Get)
-	s.engine.POST("/clients/", s.clientsHandler.Insert)
-	s.engine.PUT("/clients/:id", s.clientsHandler.Update)
+	s.engine.GET("/clients/:id", s.clientHandler.GetById)
+	s.engine.GET("/clients/", s.clientHandler.Get)
+	s.engine.POST("/clients/", s.clientHandler.Insert)
+	s.engine.PUT("/clients/:id", s.clientHandler.Update)
 
 	s.srv = &http.Server{
 		Addr:    s.makeAddress(),
