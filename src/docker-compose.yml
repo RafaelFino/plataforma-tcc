@@ -1,0 +1,52 @@
+version: "3.7"
+
+services:
+  currencies-svc:
+    build: "./currencies" 
+    ports:
+      - 8081:8081
+
+  products-svc:
+    build: "./products" 
+    ports:
+      - 8082:8082
+    volumes:
+      - "./products/logs:/var/log/products"
+      - "./products/data:/var/lib/products"      
+
+  clients-svc:
+    build: "./clients" 
+    ports:
+      - 8083:8083
+    volumes:
+      - "./clients/logs:/var/log/clients"
+      - "./clients/data:/var/lib/clients"
+
+  cart-svc:
+    build: "./cart" 
+    ports:
+      - 8084:8084
+    volumes:
+      - "./cart/logs:/var/log/cart"
+      - "./cart/data:/var/lib/cart"      
+    depends_on:
+      - clients-svc
+      - products-svc  
+      - currencies-svc
+    links:
+      - clients-svc
+      - products-svc
+      - currencies-svc
+
+  proxy:
+    image: nginx
+    volumes:
+      - type: bind
+        source: ./proxy/nginx.conf
+        target: /etc/nginx/conf.d/default.conf
+        read_only: true
+    depends_on:
+      - currencies-svc
+      - products-svc
+      - clients-svc
+      - cart-svc
