@@ -30,3 +30,8 @@ src/clients/logs/*
 src/products/logs/*
 src/currency/logs/*
 src/cart/logs/*
+
+src/clients/data/*
+src/products/data/*
+src/currency/data/*
+src/cart/data/*
