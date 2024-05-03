@@ -1,7 +1,4 @@
-FROM alpine:latest
-
-RUN apk add --no-cache \
-    zsh 
+FROM golang:latest
 
 RUN mkdir -p /srv/server && \
     mkdir -p /srv/server/logs && \
@@ -12,4 +9,6 @@ WORKDIR /srv/server
 COPY bin/linux-amd64/service /srv/server/service
 COPY etc/config.json /srv/server/config.json
 
-CMD ["/srv/server/service", "/srv/server/config.json"]
+EXPOSE 8080
+
+ENTRYPOINT ["/srv/server/service", "/srv/server/config.json"]

@@ -4,14 +4,14 @@ services:
   currencies:
     build: "./currencies" 
     ports:
-      - 8081:8081
+      - 8081:8080
     volumes:
       - "./currencies/logs:/srv/server/logs"
 
   products:
     build: "./products" 
     ports:
-      - 8082:8082
+      - 8082:8080
     volumes:
       - "./products/logs:/srv/server/logs"
       - "./products/data:/srv/server/data"      
@@ -19,7 +19,7 @@ services:
   clients:
     build: "./clients" 
     ports:
-      - 8083:8083
+      - 8083:8080
     volumes:
       - "./clients/logs:/srv/server/logs"
       - "./clients/data:/srv/server/data"
@@ -27,7 +27,7 @@ services:
   cart:
     build: "./cart" 
     ports:
-      - 8084:8084
+      - 8084:8080
     volumes:
       - "./cart/logs:/srv/server/logs"
       - "./cart/data:/srv/server/data"      

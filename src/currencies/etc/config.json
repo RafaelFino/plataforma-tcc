@@ -1,7 +1,7 @@
 {
     "debug": true,
     "currency_url": "https://economia.awesomeapi.com.br/all",
-    "server_address": "localhost",
+    "server_address": "0.0.0.0",
     "server_port": 8080,
     "log_path": "logs",
     "interval": 60
