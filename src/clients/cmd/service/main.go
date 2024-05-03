@@ -3,6 +3,7 @@ package main
 import (
 	"clients/internal/server"
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"os/signal"
@@ -64,7 +65,9 @@ func initLogger(path string) error {
 	if err != nil {
 		log.Fatalf("Failed to Initialize Log File %s", err)
 	}
-	log.SetOutput(writer)
+
+	multi := io.MultiWriter(writer, os.Stdout)
+	log.SetOutput(multi)
 
 	return nil
 }
