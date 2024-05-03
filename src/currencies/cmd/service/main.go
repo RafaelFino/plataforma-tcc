@@ -15,6 +15,7 @@ import (
 )
 
 func main() {
+	PrintLogo()
 	if len(os.Args) < 2 {
 		fmt.Print("Usage: currency <config_file>\n")
 		os.Exit(1)
@@ -36,7 +37,6 @@ func main() {
 
 	log.Printf("[main] Starting with config: %s", cfg.ToJSON())
 
-	PrintLogo()
 	fmt.Printf("\nStarting...\n")
 
 	server := server.NewServer(cfg)
@@ -70,5 +70,12 @@ func initLogger(path string) error {
 }
 
 func PrintLogo() {
-	log.Print(`### CURRENCIES SERVICE ###`)
+	fmt.Print(`
+################################################################
+#
+# CURRENCIES SERVICE 										   
+#
+################################################################	
+
+`)
 }
