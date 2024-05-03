@@ -116,7 +116,14 @@ FROM clients
 WHERE id = ?;
 `
 
-	rows, err := c.conn.Query(get, id)
+	conn, err := c.conn.GetConn()
+
+	if err != nil {
+		log.Printf("[storage.Client] Error getting connection: %s", err)
+		return nil, err
+	}
+
+	rows, err := conn.Query(get, id)
 
 	if err != nil {
 		log.Printf("[storage.Client] Error executing query: %s -> error: %s", get, err)
@@ -144,8 +151,14 @@ SELECT id, name, surname, email, birth_date, enable, created_at, updated_at
 FROM clients
 ORDER BY CREATED_AT DESC;
 `
+	conn, err := c.conn.GetConn()
 
-	rows, err := c.conn.Query(get)
+	if err != nil {
+		log.Printf("[storage.Client] Error getting connection: %s", err)
+		return nil, err
+	}
+
+	rows, err := conn.Query(get)
 
 	if err != nil {
 		log.Printf("[storage.Client] Error executing query: %s -> error: %s", get, err)

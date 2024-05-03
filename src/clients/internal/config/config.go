@@ -11,7 +11,7 @@ type Config struct {
 	ServerAddress string `json:"server_address"`
 	ServerPort    int    `json:"server_port"`
 	LogPath       string `json:"log_path"`
-	DatabasePath  string `json:"database_path"`
+	DBPath        string `json:"db_path"`
 }
 
 func NewConfig() *Config {
