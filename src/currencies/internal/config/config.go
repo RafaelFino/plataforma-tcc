@@ -45,3 +45,5 @@ func ConfigClientFromFile(filename string) (*Config, error) {
 	}
 	return ConfigFromJSON(string(data))
 }
+
+

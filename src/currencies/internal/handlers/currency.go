@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"currencies/internal/domain"
 	"currencies/internal/services"
 	"log"
 	"net/http"
@@ -45,8 +46,15 @@ func (c *Currency) Update(ctx *gin.Context) {
 func (c *Currency) Get(ctx *gin.Context) {
 	start := time.Now()
 
+	data := c.service.Get()
+	ret := make([]*domain.CurrencyData, len(data))
+
+	for _, d := range data {
+		ret = append(ret, d.GetData())
+	}
+
 	ctx.IndentedJSON(http.StatusOK, gin.H{
-		"currencies": c.service.Get(),
+		"currencies": ret,
 		"elapsed":    time.Since(start).Milliseconds(),
 		"timestamp":  time.Now().Format(time.RFC3339),
 	})
@@ -71,7 +79,7 @@ func (c *Currency) GetByCode(ctx *gin.Context) {
 	log.Printf("[handlers.Currency] currency: %s -> %s", code, ret.ToJSON())
 
 	ctx.IndentedJSON(http.StatusOK, gin.H{
-		"currency":  ret,
+		"currency":  ret.GetData(),
 		"elapsed":   time.Since(start).Milliseconds(),
 		"timestamp": time.Now().Format(time.RFC3339),
 	})

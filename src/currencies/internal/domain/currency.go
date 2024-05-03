@@ -20,6 +20,12 @@ type Currency struct {
 	CreateDate string  `json:"create_date,omitempty"`
 }
 
+type CurrencyData struct {
+	Code      string  `json:"code"`
+	Value     float64 `json:"value"`
+	CreatedAt string  `json:"created_at"`
+}
+
 func NewCurrency() *Currency {
 	return &Currency{}
 }
@@ -42,6 +48,13 @@ func (c *Currency) ToJSON() string {
 	return string(data)
 }
 
+func (c *Currency) GetData() *CurrencyData {
+	return &CurrencyData{
+		Code:      c.Code,
+		Value:     c.Bid,
+		CreatedAt: c.CreateDate,
+	}
+}
 func CurrencyFromMap(data map[string]interface{}) *Currency {
 	currency := &Currency{}
 
