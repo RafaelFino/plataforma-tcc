@@ -1,12 +1,12 @@
 package server
 
 import (
-	"clients/internal/config"
-	"clients/internal/handlers"
-	"clients/internal/services"
 	"fmt"
 	"log"
 	"net/http"
+	"products/internal/config"
+	"products/internal/handlers"
+	"products/internal/services"
 
 	"github.com/gin-gonic/gin"
 )

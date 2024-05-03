@@ -53,7 +53,8 @@ Esse serviço deve ser capaz de:
 |:-|:-|:-| 
 | __id__ | STRING | Identificador único do produto |
 | __name__ | STRING | Nome do produto | 
-| __dest__ | STRING | Descrição do produto | 
+| __desc__ | STRING | Descrição do produto | 
+| __price__ | FLOAT | Preço em BRL do produto | 
 | __quantity__ | INTEGER | Quantidade em estoque desse produto |
 | __created_at__ | TIMESTAMP | Data de criação do registro | 
 | __updated_at__ | TIMESTAMP | Data de criação do registro | 

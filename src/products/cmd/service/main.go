@@ -1,23 +1,23 @@
 package main
 
 import (
-	"clients/internal/server"
 	"fmt"
 	"log"
 	"os"
 	"os/signal"
+	"products/internal/server"
 	"syscall"
 	"time"
 
 	rotatelogs "github.com/lestrrat/go-file-rotatelogs"
 
-	"clients/internal/config"
+	"products/internal/config"
 )
 
 func main() {
 	PrintLogo()
 	if len(os.Args) < 2 {
-		fmt.Print("Usage: clients <config_file>\n")
+		fmt.Print("Usage: products <config_file>\n")
 		os.Exit(1)
 	}
 
