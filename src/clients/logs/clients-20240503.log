@@ -1,0 +1,28 @@
+2024/05/03 14:01:21 [main] Starting with config: {
+ "debug": true,
+ "server_address": "localhost",
+ "server_port": 8080,
+ "log_path": "logs",
+ "db_path": "data"
+}
+2024/05/03 14:01:21 [DbConnection] Opening connection to data/client.db
+2024/05/03 14:01:21 [DbConnection] Query executed successfully: 0 rows affected -> lastId: 0
+2024/05/03 14:01:21 [server] Starting server with config: &{Debug:true ServerAddress:localhost ServerPort:8080 LogPath:logs DBPath:data}
+2024/05/03 14:01:21 [DbConnection] Opening connection to data/client.db
+2024/05/03 14:01:21 [DbConnection] Query executed successfully: 0 rows affected -> lastId: 0
+2024/05/03 14:01:21 [server] Debug mode enabled
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /clients/:id              --> clients/internal/handlers.(*Client).GetById-fm (3 handlers)
+[GIN-debug] GET    /clients/                 --> clients/internal/handlers.(*Client).Get-fm (3 handlers)
+[GIN-debug] POST   /clients/                 --> clients/internal/handlers.(*Client).Insert-fm (3 handlers)
+[GIN-debug] PUT    /clients/:id              --> clients/internal/handlers.(*Client).Update-fm (3 handlers)
+2024/05/03 14:01:21 [server] starting server on localhost:8080
+[GIN-debug] redirecting request 301: /clients/ --> /clients/
+2024/05/03 14:01:48 [handlers.Client] Getting all clients
+2024/05/03 14:01:48 [services.Client] Getting all clients
+[GIN] 2024/05/03 - 14:01:48 |[97;42m 200 [0m|     262.487µs |       127.0.0.1 |[97;44m GET     [0m "/clients/"

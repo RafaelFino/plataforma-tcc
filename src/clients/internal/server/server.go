@@ -29,7 +29,7 @@ func NewServer(config *config.Config) *Server {
 
 	log.Printf("[server] Starting server with config: %+v", config)
 
-	s.clientHandler = handlers.NewClient()
+	s.clientHandler = handlers.NewClient(config)
 
 	gin.ForceConsoleColor()
 	gin.DefaultWriter = log.Writer()

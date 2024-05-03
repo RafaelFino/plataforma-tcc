@@ -253,3 +253,4 @@
 [GIN-debug] POST   /currency/update          --> currencies/internal/handlers.(*Currency).Update-fm (3 handlers)
 2024/05/03 13:08:36 [services.Currency] waiting 60 minutes to update
 2024/05/03 13:08:36 [server] starting server on localhost:8080
+2024/05/03 14:00:48 Stopping...
