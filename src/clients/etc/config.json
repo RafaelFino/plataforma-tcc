@@ -1,0 +1,7 @@
+{
+    "debug": true,
+    "server_address": "localhost",
+    "server_port": 8080,
+    "log_path": "logs",
+    "database_path": "data"
+}
