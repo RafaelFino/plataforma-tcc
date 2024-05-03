@@ -6,31 +6,31 @@ services:
     ports:
       - 8081:8081
     volumes:
-      - "./currencies/logs:/var/log/currencies"
+      - "./currencies/logs:/srv/server/logs"
 
   products:
     build: "./products" 
     ports:
       - 8082:8082
     volumes:
-      - "./products/logs:/var/log/products"
-      - "./products/data:/srv/products"      
+      - "./products/logs:/srv/server/logs"
+      - "./products/data:/srv/server/data"      
 
   clients:
     build: "./clients" 
     ports:
       - 8083:8083
     volumes:
-      - "./clients/logs:/var/log/clients"
-      - "./clients/data:/srv/clients"
+      - "./clients/logs:/srv/server/logs"
+      - "./clients/data:/srv/server/data"
 
   cart:
     build: "./cart" 
     ports:
       - 8084:8084
     volumes:
-      - "./cart/logs:/var/log/cart"
-      - "./cart/data:/srv/cart"      
+      - "./cart/logs:/srv/server/logs"
+      - "./cart/data:/srv/server/data"      
     depends_on:
       - clients
       - products  

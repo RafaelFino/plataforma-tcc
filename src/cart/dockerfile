@@ -1,0 +1,15 @@
+FROM alpine:latest
+
+RUN apk add --no-cache \
+    zsh 
+
+RUN mkdir -p /srv/server && \
+    mkdir -p /srv/server/logs && \
+    mkdir -p /srv/server/data   
+
+WORKDIR /srv/server
+
+COPY bin/linux-amd64/service /srv/server/service
+COPY etc/config.json /srv/server/config.json
+
+CMD ["/srv/server/service", "/srv/server/config.json"]
