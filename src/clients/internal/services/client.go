@@ -21,7 +21,7 @@ func NewClient(config *config.Config) *Client {
 	}
 }
 
-func (c *Client) GetClient(id string) (*domain.Client, error) {
+func (c *Client) GetById(id string) (*domain.Client, error) {
 	log.Printf("[services.Client] Getting client with ID: %s", id)
 	ret, err := c.storage.Get(id)
 
@@ -33,12 +33,12 @@ func (c *Client) GetClient(id string) (*domain.Client, error) {
 	return ret, nil
 }
 
-func (c *Client) GetClients() ([]*domain.Client, error) {
+func (c *Client) Get() ([]*domain.Client, error) {
 	log.Printf("[services.Client] Getting all clients")
 	return c.storage.GetAll()
 }
 
-func (c *Client) UpdateClient(client *domain.Client) error {
+func (c *Client) Update(client *domain.Client) error {
 	if client == nil {
 		log.Printf("[services.Client] client is nil")
 		return errors.New("client is nil")
@@ -53,7 +53,7 @@ func (c *Client) UpdateClient(client *domain.Client) error {
 	return c.storage.Update(client)
 }
 
-func (c *Client) InsertClient(client *domain.Client) (string, error) {
+func (c *Client) Insert(client *domain.Client) (string, error) {
 	if client == nil {
 		log.Printf("[services.Client] client is nil")
 		return "", errors.New("client is nil")
@@ -65,7 +65,7 @@ func (c *Client) InsertClient(client *domain.Client) (string, error) {
 	return client.ID, c.storage.Insert(client)
 }
 
-func (c *Client) DeleteClient(id string) error {
+func (c *Client) Delete(id string) error {
 	log.Printf("[services.Client] Deleting client with ID: %s", id)
 	return c.storage.Delete(id)
 }

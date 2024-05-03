@@ -28,7 +28,7 @@ func (c *Client) GetById(ctx *gin.Context) {
 
 	log.Printf("[handlers.Client] Getting client with ID: %s", id)
 
-	client, err := c.service.GetClient(id)
+	client, err := c.service.GetById(id)
 
 	if err != nil {
 		log.Printf("[handlers.Client] Error getting client: %s", err)
@@ -52,7 +52,7 @@ func (c *Client) Get(ctx *gin.Context) {
 
 	log.Printf("[handlers.Client] Getting all clients")
 
-	clients, err := c.service.GetClients()
+	clients, err := c.service.Get()
 
 	if err != nil {
 		log.Printf("[handlers.Client] Error getting clients: %s", err)
@@ -94,7 +94,7 @@ func (c *Client) Insert(ctx *gin.Context) {
 		return
 	}
 
-	id, err := c.service.InsertClient(client)
+	id, err := c.service.Insert(client)
 
 	if err != nil {
 		log.Printf("[handlers.Client] Error inserting client: %s", err)
@@ -138,7 +138,7 @@ func (c *Client) Update(ctx *gin.Context) {
 		return
 	}
 
-	err = c.service.UpdateClient(client)
+	err = c.service.Update(client)
 
 	if err != nil {
 		log.Printf("[handlers.Client] Error updating client: %s", err)
@@ -166,7 +166,7 @@ func (c *Client) Delete(ctx *gin.Context) {
 
 	log.Printf("[handlers.Client] Deleting client with ID: %s", id)
 
-	err := c.service.DeleteClient(id)
+	err := c.service.Delete(id)
 
 	if err != nil {
 		log.Printf("[handlers.Client] Error deleting client: %s", err)

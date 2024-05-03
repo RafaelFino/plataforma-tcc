@@ -47,6 +47,7 @@ func NewServer(config *config.Config) *Server {
 	s.engine.GET("/clients/", s.handler.Get)
 	s.engine.POST("/clients/", s.handler.Insert)
 	s.engine.PUT("/clients/", s.handler.Update)
+	s.engine.DELETE("/clients/", s.handler.Delete)
 
 	s.srv = &http.Server{
 		Addr:    s.makeAddress(),
