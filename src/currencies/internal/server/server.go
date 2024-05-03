@@ -27,17 +27,16 @@ func NewServer(config *config.Config) *Server {
 		currencyService: services.NewCurrency(config.CurrencyURL),
 	}
 
-	s.currencyHandler = handlers.NewCurrency(s.currencyService)
+	log.Printf("[server] Starting server with config: %+v", config)
 
-	s.srv = &http.Server{
-		Addr:    s.makeAddress(),
-		Handler: s.engine,
-	}
+	s.currencyHandler = handlers.NewCurrency(s.currencyService)
 
 	gin.ForceConsoleColor()
 	gin.DefaultWriter = log.Writer()
 	gin.DefaultErrorWriter = log.Writer()
+
 	if s.config.Debug {
+		log.Printf("[server] Debug mode enabled")
 		gin.SetMode(gin.DebugMode)
 	} else {
 		gin.SetMode(gin.ReleaseMode)
@@ -47,6 +46,11 @@ func NewServer(config *config.Config) *Server {
 	s.engine.GET("/currency/:code", s.currencyHandler.GetByCode)
 	s.engine.GET("/currency/", s.currencyHandler.Get)
 	s.engine.POST("/currency/update", s.currencyHandler.Update)
+
+	s.srv = &http.Server{
+		Addr:    s.makeAddress(),
+		Handler: s.engine,
+	}
 
 	return s
 }

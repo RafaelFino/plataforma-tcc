@@ -1,6 +1,7 @@
 package services
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"log"
@@ -18,15 +19,26 @@ type Currency struct {
 }
 
 func NewCurrency(url string) *Currency {
-	return &Currency{
+	c := &Currency{
 		url:      url,
 		interval: 60,
+		last:     time.Now().Add(-time.Duration(24) * time.Hour),
 	}
+
+	err := c.Update()
+
+	if err != nil {
+		log.Printf("[services.Currency] Error updating currency: %s", err)
+	}
+
+	return c
 }
 
 func (c *Currency) Update() error {
-	if time.Now().After(c.last.Add(time.Duration(c.interval) * time.Minute)) {
-		log.Printf("[services.Currency] minimal interval not reached")
+	log.Printf("[services.Currency] Updating currency")
+
+	if time.Now().Before(c.last.Add(time.Duration(c.interval) * time.Minute)) {
+		log.Printf("[services.Currency] Minimal interval not reached, wait for %s", c.last.Add(time.Duration(c.interval)*time.Minute).Format(time.RFC3339))
 		return nil
 	}
 
@@ -45,8 +57,6 @@ func (c *Currency) Update() error {
 
 	data := string(body)
 
-	log.Printf("[services.Currency] body: %s", data)
-
 	c.last = time.Now()
 
 	err = c.parserData(data)
@@ -64,7 +74,7 @@ func (c *Currency) Update() error {
 	return err
 }
 
-func (c *Currency) GetCurrency() map[string]*domain.Currency {
+func (c *Currency) Get() map[string]*domain.Currency {
 	return c.data
 }
 
@@ -72,7 +82,7 @@ func (c *Currency) LastUpdate() time.Time {
 	return c.last
 }
 
-func (c *Currency) GetCurrencyByCode(code string) (*domain.Currency, error) {
+func (c *Currency) GetByCode(code string) (*domain.Currency, error) {
 	if currency, ok := c.data[code]; ok {
 		return currency, nil
 	}
@@ -87,16 +97,18 @@ func (c *Currency) parserData(data string) error {
 		c.data = make(map[string]*domain.Currency)
 	}
 
-	currencies, err := domain.FromJSONList(data)
+	jsonData := make(map[string]interface{})
+
+	err := json.Unmarshal([]byte(data), &jsonData)
 
 	if err != nil {
-		log.Printf("[services.Currency] Error parsing data: %s", err)
+		log.Printf("[services.Currency] Error parsing json data to map: %s", err)
 		return err
 	}
 
-	for code, currency := range currencies {
-		log.Printf("[services.Currency] currency: %s -> %s", code, currency.ToJSON())
-		c.data[code] = currency
+	for code, currency := range jsonData {
+		log.Printf("[services.Currency] currency: %s -> %+v", code, currency)
+		c.data[code] = domain.CurrencyFromMap(currency.(map[string]interface{}))
 	}
 
 	return nil

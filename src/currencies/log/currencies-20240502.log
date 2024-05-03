@@ -1,0 +1,838 @@
+2024/05/02 22:26:22 [main] Starting with config: {
+ "debug": true,
+ "currency_url": "https://economia.awesomeapi.com.br/all",
+ "server_address": "localhost",
+ "server_port": 8080,
+ "log_path": "log"
+}
+2024/05/02 22:26:22 ### CURRENCIES SERVICE ###
+2024/05/02 22:26:22 [services.Currency] Updating currency
+2024/05/02 22:26:22 [services.Currency] parsing data: {"USD":{"code":"USD","codein":"BRL","name":"Dólar Americano/Real Brasileiro","high":"5.1164","low":"5.111","varBid":"-0.0003","pctChange":"-0.01","bid":"5.1109","ask":"5.1111","timestamp":"1714699561","create_date":"2024-05-02 22:26:01"},"USDT":{"code":"USD","codein":"BRLT","name":"Dólar Americano/Real Brasileiro Turismo","high":"5.215","low":"5.125","varBid":"-0.075","pctChange":"-1.44","bid":"4.99","ask":"5.29","timestamp":"1714678620","create_date":"2024-05-02 16:37:00"},"CAD":{"code":"CAD","codein":"BRL","name":"Dólar Canadense/Real Brasileiro","high":"3.7915","low":"3.7388","varBid":"0.0526","pctChange":"1.41","bid":"3.7744","ask":"3.8085","timestamp":"1714699569","create_date":"2024-05-02 22:26:09"},"GBP":{"code":"GBP","codein":"BRL","name":"Libra Esterlina/Real Brasileiro","high":"6.4144","low":"6.4021","varBid":"0.0072","pctChange":"0.11","bid":"6.4061","ask":"6.4226","timestamp":"1714699569","create_date":"2024-05-02 22:26:09"},"ARS":{"code":"ARS","codein":"BRL","name":"Peso Argentino/Real Brasileiro","high":"0.0059","low":"0.0058","varBid":"0.0001","pctChange":"1.72","bid":"0.0059","ask":"0.0059","timestamp":"1714699567","create_date":"2024-05-02 22:26:07"},"BTC":{"code":"BTC","codein":"BRL","name":"Bitcoin/Real Brasileiro","high":"307835","low":"297140","varBid":"8027","pctChange":"2.69","bid":"305414","ask":"306027","timestamp":"1714699436","create_date":"2024-05-02 22:23:56"},"LTC":{"code":"LTC","codein":"BRL","name":"Litecoin/Real Brasileiro","high":"454","low":"408.32","varBid":"19.71","pctChange":"4.83","bid":"412.41","ask":"427.86","timestamp":"1714699440","create_date":"2024-05-02 22:24:00"},"EUR":{"code":"EUR","codein":"BRL","name":"Euro/Real Brasileiro","high":"5.5596","low":"5.4853","varBid":"0.0743","pctChange":"1.35","bid":"5.5346","ask":"5.5846","timestamp":"1714699566","create_date":"2024-05-02 22:26:06"},"JPY":{"code":"JPY","codein":"BRL","name":"Iene Japonês/Real Brasileiro","high":"0.03342","low":"0.03324","varBid":"0.0001","pctChange":"0.3","bid":"0.03332","ask":"0.03334","timestamp":"1714699564","create_date":"2024-05-02 22:26:04"},"CHF":{"code":"CHF","codein":"BRL","name":"Franco Suíço/Real Brasileiro","high":"5.6957","low":"5.6172","varBid":"0.0785","pctChange":"1.4","bid":"5.6701","ask":"5.7213","timestamp":"1714699577","create_date":"2024-05-02 22:26:17"},"AUD":{"code":"AUD","codein":"BRL","name":"Dólar Australiano/Real Brasileiro","high":"3.4078","low":"3.3571","varBid":"0.0507","pctChange":"1.51","bid":"3.3924","ask":"3.4231","timestamp":"1714699567","create_date":"2024-05-02 22:26:07"},"CNY":{"code":"CNY","codein":"BRL","name":"Yuan Chinês/Real Brasileiro","high":"0.7058","low":"0.7058","varBid":"-0.0115","pctChange":"-1.6","bid":"0.7058","ask":"0.7058","timestamp":"1714694462","create_date":"2024-05-02 21:01:02"},"ILS":{"code":"ILS","codein":"BRL","name":"Novo Shekel Israelense/Real Brasileiro","high":"1.3731","low":"1.3722","varBid":"-0.0141","pctChange":"-1.01","bid":"1.3723","ask":"1.3724","timestamp":"1714698126","create_date":"2024-05-02 22:02:06"},"ETH":{"code":"ETH","codein":"BRL","name":"Ethereum/Real Brasileiro","high":"15681.91","low":"15184.31","varBid":"-15.79","pctChange":"-0.1","bid":"15434.15","ask":"15509.61","timestamp":"1714699533","create_date":"2024-05-02 22:25:33"},"XRP":{"code":"XRP","codein":"BRL","name":"XRP/Real Brasileiro","high":"2.72","low":"2.64","varBid":"0","pctChange":"0.18","bid":"2.68","ask":"2.68","timestamp":"1714699417","create_date":"2024-05-02 22:23:37"},"DOGE":{"code":"DOGE","codein":"BRL","name":"Dogecoin/Real Brasileiro","high":"0.6857","low":"0.6463","varBid":"0.0173","pctChange":"2.61","bid":"0.6817","ask":"0.6817","timestamp":"1714698933","create_date":"2024-05-02 22:15:33"}}
+2024/05/02 22:26:22 [services.Currency] currency: ARS -> map[ask:0.0059 bid:0.0059 code:ARS codein:BRL create_date:2024-05-02 22:26:07 high:0.0059 low:0.0058 name:Peso Argentino/Real Brasileiro pctChange:1.72 timestamp:1714699567 varBid:0.0001]
+2024/05/02 22:26:22 [services.Currency] currency: EUR -> map[ask:5.5846 bid:5.5346 code:EUR codein:BRL create_date:2024-05-02 22:26:06 high:5.5596 low:5.4853 name:Euro/Real Brasileiro pctChange:1.35 timestamp:1714699566 varBid:0.0743]
+2024/05/02 22:26:22 [services.Currency] currency: AUD -> map[ask:3.4231 bid:3.3924 code:AUD codein:BRL create_date:2024-05-02 22:26:07 high:3.4078 low:3.3571 name:Dólar Australiano/Real Brasileiro pctChange:1.51 timestamp:1714699567 varBid:0.0507]
+2024/05/02 22:26:22 [services.Currency] currency: DOGE -> map[ask:0.6817 bid:0.6817 code:DOGE codein:BRL create_date:2024-05-02 22:15:33 high:0.6857 low:0.6463 name:Dogecoin/Real Brasileiro pctChange:2.61 timestamp:1714698933 varBid:0.0173]
+2024/05/02 22:26:22 [services.Currency] currency: GBP -> map[ask:6.4226 bid:6.4061 code:GBP codein:BRL create_date:2024-05-02 22:26:09 high:6.4144 low:6.4021 name:Libra Esterlina/Real Brasileiro pctChange:0.11 timestamp:1714699569 varBid:0.0072]
+2024/05/02 22:26:22 [services.Currency] currency: BTC -> map[ask:306027 bid:305414 code:BTC codein:BRL create_date:2024-05-02 22:23:56 high:307835 low:297140 name:Bitcoin/Real Brasileiro pctChange:2.69 timestamp:1714699436 varBid:8027]
+2024/05/02 22:26:22 [services.Currency] currency: ILS -> map[ask:1.3724 bid:1.3723 code:ILS codein:BRL create_date:2024-05-02 22:02:06 high:1.3731 low:1.3722 name:Novo Shekel Israelense/Real Brasileiro pctChange:-1.01 timestamp:1714698126 varBid:-0.0141]
+2024/05/02 22:26:22 [services.Currency] currency: USD -> map[ask:5.1111 bid:5.1109 code:USD codein:BRL create_date:2024-05-02 22:26:01 high:5.1164 low:5.111 name:Dólar Americano/Real Brasileiro pctChange:-0.01 timestamp:1714699561 varBid:-0.0003]
+2024/05/02 22:26:22 [services.Currency] currency: JPY -> map[ask:0.03334 bid:0.03332 code:JPY codein:BRL create_date:2024-05-02 22:26:04 high:0.03342 low:0.03324 name:Iene Japonês/Real Brasileiro pctChange:0.3 timestamp:1714699564 varBid:0.0001]
+2024/05/02 22:26:22 [services.Currency] currency: CNY -> map[ask:0.7058 bid:0.7058 code:CNY codein:BRL create_date:2024-05-02 21:01:02 high:0.7058 low:0.7058 name:Yuan Chinês/Real Brasileiro pctChange:-1.6 timestamp:1714694462 varBid:-0.0115]
+2024/05/02 22:26:22 [services.Currency] currency: ETH -> map[ask:15509.61 bid:15434.15 code:ETH codein:BRL create_date:2024-05-02 22:25:33 high:15681.91 low:15184.31 name:Ethereum/Real Brasileiro pctChange:-0.1 timestamp:1714699533 varBid:-15.79]
+2024/05/02 22:26:22 [services.Currency] currency: XRP -> map[ask:2.68 bid:2.68 code:XRP codein:BRL create_date:2024-05-02 22:23:37 high:2.72 low:2.64 name:XRP/Real Brasileiro pctChange:0.18 timestamp:1714699417 varBid:0]
+2024/05/02 22:26:22 [services.Currency] currency: USDT -> map[ask:5.29 bid:4.99 code:USD codein:BRLT create_date:2024-05-02 16:37:00 high:5.215 low:5.125 name:Dólar Americano/Real Brasileiro Turismo pctChange:-1.44 timestamp:1714678620 varBid:-0.075]
+2024/05/02 22:26:22 [services.Currency] currency: LTC -> map[ask:427.86 bid:412.41 code:LTC codein:BRL create_date:2024-05-02 22:24:00 high:454 low:408.32 name:Litecoin/Real Brasileiro pctChange:4.83 timestamp:1714699440 varBid:19.71]
+2024/05/02 22:26:22 [services.Currency] currency: CHF -> map[ask:5.7213 bid:5.6701 code:CHF codein:BRL create_date:2024-05-02 22:26:17 high:5.6957 low:5.6172 name:Franco Suíço/Real Brasileiro pctChange:1.4 timestamp:1714699577 varBid:0.0785]
+2024/05/02 22:26:22 [services.Currency] currency: CAD -> map[ask:3.8085 bid:3.7744 code:CAD codein:BRL create_date:2024-05-02 22:26:09 high:3.7915 low:3.7388 name:Dólar Canadense/Real Brasileiro pctChange:1.41 timestamp:1714699569 varBid:0.0526]
+2024/05/02 22:26:22 [server] Starting server with config: &{Debug:true CurrencyURL:https://economia.awesomeapi.com.br/all ServerAddress:localhost ServerPort:8080 LogPath:log}
+2024/05/02 22:26:22 [server] Debug mode enabled
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+2024/05/02 22:26:22 [services.Currency] waiting 60 minutes to update
+[GIN-debug] GET    /currency/:code           --> currencies/internal/handlers.(*Currency).GetByCode-fm (3 handlers)
+[GIN-debug] GET    /currency/                --> currencies/internal/handlers.(*Currency).Get-fm (3 handlers)
+[GIN-debug] POST   /currency/update          --> currencies/internal/handlers.(*Currency).Update-fm (3 handlers)
+2024/05/02 22:26:22 [server] starting server on localhost:8080
+2024/05/02 22:26:31 Stopping...
+2024/05/02 22:26:32 [main] Starting with config: {
+ "debug": true,
+ "currency_url": "https://economia.awesomeapi.com.br/all",
+ "server_address": "localhost",
+ "server_port": 8080,
+ "log_path": "log"
+}
+2024/05/02 22:26:32 ### CURRENCIES SERVICE ###
+2024/05/02 22:26:32 [services.Currency] Updating currency
+2024/05/02 22:26:32 [services.Currency] parsing data: {"USD":{"code":"USD","codein":"BRL","name":"Dólar Americano/Real Brasileiro","high":"5.1164","low":"5.111","varBid":"-0.0003","pctChange":"-0.01","bid":"5.1109","ask":"5.1111","timestamp":"1714699561","create_date":"2024-05-02 22:26:01"},"USDT":{"code":"USD","codein":"BRLT","name":"Dólar Americano/Real Brasileiro Turismo","high":"5.215","low":"5.125","varBid":"-0.075","pctChange":"-1.44","bid":"4.99","ask":"5.29","timestamp":"1714678620","create_date":"2024-05-02 16:37:00"},"CAD":{"code":"CAD","codein":"BRL","name":"Dólar Canadense/Real Brasileiro","high":"3.7915","low":"3.7388","varBid":"0.0526","pctChange":"1.41","bid":"3.7744","ask":"3.8085","timestamp":"1714699569","create_date":"2024-05-02 22:26:09"},"GBP":{"code":"GBP","codein":"BRL","name":"Libra Esterlina/Real Brasileiro","high":"6.4144","low":"6.4021","varBid":"0.0072","pctChange":"0.11","bid":"6.4061","ask":"6.4226","timestamp":"1714699569","create_date":"2024-05-02 22:26:09"},"ARS":{"code":"ARS","codein":"BRL","name":"Peso Argentino/Real Brasileiro","high":"0.0059","low":"0.0058","varBid":"0.0001","pctChange":"1.72","bid":"0.0059","ask":"0.0059","timestamp":"1714699567","create_date":"2024-05-02 22:26:07"},"BTC":{"code":"BTC","codein":"BRL","name":"Bitcoin/Real Brasileiro","high":"307835","low":"297140","varBid":"8027","pctChange":"2.69","bid":"305414","ask":"306027","timestamp":"1714699436","create_date":"2024-05-02 22:23:56"},"LTC":{"code":"LTC","codein":"BRL","name":"Litecoin/Real Brasileiro","high":"454","low":"408.32","varBid":"19.71","pctChange":"4.83","bid":"412.41","ask":"427.86","timestamp":"1714699440","create_date":"2024-05-02 22:24:00"},"EUR":{"code":"EUR","codein":"BRL","name":"Euro/Real Brasileiro","high":"5.5596","low":"5.4853","varBid":"0.0743","pctChange":"1.35","bid":"5.5346","ask":"5.5846","timestamp":"1714699566","create_date":"2024-05-02 22:26:06"},"JPY":{"code":"JPY","codein":"BRL","name":"Iene Japonês/Real Brasileiro","high":"0.03342","low":"0.03324","varBid":"0.0001","pctChange":"0.3","bid":"0.03332","ask":"0.03334","timestamp":"1714699564","create_date":"2024-05-02 22:26:04"},"CHF":{"code":"CHF","codein":"BRL","name":"Franco Suíço/Real Brasileiro","high":"5.6957","low":"5.6172","varBid":"0.0785","pctChange":"1.4","bid":"5.6701","ask":"5.7213","timestamp":"1714699577","create_date":"2024-05-02 22:26:17"},"AUD":{"code":"AUD","codein":"BRL","name":"Dólar Australiano/Real Brasileiro","high":"3.4078","low":"3.3571","varBid":"0.0507","pctChange":"1.51","bid":"3.3924","ask":"3.4231","timestamp":"1714699567","create_date":"2024-05-02 22:26:07"},"CNY":{"code":"CNY","codein":"BRL","name":"Yuan Chinês/Real Brasileiro","high":"0.7058","low":"0.7058","varBid":"-0.0115","pctChange":"-1.6","bid":"0.7058","ask":"0.7058","timestamp":"1714694462","create_date":"2024-05-02 21:01:02"},"ILS":{"code":"ILS","codein":"BRL","name":"Novo Shekel Israelense/Real Brasileiro","high":"1.3731","low":"1.3722","varBid":"-0.0141","pctChange":"-1.01","bid":"1.3723","ask":"1.3724","timestamp":"1714698126","create_date":"2024-05-02 22:02:06"},"ETH":{"code":"ETH","codein":"BRL","name":"Ethereum/Real Brasileiro","high":"15681.91","low":"15184.31","varBid":"-15.79","pctChange":"-0.1","bid":"15434.15","ask":"15509.61","timestamp":"1714699533","create_date":"2024-05-02 22:25:33"},"XRP":{"code":"XRP","codein":"BRL","name":"XRP/Real Brasileiro","high":"2.72","low":"2.64","varBid":"0","pctChange":"0.18","bid":"2.68","ask":"2.68","timestamp":"1714699417","create_date":"2024-05-02 22:23:37"},"DOGE":{"code":"DOGE","codein":"BRL","name":"Dogecoin/Real Brasileiro","high":"0.6857","low":"0.6463","varBid":"0.0173","pctChange":"2.61","bid":"0.6817","ask":"0.6817","timestamp":"1714698933","create_date":"2024-05-02 22:15:33"}}
+2024/05/02 22:26:32 [services.Currency] currency: ILS -> map[ask:1.3724 bid:1.3723 code:ILS codein:BRL create_date:2024-05-02 22:02:06 high:1.3731 low:1.3722 name:Novo Shekel Israelense/Real Brasileiro pctChange:-1.01 timestamp:1714698126 varBid:-0.0141]
+2024/05/02 22:26:32 [services.Currency] currency: GBP -> map[ask:6.4226 bid:6.4061 code:GBP codein:BRL create_date:2024-05-02 22:26:09 high:6.4144 low:6.4021 name:Libra Esterlina/Real Brasileiro pctChange:0.11 timestamp:1714699569 varBid:0.0072]
+2024/05/02 22:26:32 [services.Currency] currency: LTC -> map[ask:427.86 bid:412.41 code:LTC codein:BRL create_date:2024-05-02 22:24:00 high:454 low:408.32 name:Litecoin/Real Brasileiro pctChange:4.83 timestamp:1714699440 varBid:19.71]
+2024/05/02 22:26:32 [services.Currency] currency: CHF -> map[ask:5.7213 bid:5.6701 code:CHF codein:BRL create_date:2024-05-02 22:26:17 high:5.6957 low:5.6172 name:Franco Suíço/Real Brasileiro pctChange:1.4 timestamp:1714699577 varBid:0.0785]
+2024/05/02 22:26:32 [services.Currency] currency: DOGE -> map[ask:0.6817 bid:0.6817 code:DOGE codein:BRL create_date:2024-05-02 22:15:33 high:0.6857 low:0.6463 name:Dogecoin/Real Brasileiro pctChange:2.61 timestamp:1714698933 varBid:0.0173]
+2024/05/02 22:26:32 [services.Currency] currency: EUR -> map[ask:5.5846 bid:5.5346 code:EUR codein:BRL create_date:2024-05-02 22:26:06 high:5.5596 low:5.4853 name:Euro/Real Brasileiro pctChange:1.35 timestamp:1714699566 varBid:0.0743]
+2024/05/02 22:26:32 [services.Currency] currency: CNY -> map[ask:0.7058 bid:0.7058 code:CNY codein:BRL create_date:2024-05-02 21:01:02 high:0.7058 low:0.7058 name:Yuan Chinês/Real Brasileiro pctChange:-1.6 timestamp:1714694462 varBid:-0.0115]
+2024/05/02 22:26:32 [services.Currency] currency: XRP -> map[ask:2.68 bid:2.68 code:XRP codein:BRL create_date:2024-05-02 22:23:37 high:2.72 low:2.64 name:XRP/Real Brasileiro pctChange:0.18 timestamp:1714699417 varBid:0]
+2024/05/02 22:26:32 [services.Currency] currency: USDT -> map[ask:5.29 bid:4.99 code:USD codein:BRLT create_date:2024-05-02 16:37:00 high:5.215 low:5.125 name:Dólar Americano/Real Brasileiro Turismo pctChange:-1.44 timestamp:1714678620 varBid:-0.075]
+2024/05/02 22:26:32 [services.Currency] currency: BTC -> map[ask:306027 bid:305414 code:BTC codein:BRL create_date:2024-05-02 22:23:56 high:307835 low:297140 name:Bitcoin/Real Brasileiro pctChange:2.69 timestamp:1714699436 varBid:8027]
+2024/05/02 22:26:32 [services.Currency] currency: AUD -> map[ask:3.4231 bid:3.3924 code:AUD codein:BRL create_date:2024-05-02 22:26:07 high:3.4078 low:3.3571 name:Dólar Australiano/Real Brasileiro pctChange:1.51 timestamp:1714699567 varBid:0.0507]
+2024/05/02 22:26:32 [services.Currency] currency: JPY -> map[ask:0.03334 bid:0.03332 code:JPY codein:BRL create_date:2024-05-02 22:26:04 high:0.03342 low:0.03324 name:Iene Japonês/Real Brasileiro pctChange:0.3 timestamp:1714699564 varBid:0.0001]
+2024/05/02 22:26:32 [services.Currency] currency: ETH -> map[ask:15509.61 bid:15434.15 code:ETH codein:BRL create_date:2024-05-02 22:25:33 high:15681.91 low:15184.31 name:Ethereum/Real Brasileiro pctChange:-0.1 timestamp:1714699533 varBid:-15.79]
+2024/05/02 22:26:32 [services.Currency] currency: USD -> map[ask:5.1111 bid:5.1109 code:USD codein:BRL create_date:2024-05-02 22:26:01 high:5.1164 low:5.111 name:Dólar Americano/Real Brasileiro pctChange:-0.01 timestamp:1714699561 varBid:-0.0003]
+2024/05/02 22:26:32 [services.Currency] currency: CAD -> map[ask:3.8085 bid:3.7744 code:CAD codein:BRL create_date:2024-05-02 22:26:09 high:3.7915 low:3.7388 name:Dólar Canadense/Real Brasileiro pctChange:1.41 timestamp:1714699569 varBid:0.0526]
+2024/05/02 22:26:32 [services.Currency] currency: ARS -> map[ask:0.0059 bid:0.0059 code:ARS codein:BRL create_date:2024-05-02 22:26:07 high:0.0059 low:0.0058 name:Peso Argentino/Real Brasileiro pctChange:1.72 timestamp:1714699567 varBid:0.0001]
+2024/05/02 22:26:32 [server] Starting server with config: &{Debug:true CurrencyURL:https://economia.awesomeapi.com.br/all ServerAddress:localhost ServerPort:8080 LogPath:log}
+2024/05/02 22:26:32 [server] Debug mode enabled
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /currency/:code           --> currencies/internal/handlers.(*Currency).GetByCode-fm (3 handlers)
+[GIN-debug] GET    /currency/                --> currencies/internal/handlers.(*Currency).Get-fm (3 handlers)
+[GIN-debug] POST   /currency/update          --> currencies/internal/handlers.(*Currency).Update-fm (3 handlers)
+2024/05/02 22:26:32 [services.Currency] waiting 60 minutes to update
+2024/05/02 22:26:32 [server] starting server on localhost:8080
+2024/05/02 22:27:45 Stopping...
+2024/05/02 22:27:46 [main] Starting with config: {
+ "debug": true,
+ "currency_url": "https://economia.awesomeapi.com.br/all",
+ "server_address": "localhost",
+ "server_port": 8080,
+ "log_path": "log"
+}
+2024/05/02 22:27:46 ### CURRENCIES SERVICE ###
+2024/05/02 22:27:46 [services.Currency] Updating currency
+2024/05/02 22:27:46 [services.Currency] currency: BTC -> map[ask:306093 bid:305597 code:BTC codein:BRL create_date:2024-05-02 22:27:20 high:307835 low:297140 name:Bitcoin/Real Brasileiro pctChange:2.72 timestamp:1714699640 varBid:8093]
+2024/05/02 22:27:46 [services.Currency] currency: CHF -> map[ask:5.7213 bid:5.6701 code:CHF codein:BRL create_date:2024-05-02 22:27:09 high:5.6957 low:5.6172 name:Franco Suíço/Real Brasileiro pctChange:1.4 timestamp:1714699629 varBid:0.0785]
+2024/05/02 22:27:46 [services.Currency] currency: CNY -> map[ask:0.7058 bid:0.7058 code:CNY codein:BRL create_date:2024-05-02 21:01:02 high:0.7058 low:0.7058 name:Yuan Chinês/Real Brasileiro pctChange:-1.6 timestamp:1714694462 varBid:-0.0115]
+2024/05/02 22:27:46 [services.Currency] currency: DOGE -> map[ask:0.6842 bid:0.6842 code:DOGE codein:BRL create_date:2024-05-02 22:26:36 high:0.6857 low:0.6463 name:Dogecoin/Real Brasileiro pctChange:2.98 timestamp:1714699596 varBid:0.0198]
+2024/05/02 22:27:46 [services.Currency] currency: CAD -> map[ask:3.8085 bid:3.7744 code:CAD codein:BRL create_date:2024-05-02 22:27:01 high:3.7915 low:3.7388 name:Dólar Canadense/Real Brasileiro pctChange:1.41 timestamp:1714699621 varBid:0.0526]
+2024/05/02 22:27:46 [services.Currency] currency: EUR -> map[ask:5.5846 bid:5.5346 code:EUR codein:BRL create_date:2024-05-02 22:27:19 high:5.5596 low:5.4853 name:Euro/Real Brasileiro pctChange:1.35 timestamp:1714699639 varBid:0.0743]
+2024/05/02 22:27:46 [services.Currency] currency: JPY -> map[ask:0.03334 bid:0.03332 code:JPY codein:BRL create_date:2024-05-02 22:27:19 high:0.03342 low:0.03324 name:Iene Japonês/Real Brasileiro pctChange:0.3 timestamp:1714699639 varBid:0.0001]
+2024/05/02 22:27:46 [services.Currency] currency: ETH -> map[ask:15507.5 bid:15436.21 code:ETH codein:BRL create_date:2024-05-02 22:27:13 high:15681.91 low:15184.31 name:Ethereum/Real Brasileiro pctChange:-0.1 timestamp:1714699633 varBid:-15.79]
+2024/05/02 22:27:46 [services.Currency] currency: GBP -> map[ask:6.4226 bid:6.4061 code:GBP codein:BRL create_date:2024-05-02 22:27:02 high:6.4144 low:6.4021 name:Libra Esterlina/Real Brasileiro pctChange:0.11 timestamp:1714699622 varBid:0.0072]
+2024/05/02 22:27:46 [services.Currency] currency: ARS -> map[ask:0.0059 bid:0.0059 code:ARS codein:BRL create_date:2024-05-02 22:27:19 high:0.0059 low:0.0058 name:Peso Argentino/Real Brasileiro pctChange:1.72 timestamp:1714699639 varBid:0.0001]
+2024/05/02 22:27:46 [services.Currency] currency: ILS -> map[ask:1.3724 bid:1.3723 code:ILS codein:BRL create_date:2024-05-02 22:02:06 high:1.3731 low:1.3722 name:Novo Shekel Israelense/Real Brasileiro pctChange:-1.01 timestamp:1714698126 varBid:-0.0141]
+2024/05/02 22:27:46 [services.Currency] currency: XRP -> map[ask:2.68 bid:2.67 code:XRP codein:BRL create_date:2024-05-02 22:27:16 high:2.72 low:2.64 name:XRP/Real Brasileiro pctChange:-0.17 timestamp:1714699636 varBid:0]
+2024/05/02 22:27:46 [services.Currency] currency: USD -> map[ask:5.1111 bid:5.1109 code:USD codein:BRL create_date:2024-05-02 22:27:21 high:5.1164 low:5.111 name:Dólar Americano/Real Brasileiro pctChange:-0.01 timestamp:1714699641 varBid:-0.0003]
+2024/05/02 22:27:46 [services.Currency] currency: USDT -> map[ask:5.29 bid:4.99 code:USD codein:BRLT create_date:2024-05-02 16:37:00 high:5.215 low:5.125 name:Dólar Americano/Real Brasileiro Turismo pctChange:-1.44 timestamp:1714678620 varBid:-0.075]
+2024/05/02 22:27:46 [services.Currency] currency: LTC -> map[ask:427.81 bid:412.63 code:LTC codein:BRL create_date:2024-05-02 22:27:21 high:454 low:408.32 name:Litecoin/Real Brasileiro pctChange:4.83 timestamp:1714699641 varBid:19.71]
+2024/05/02 22:27:46 [services.Currency] currency: AUD -> map[ask:3.4231 bid:3.3924 code:AUD codein:BRL create_date:2024-05-02 22:27:20 high:3.4078 low:3.3571 name:Dólar Australiano/Real Brasileiro pctChange:1.51 timestamp:1714699640 varBid:0.0507]
+2024/05/02 22:27:46 [server] Starting server with config: &{Debug:true CurrencyURL:https://economia.awesomeapi.com.br/all ServerAddress:localhost ServerPort:8080 LogPath:log}
+2024/05/02 22:27:46 [server] Debug mode enabled
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /currency/:code           --> currencies/internal/handlers.(*Currency).GetByCode-fm (3 handlers)
+[GIN-debug] GET    /currency/                --> currencies/internal/handlers.(*Currency).Get-fm (3 handlers)
+[GIN-debug] POST   /currency/update          --> currencies/internal/handlers.(*Currency).Update-fm (3 handlers)
+2024/05/02 22:27:46 [services.Currency] waiting 60 minutes to update
+2024/05/02 22:27:46 [server] starting server on localhost:8080
+2024/05/02 22:28:02 [handlers.Currency] Updating...
+2024/05/02 22:28:02 [services.Currency] Updating currency
+2024/05/02 22:28:02 [services.Currency] currency: BTC -> map[ask:306355 bid:305734 code:BTC codein:BRL create_date:2024-05-02 22:27:47 high:307835 low:297140 name:Bitcoin/Real Brasileiro pctChange:2.72 timestamp:1714699667 varBid:8093]
+2024/05/02 22:28:02 [services.Currency] currency: EUR -> map[ask:5.5846 bid:5.5346 code:EUR codein:BRL create_date:2024-05-02 22:27:38 high:5.5596 low:5.4853 name:Euro/Real Brasileiro pctChange:1.35 timestamp:1714699658 varBid:0.0743]
+2024/05/02 22:28:02 [services.Currency] currency: ETH -> map[ask:15507.5 bid:15436.21 code:ETH codein:BRL create_date:2024-05-02 22:27:13 high:15681.91 low:15184.31 name:Ethereum/Real Brasileiro pctChange:-0.1 timestamp:1714699633 varBid:-15.79]
+2024/05/02 22:28:02 [services.Currency] currency: XRP -> map[ask:2.68 bid:2.67 code:XRP codein:BRL create_date:2024-05-02 22:27:16 high:2.72 low:2.64 name:XRP/Real Brasileiro pctChange:-0.17 timestamp:1714699636 varBid:0]
+2024/05/02 22:28:02 [services.Currency] currency: DOGE -> map[ask:0.6842 bid:0.6842 code:DOGE codein:BRL create_date:2024-05-02 22:26:36 high:0.6857 low:0.6463 name:Dogecoin/Real Brasileiro pctChange:2.98 timestamp:1714699596 varBid:0.0198]
+2024/05/02 22:28:02 [services.Currency] currency: USDT -> map[ask:5.29 bid:4.99 code:USD codein:BRLT create_date:2024-05-02 16:37:00 high:5.215 low:5.125 name:Dólar Americano/Real Brasileiro Turismo pctChange:-1.44 timestamp:1714678620 varBid:-0.075]
+2024/05/02 22:28:02 [services.Currency] currency: CAD -> map[ask:3.8085 bid:3.7744 code:CAD codein:BRL create_date:2024-05-02 22:27:41 high:3.7915 low:3.7388 name:Dólar Canadense/Real Brasileiro pctChange:1.41 timestamp:1714699661 varBid:0.0526]
+2024/05/02 22:28:02 [services.Currency] currency: USD -> map[ask:5.1111 bid:5.1109 code:USD codein:BRL create_date:2024-05-02 22:27:41 high:5.1164 low:5.111 name:Dólar Americano/Real Brasileiro pctChange:-0.01 timestamp:1714699661 varBid:-0.0003]
+2024/05/02 22:28:02 [services.Currency] currency: ILS -> map[ask:1.3724 bid:1.3723 code:ILS codein:BRL create_date:2024-05-02 22:02:06 high:1.3731 low:1.3722 name:Novo Shekel Israelense/Real Brasileiro pctChange:-1.01 timestamp:1714698126 varBid:-0.0141]
+2024/05/02 22:28:02 [services.Currency] currency: ARS -> map[ask:0.0059 bid:0.0059 code:ARS codein:BRL create_date:2024-05-02 22:27:37 high:0.0059 low:0.0058 name:Peso Argentino/Real Brasileiro pctChange:1.72 timestamp:1714699657 varBid:0.0001]
+2024/05/02 22:28:02 [services.Currency] currency: JPY -> map[ask:0.03334 bid:0.03332 code:JPY codein:BRL create_date:2024-05-02 22:27:39 high:0.03342 low:0.03324 name:Iene Japonês/Real Brasileiro pctChange:0.3 timestamp:1714699659 varBid:0.0001]
+2024/05/02 22:28:02 [services.Currency] currency: CHF -> map[ask:5.7213 bid:5.6701 code:CHF codein:BRL create_date:2024-05-02 22:27:30 high:5.6957 low:5.6172 name:Franco Suíço/Real Brasileiro pctChange:1.4 timestamp:1714699650 varBid:0.0785]
+2024/05/02 22:28:02 [services.Currency] currency: AUD -> map[ask:3.4231 bid:3.3924 code:AUD codein:BRL create_date:2024-05-02 22:27:39 high:3.4078 low:3.3571 name:Dólar Australiano/Real Brasileiro pctChange:1.51 timestamp:1714699659 varBid:0.0507]
+2024/05/02 22:28:02 [services.Currency] currency: CNY -> map[ask:0.7058 bid:0.7058 code:CNY codein:BRL create_date:2024-05-02 21:01:02 high:0.7058 low:0.7058 name:Yuan Chinês/Real Brasileiro pctChange:-1.6 timestamp:1714694462 varBid:-0.0115]
+2024/05/02 22:28:02 [services.Currency] currency: GBP -> map[ask:6.4226 bid:6.4061 code:GBP codein:BRL create_date:2024-05-02 22:27:43 high:6.4144 low:6.4021 name:Libra Esterlina/Real Brasileiro pctChange:0.11 timestamp:1714699663 varBid:0.0072]
+2024/05/02 22:28:02 [services.Currency] currency: LTC -> map[ask:427.79 bid:412.64 code:LTC codein:BRL create_date:2024-05-02 22:27:46 high:454 low:408.32 name:Litecoin/Real Brasileiro pctChange:4.83 timestamp:1714699666 varBid:19.71]
+2024/05/02 22:28:02 [handlers.Currency] Updated 16 currencies
+[GIN] 2024/05/02 - 22:28:02 |[97;42m 200 [0m|   22.521895ms |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:28:02 [services.Currency] waiting 60 minutes to update
+2024/05/02 22:28:04 [handlers.Currency] Updating...
+2024/05/02 22:28:04 [services.Currency] Updating currency
+2024/05/02 22:28:04 [services.Currency] currency: XRP -> map[ask:2.68 bid:2.67 code:XRP codein:BRL create_date:2024-05-02 22:27:16 high:2.72 low:2.64 name:XRP/Real Brasileiro pctChange:-0.17 timestamp:1714699636 varBid:0]
+2024/05/02 22:28:04 [services.Currency] currency: DOGE -> map[ask:0.6842 bid:0.6842 code:DOGE codein:BRL create_date:2024-05-02 22:26:36 high:0.6857 low:0.6463 name:Dogecoin/Real Brasileiro pctChange:2.98 timestamp:1714699596 varBid:0.0198]
+2024/05/02 22:28:04 [services.Currency] currency: USD -> map[ask:5.1111 bid:5.1109 code:USD codein:BRL create_date:2024-05-02 22:27:41 high:5.1164 low:5.111 name:Dólar Americano/Real Brasileiro pctChange:-0.01 timestamp:1714699661 varBid:-0.0003]
+2024/05/02 22:28:04 [services.Currency] currency: LTC -> map[ask:427.79 bid:412.64 code:LTC codein:BRL create_date:2024-05-02 22:27:46 high:454 low:408.32 name:Litecoin/Real Brasileiro pctChange:4.83 timestamp:1714699666 varBid:19.71]
+2024/05/02 22:28:04 [services.Currency] currency: AUD -> map[ask:3.4231 bid:3.3924 code:AUD codein:BRL create_date:2024-05-02 22:27:39 high:3.4078 low:3.3571 name:Dólar Australiano/Real Brasileiro pctChange:1.51 timestamp:1714699659 varBid:0.0507]
+2024/05/02 22:28:04 [services.Currency] currency: CNY -> map[ask:0.7058 bid:0.7058 code:CNY codein:BRL create_date:2024-05-02 21:01:02 high:0.7058 low:0.7058 name:Yuan Chinês/Real Brasileiro pctChange:-1.6 timestamp:1714694462 varBid:-0.0115]
+2024/05/02 22:28:04 [services.Currency] currency: ETH -> map[ask:15507.5 bid:15436.21 code:ETH codein:BRL create_date:2024-05-02 22:27:13 high:15681.91 low:15184.31 name:Ethereum/Real Brasileiro pctChange:-0.1 timestamp:1714699633 varBid:-15.79]
+2024/05/02 22:28:04 [services.Currency] currency: CAD -> map[ask:3.8085 bid:3.7744 code:CAD codein:BRL create_date:2024-05-02 22:27:41 high:3.7915 low:3.7388 name:Dólar Canadense/Real Brasileiro pctChange:1.41 timestamp:1714699661 varBid:0.0526]
+2024/05/02 22:28:04 [services.Currency] currency: BTC -> map[ask:306355 bid:305734 code:BTC codein:BRL create_date:2024-05-02 22:27:47 high:307835 low:297140 name:Bitcoin/Real Brasileiro pctChange:2.72 timestamp:1714699667 varBid:8093]
+2024/05/02 22:28:04 [services.Currency] currency: JPY -> map[ask:0.03334 bid:0.03332 code:JPY codein:BRL create_date:2024-05-02 22:27:39 high:0.03342 low:0.03324 name:Iene Japonês/Real Brasileiro pctChange:0.3 timestamp:1714699659 varBid:0.0001]
+2024/05/02 22:28:04 [services.Currency] currency: CHF -> map[ask:5.7213 bid:5.6701 code:CHF codein:BRL create_date:2024-05-02 22:27:30 high:5.6957 low:5.6172 name:Franco Suíço/Real Brasileiro pctChange:1.4 timestamp:1714699650 varBid:0.0785]
+2024/05/02 22:28:04 [services.Currency] currency: GBP -> map[ask:6.4226 bid:6.4061 code:GBP codein:BRL create_date:2024-05-02 22:27:43 high:6.4144 low:6.4021 name:Libra Esterlina/Real Brasileiro pctChange:0.11 timestamp:1714699663 varBid:0.0072]
+2024/05/02 22:28:04 [services.Currency] currency: ARS -> map[ask:0.0059 bid:0.0059 code:ARS codein:BRL create_date:2024-05-02 22:27:37 high:0.0059 low:0.0058 name:Peso Argentino/Real Brasileiro pctChange:1.72 timestamp:1714699657 varBid:0.0001]
+2024/05/02 22:28:04 [services.Currency] currency: ILS -> map[ask:1.3724 bid:1.3723 code:ILS codein:BRL create_date:2024-05-02 22:02:06 high:1.3731 low:1.3722 name:Novo Shekel Israelense/Real Brasileiro pctChange:-1.01 timestamp:1714698126 varBid:-0.0141]
+2024/05/02 22:28:04 [services.Currency] currency: USDT -> map[ask:5.29 bid:4.99 code:USD codein:BRLT create_date:2024-05-02 16:37:00 high:5.215 low:5.125 name:Dólar Americano/Real Brasileiro Turismo pctChange:-1.44 timestamp:1714678620 varBid:-0.075]
+2024/05/02 22:28:04 [services.Currency] currency: EUR -> map[ask:5.5846 bid:5.5346 code:EUR codein:BRL create_date:2024-05-02 22:27:38 high:5.5596 low:5.4853 name:Euro/Real Brasileiro pctChange:1.35 timestamp:1714699658 varBid:0.0743]
+2024/05/02 22:28:04 [handlers.Currency] Updated 16 currencies
+2024/05/02 22:28:04 [services.Currency] waiting 60 minutes to update
+[GIN] 2024/05/02 - 22:28:04 |[97;42m 200 [0m|    27.31776ms |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:28:05 [handlers.Currency] Updating...
+2024/05/02 22:28:05 [services.Currency] Updating currency
+2024/05/02 22:28:05 [services.Currency] currency: USD -> map[ask:5.1111 bid:5.1109 code:USD codein:BRL create_date:2024-05-02 22:27:41 high:5.1164 low:5.111 name:Dólar Americano/Real Brasileiro pctChange:-0.01 timestamp:1714699661 varBid:-0.0003]
+2024/05/02 22:28:05 [services.Currency] currency: ARS -> map[ask:0.0059 bid:0.0059 code:ARS codein:BRL create_date:2024-05-02 22:27:37 high:0.0059 low:0.0058 name:Peso Argentino/Real Brasileiro pctChange:1.72 timestamp:1714699657 varBid:0.0001]
+2024/05/02 22:28:05 [services.Currency] currency: BTC -> map[ask:306355 bid:305734 code:BTC codein:BRL create_date:2024-05-02 22:27:47 high:307835 low:297140 name:Bitcoin/Real Brasileiro pctChange:2.72 timestamp:1714699667 varBid:8093]
+2024/05/02 22:28:05 [services.Currency] currency: LTC -> map[ask:427.79 bid:412.64 code:LTC codein:BRL create_date:2024-05-02 22:27:46 high:454 low:408.32 name:Litecoin/Real Brasileiro pctChange:4.83 timestamp:1714699666 varBid:19.71]
+2024/05/02 22:28:05 [services.Currency] currency: XRP -> map[ask:2.68 bid:2.67 code:XRP codein:BRL create_date:2024-05-02 22:27:16 high:2.72 low:2.64 name:XRP/Real Brasileiro pctChange:-0.17 timestamp:1714699636 varBid:0]
+2024/05/02 22:28:05 [services.Currency] currency: CAD -> map[ask:3.8085 bid:3.7744 code:CAD codein:BRL create_date:2024-05-02 22:27:41 high:3.7915 low:3.7388 name:Dólar Canadense/Real Brasileiro pctChange:1.41 timestamp:1714699661 varBid:0.0526]
+2024/05/02 22:28:05 [services.Currency] currency: ETH -> map[ask:15507.5 bid:15436.21 code:ETH codein:BRL create_date:2024-05-02 22:27:13 high:15681.91 low:15184.31 name:Ethereum/Real Brasileiro pctChange:-0.1 timestamp:1714699633 varBid:-15.79]
+2024/05/02 22:28:05 [services.Currency] currency: CNY -> map[ask:0.7058 bid:0.7058 code:CNY codein:BRL create_date:2024-05-02 21:01:02 high:0.7058 low:0.7058 name:Yuan Chinês/Real Brasileiro pctChange:-1.6 timestamp:1714694462 varBid:-0.0115]
+2024/05/02 22:28:05 [services.Currency] currency: USDT -> map[ask:5.29 bid:4.99 code:USD codein:BRLT create_date:2024-05-02 16:37:00 high:5.215 low:5.125 name:Dólar Americano/Real Brasileiro Turismo pctChange:-1.44 timestamp:1714678620 varBid:-0.075]
+2024/05/02 22:28:05 [services.Currency] currency: GBP -> map[ask:6.4226 bid:6.4061 code:GBP codein:BRL create_date:2024-05-02 22:27:43 high:6.4144 low:6.4021 name:Libra Esterlina/Real Brasileiro pctChange:0.11 timestamp:1714699663 varBid:0.0072]
+2024/05/02 22:28:05 [services.Currency] currency: JPY -> map[ask:0.03334 bid:0.03332 code:JPY codein:BRL create_date:2024-05-02 22:27:39 high:0.03342 low:0.03324 name:Iene Japonês/Real Brasileiro pctChange:0.3 timestamp:1714699659 varBid:0.0001]
+2024/05/02 22:28:05 [services.Currency] currency: CHF -> map[ask:5.7213 bid:5.6701 code:CHF codein:BRL create_date:2024-05-02 22:27:30 high:5.6957 low:5.6172 name:Franco Suíço/Real Brasileiro pctChange:1.4 timestamp:1714699650 varBid:0.0785]
+2024/05/02 22:28:05 [services.Currency] currency: AUD -> map[ask:3.4231 bid:3.3924 code:AUD codein:BRL create_date:2024-05-02 22:27:39 high:3.4078 low:3.3571 name:Dólar Australiano/Real Brasileiro pctChange:1.51 timestamp:1714699659 varBid:0.0507]
+2024/05/02 22:28:05 [services.Currency] currency: EUR -> map[ask:5.5846 bid:5.5346 code:EUR codein:BRL create_date:2024-05-02 22:27:38 high:5.5596 low:5.4853 name:Euro/Real Brasileiro pctChange:1.35 timestamp:1714699658 varBid:0.0743]
+2024/05/02 22:28:05 [services.Currency] currency: ILS -> map[ask:1.3724 bid:1.3723 code:ILS codein:BRL create_date:2024-05-02 22:02:06 high:1.3731 low:1.3722 name:Novo Shekel Israelense/Real Brasileiro pctChange:-1.01 timestamp:1714698126 varBid:-0.0141]
+2024/05/02 22:28:05 [services.Currency] currency: DOGE -> map[ask:0.6842 bid:0.6842 code:DOGE codein:BRL create_date:2024-05-02 22:26:36 high:0.6857 low:0.6463 name:Dogecoin/Real Brasileiro pctChange:2.98 timestamp:1714699596 varBid:0.0198]
+2024/05/02 22:28:05 [handlers.Currency] Updated 16 currencies
+[GIN] 2024/05/02 - 22:28:05 |[97;42m 200 [0m|   24.927196ms |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:28:05 [services.Currency] waiting 60 minutes to update
+2024/05/02 22:28:15 [handlers.Currency] Updating...
+2024/05/02 22:28:15 [services.Currency] Updating currency
+2024/05/02 22:28:15 [services.Currency] currency: DOGE -> map[ask:0.6842 bid:0.6842 code:DOGE codein:BRL create_date:2024-05-02 22:26:36 high:0.6857 low:0.6463 name:Dogecoin/Real Brasileiro pctChange:2.98 timestamp:1714699596 varBid:0.0198]
+2024/05/02 22:28:15 [services.Currency] currency: CAD -> map[ask:3.8085 bid:3.7744 code:CAD codein:BRL create_date:2024-05-02 22:27:41 high:3.7915 low:3.7388 name:Dólar Canadense/Real Brasileiro pctChange:1.41 timestamp:1714699661 varBid:0.0526]
+2024/05/02 22:28:15 [services.Currency] currency: GBP -> map[ask:6.4226 bid:6.4061 code:GBP codein:BRL create_date:2024-05-02 22:27:43 high:6.4144 low:6.4021 name:Libra Esterlina/Real Brasileiro pctChange:0.11 timestamp:1714699663 varBid:0.0072]
+2024/05/02 22:28:15 [services.Currency] currency: EUR -> map[ask:5.5846 bid:5.5346 code:EUR codein:BRL create_date:2024-05-02 22:27:38 high:5.5596 low:5.4853 name:Euro/Real Brasileiro pctChange:1.35 timestamp:1714699658 varBid:0.0743]
+2024/05/02 22:28:15 [services.Currency] currency: ARS -> map[ask:0.0059 bid:0.0059 code:ARS codein:BRL create_date:2024-05-02 22:27:37 high:0.0059 low:0.0058 name:Peso Argentino/Real Brasileiro pctChange:1.72 timestamp:1714699657 varBid:0.0001]
+2024/05/02 22:28:15 [services.Currency] currency: JPY -> map[ask:0.03334 bid:0.03332 code:JPY codein:BRL create_date:2024-05-02 22:27:39 high:0.03342 low:0.03324 name:Iene Japonês/Real Brasileiro pctChange:0.3 timestamp:1714699659 varBid:0.0001]
+2024/05/02 22:28:15 [services.Currency] currency: CNY -> map[ask:0.7058 bid:0.7058 code:CNY codein:BRL create_date:2024-05-02 21:01:02 high:0.7058 low:0.7058 name:Yuan Chinês/Real Brasileiro pctChange:-1.6 timestamp:1714694462 varBid:-0.0115]
+2024/05/02 22:28:15 [services.Currency] currency: CHF -> map[ask:5.7213 bid:5.6701 code:CHF codein:BRL create_date:2024-05-02 22:27:30 high:5.6957 low:5.6172 name:Franco Suíço/Real Brasileiro pctChange:1.4 timestamp:1714699650 varBid:0.0785]
+2024/05/02 22:28:15 [services.Currency] currency: AUD -> map[ask:3.4231 bid:3.3924 code:AUD codein:BRL create_date:2024-05-02 22:27:39 high:3.4078 low:3.3571 name:Dólar Australiano/Real Brasileiro pctChange:1.51 timestamp:1714699659 varBid:0.0507]
+2024/05/02 22:28:15 [services.Currency] currency: USD -> map[ask:5.1111 bid:5.1109 code:USD codein:BRL create_date:2024-05-02 22:27:41 high:5.1164 low:5.111 name:Dólar Americano/Real Brasileiro pctChange:-0.01 timestamp:1714699661 varBid:-0.0003]
+2024/05/02 22:28:15 [services.Currency] currency: BTC -> map[ask:306355 bid:305734 code:BTC codein:BRL create_date:2024-05-02 22:27:47 high:307835 low:297140 name:Bitcoin/Real Brasileiro pctChange:2.72 timestamp:1714699667 varBid:8093]
+2024/05/02 22:28:15 [services.Currency] currency: LTC -> map[ask:427.79 bid:412.64 code:LTC codein:BRL create_date:2024-05-02 22:27:46 high:454 low:408.32 name:Litecoin/Real Brasileiro pctChange:4.83 timestamp:1714699666 varBid:19.71]
+2024/05/02 22:28:15 [services.Currency] currency: XRP -> map[ask:2.68 bid:2.67 code:XRP codein:BRL create_date:2024-05-02 22:27:16 high:2.72 low:2.64 name:XRP/Real Brasileiro pctChange:-0.17 timestamp:1714699636 varBid:0]
+2024/05/02 22:28:15 [services.Currency] currency: USDT -> map[ask:5.29 bid:4.99 code:USD codein:BRLT create_date:2024-05-02 16:37:00 high:5.215 low:5.125 name:Dólar Americano/Real Brasileiro Turismo pctChange:-1.44 timestamp:1714678620 varBid:-0.075]
+2024/05/02 22:28:15 [services.Currency] currency: ILS -> map[ask:1.3724 bid:1.3723 code:ILS codein:BRL create_date:2024-05-02 22:02:06 high:1.3731 low:1.3722 name:Novo Shekel Israelense/Real Brasileiro pctChange:-1.01 timestamp:1714698126 varBid:-0.0141]
+2024/05/02 22:28:15 [services.Currency] currency: ETH -> map[ask:15507.5 bid:15436.21 code:ETH codein:BRL create_date:2024-05-02 22:27:13 high:15681.91 low:15184.31 name:Ethereum/Real Brasileiro pctChange:-0.1 timestamp:1714699633 varBid:-15.79]
+2024/05/02 22:28:15 [handlers.Currency] Updated 16 currencies
+[GIN] 2024/05/02 - 22:28:15 |[97;42m 200 [0m|   26.105882ms |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:28:15 [services.Currency] waiting 60 minutes to update
+2024/05/02 22:28:17 [handlers.Currency] Updating...
+2024/05/02 22:28:17 [services.Currency] Updating currency
+2024/05/02 22:28:17 [services.Currency] currency: USD -> map[ask:5.1111 bid:5.1109 code:USD codein:BRL create_date:2024-05-02 22:27:41 high:5.1164 low:5.111 name:Dólar Americano/Real Brasileiro pctChange:-0.01 timestamp:1714699661 varBid:-0.0003]
+2024/05/02 22:28:17 [services.Currency] currency: CAD -> map[ask:3.8085 bid:3.7744 code:CAD codein:BRL create_date:2024-05-02 22:27:41 high:3.7915 low:3.7388 name:Dólar Canadense/Real Brasileiro pctChange:1.41 timestamp:1714699661 varBid:0.0526]
+2024/05/02 22:28:17 [services.Currency] currency: BTC -> map[ask:306355 bid:305734 code:BTC codein:BRL create_date:2024-05-02 22:27:47 high:307835 low:297140 name:Bitcoin/Real Brasileiro pctChange:2.72 timestamp:1714699667 varBid:8093]
+2024/05/02 22:28:17 [services.Currency] currency: CNY -> map[ask:0.7058 bid:0.7058 code:CNY codein:BRL create_date:2024-05-02 21:01:02 high:0.7058 low:0.7058 name:Yuan Chinês/Real Brasileiro pctChange:-1.6 timestamp:1714694462 varBid:-0.0115]
+2024/05/02 22:28:17 [services.Currency] currency: ILS -> map[ask:1.3724 bid:1.3723 code:ILS codein:BRL create_date:2024-05-02 22:02:06 high:1.3731 low:1.3722 name:Novo Shekel Israelense/Real Brasileiro pctChange:-1.01 timestamp:1714698126 varBid:-0.0141]
+2024/05/02 22:28:17 [services.Currency] currency: ETH -> map[ask:15507.5 bid:15436.21 code:ETH codein:BRL create_date:2024-05-02 22:27:13 high:15681.91 low:15184.31 name:Ethereum/Real Brasileiro pctChange:-0.1 timestamp:1714699633 varBid:-15.79]
+2024/05/02 22:28:17 [services.Currency] currency: USDT -> map[ask:5.29 bid:4.99 code:USD codein:BRLT create_date:2024-05-02 16:37:00 high:5.215 low:5.125 name:Dólar Americano/Real Brasileiro Turismo pctChange:-1.44 timestamp:1714678620 varBid:-0.075]
+2024/05/02 22:28:17 [services.Currency] currency: ARS -> map[ask:0.0059 bid:0.0059 code:ARS codein:BRL create_date:2024-05-02 22:27:37 high:0.0059 low:0.0058 name:Peso Argentino/Real Brasileiro pctChange:1.72 timestamp:1714699657 varBid:0.0001]
+2024/05/02 22:28:17 [services.Currency] currency: EUR -> map[ask:5.5846 bid:5.5346 code:EUR codein:BRL create_date:2024-05-02 22:27:38 high:5.5596 low:5.4853 name:Euro/Real Brasileiro pctChange:1.35 timestamp:1714699658 varBid:0.0743]
+2024/05/02 22:28:17 [services.Currency] currency: XRP -> map[ask:2.68 bid:2.67 code:XRP codein:BRL create_date:2024-05-02 22:27:16 high:2.72 low:2.64 name:XRP/Real Brasileiro pctChange:-0.17 timestamp:1714699636 varBid:0]
+2024/05/02 22:28:17 [services.Currency] currency: DOGE -> map[ask:0.6842 bid:0.6842 code:DOGE codein:BRL create_date:2024-05-02 22:26:36 high:0.6857 low:0.6463 name:Dogecoin/Real Brasileiro pctChange:2.98 timestamp:1714699596 varBid:0.0198]
+2024/05/02 22:28:17 [services.Currency] currency: GBP -> map[ask:6.4226 bid:6.4061 code:GBP codein:BRL create_date:2024-05-02 22:27:43 high:6.4144 low:6.4021 name:Libra Esterlina/Real Brasileiro pctChange:0.11 timestamp:1714699663 varBid:0.0072]
+2024/05/02 22:28:17 [services.Currency] currency: LTC -> map[ask:427.79 bid:412.64 code:LTC codein:BRL create_date:2024-05-02 22:27:46 high:454 low:408.32 name:Litecoin/Real Brasileiro pctChange:4.83 timestamp:1714699666 varBid:19.71]
+2024/05/02 22:28:17 [services.Currency] currency: CHF -> map[ask:5.7213 bid:5.6701 code:CHF codein:BRL create_date:2024-05-02 22:27:30 high:5.6957 low:5.6172 name:Franco Suíço/Real Brasileiro pctChange:1.4 timestamp:1714699650 varBid:0.0785]
+2024/05/02 22:28:17 [services.Currency] currency: AUD -> map[ask:3.4231 bid:3.3924 code:AUD codein:BRL create_date:2024-05-02 22:27:39 high:3.4078 low:3.3571 name:Dólar Australiano/Real Brasileiro pctChange:1.51 timestamp:1714699659 varBid:0.0507]
+2024/05/02 22:28:17 [services.Currency] currency: JPY -> map[ask:0.03334 bid:0.03332 code:JPY codein:BRL create_date:2024-05-02 22:27:39 high:0.03342 low:0.03324 name:Iene Japonês/Real Brasileiro pctChange:0.3 timestamp:1714699659 varBid:0.0001]
+2024/05/02 22:28:17 [handlers.Currency] Updated 16 currencies
+2024/05/02 22:28:17 [services.Currency] waiting 60 minutes to update
+[GIN] 2024/05/02 - 22:28:17 |[97;42m 200 [0m|   25.398483ms |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:29:32 Stopping...
+2024/05/02 22:29:34 [main] Starting with config: {
+ "debug": true,
+ "currency_url": "https://economia.awesomeapi.com.br/all",
+ "server_address": "localhost",
+ "server_port": 8080,
+ "log_path": "log"
+}
+2024/05/02 22:29:34 ### CURRENCIES SERVICE ###
+2024/05/02 22:29:34 [services.Currency] Updating currency
+2024/05/02 22:29:34 [services.Currency] minimal interval not reached
+2024/05/02 22:29:34 [server] Starting server with config: &{Debug:true CurrencyURL:https://economia.awesomeapi.com.br/all ServerAddress:localhost ServerPort:8080 LogPath:log}
+2024/05/02 22:29:34 [server] Debug mode enabled
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /currency/:code           --> currencies/internal/handlers.(*Currency).GetByCode-fm (3 handlers)
+[GIN-debug] GET    /currency/                --> currencies/internal/handlers.(*Currency).Get-fm (3 handlers)
+[GIN-debug] POST   /currency/update          --> currencies/internal/handlers.(*Currency).Update-fm (3 handlers)
+2024/05/02 22:29:34 [server] starting server on localhost:8080
+2024/05/02 22:29:59 Stopping...
+2024/05/02 22:30:00 [main] Starting with config: {
+ "debug": true,
+ "currency_url": "https://economia.awesomeapi.com.br/all",
+ "server_address": "localhost",
+ "server_port": 8080,
+ "log_path": "log"
+}
+2024/05/02 22:30:00 ### CURRENCIES SERVICE ###
+2024/05/02 22:30:00 [services.Currency] Updating currency
+2024/05/02 22:30:00 [services.Currency] minimal interval not reached
+2024/05/02 22:30:00 [server] Starting server with config: &{Debug:true CurrencyURL:https://economia.awesomeapi.com.br/all ServerAddress:localhost ServerPort:8080 LogPath:log}
+2024/05/02 22:30:00 [server] Debug mode enabled
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /currency/:code           --> currencies/internal/handlers.(*Currency).GetByCode-fm (3 handlers)
+[GIN-debug] GET    /currency/                --> currencies/internal/handlers.(*Currency).Get-fm (3 handlers)
+[GIN-debug] POST   /currency/update          --> currencies/internal/handlers.(*Currency).Update-fm (3 handlers)
+2024/05/02 22:30:00 [server] starting server on localhost:8080
+2024/05/02 22:31:54 Stopping...
+2024/05/02 22:32:58 [main] Starting with config: {
+ "debug": true,
+ "currency_url": "https://economia.awesomeapi.com.br/all",
+ "server_address": "localhost",
+ "server_port": 8080,
+ "log_path": "log"
+}
+2024/05/02 22:32:58 ### CURRENCIES SERVICE ###
+2024/05/02 22:32:58 [services.Currency] Updating currency
+2024/05/02 22:32:58 [services.Currency] Minimal interval not reached, wait for 2024-05-01T23:32:58-03:00
+2024/05/02 22:32:58 [server] Starting server with config: &{Debug:true CurrencyURL:https://economia.awesomeapi.com.br/all ServerAddress:localhost ServerPort:8080 LogPath:log}
+2024/05/02 22:32:58 [server] Debug mode enabled
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /currency/:code           --> currencies/internal/handlers.(*Currency).GetByCode-fm (3 handlers)
+[GIN-debug] GET    /currency/                --> currencies/internal/handlers.(*Currency).Get-fm (3 handlers)
+[GIN-debug] POST   /currency/update          --> currencies/internal/handlers.(*Currency).Update-fm (3 handlers)
+2024/05/02 22:32:58 [server] starting server on localhost:8080
+2024/05/02 22:34:10 Stopping...
+2024/05/02 22:34:11 [main] Starting with config: {
+ "debug": true,
+ "currency_url": "https://economia.awesomeapi.com.br/all",
+ "server_address": "localhost",
+ "server_port": 8080,
+ "log_path": "log"
+}
+2024/05/02 22:34:11 ### CURRENCIES SERVICE ###
+2024/05/02 22:34:11 [services.Currency] Updating currency
+2024/05/02 22:34:11 [services.Currency] currency: CHF -> map[ask:5.7213 bid:5.6701 code:CHF codein:BRL create_date:2024-05-02 22:33:33 high:5.6957 low:5.6172 name:Franco Suíço/Real Brasileiro pctChange:1.4 timestamp:1714700013 varBid:0.0785]
+2024/05/02 22:34:11 [services.Currency] currency: XRP -> map[ask:2.69 bid:2.68 code:XRP codein:BRL create_date:2024-05-02 22:32:44 high:2.71 low:2.64 name:XRP/Real Brasileiro pctChange:-0.17 timestamp:1714699964 varBid:0]
+2024/05/02 22:34:11 [services.Currency] currency: AUD -> map[ask:3.4231 bid:3.3924 code:AUD codein:BRL create_date:2024-05-02 22:33:23 high:3.4078 low:3.3571 name:Dólar Australiano/Real Brasileiro pctChange:1.51 timestamp:1714700003 varBid:0.0507]
+2024/05/02 22:34:11 [services.Currency] currency: ILS -> map[ask:1.3724 bid:1.3724 code:ILS codein:BRL create_date:2024-05-02 22:34:05 high:1.3731 low:1.3719 name:Novo Shekel Israelense/Real Brasileiro pctChange:-1.01 timestamp:1714700045 varBid:-0.014]
+2024/05/02 22:34:11 [services.Currency] currency: DOGE -> map[ask:0.6842 bid:0.6842 code:DOGE codein:BRL create_date:2024-05-02 22:26:36 high:0.6857 low:0.6463 name:Dogecoin/Real Brasileiro pctChange:2.98 timestamp:1714699596 varBid:0.0198]
+2024/05/02 22:34:11 [services.Currency] currency: BTC -> map[ask:306040 bid:305689 code:BTC codein:BRL create_date:2024-05-02 22:33:47 high:307835 low:297140 name:Bitcoin/Real Brasileiro pctChange:2.58 timestamp:1714700027 varBid:7689]
+2024/05/02 22:34:11 [services.Currency] currency: LTC -> map[ask:427.68 bid:413.04 code:LTC codein:BRL create_date:2024-05-02 22:33:44 high:454 low:408.32 name:Litecoin/Real Brasileiro pctChange:1.13 timestamp:1714700024 varBid:4.62]
+2024/05/02 22:34:11 [services.Currency] currency: ARS -> map[ask:0.0059 bid:0.0059 code:ARS codein:BRL create_date:2024-05-02 22:33:22 high:0.0059 low:0.0058 name:Peso Argentino/Real Brasileiro pctChange:1.72 timestamp:1714700002 varBid:0.0001]
+2024/05/02 22:34:11 [services.Currency] currency: EUR -> map[ask:5.5846 bid:5.5346 code:EUR codein:BRL create_date:2024-05-02 22:34:02 high:5.5596 low:5.4853 name:Euro/Real Brasileiro pctChange:1.35 timestamp:1714700042 varBid:0.0743]
+2024/05/02 22:34:11 [services.Currency] currency: JPY -> map[ask:0.03334 bid:0.03332 code:JPY codein:BRL create_date:2024-05-02 22:34:05 high:0.03342 low:0.03324 name:Iene Japonês/Real Brasileiro pctChange:0.3 timestamp:1714700045 varBid:0.0001]
+2024/05/02 22:34:11 [services.Currency] currency: USD -> map[ask:5.1111 bid:5.1109 code:USD codein:BRL create_date:2024-05-02 22:34:01 high:5.1164 low:5.111 name:Dólar Americano/Real Brasileiro pctChange:-0.01 timestamp:1714700041 varBid:-0.0003]
+2024/05/02 22:34:11 [services.Currency] currency: USDT -> map[ask:5.29 bid:4.99 code:USD codein:BRLT create_date:2024-05-02 16:37:00 high:5.215 low:5.125 name:Dólar Americano/Real Brasileiro Turismo pctChange:-1.44 timestamp:1714678620 varBid:-0.075]
+2024/05/02 22:34:11 [services.Currency] currency: CNY -> map[ask:0.7058 bid:0.7058 code:CNY codein:BRL create_date:2024-05-02 21:01:02 high:0.7058 low:0.7058 name:Yuan Chinês/Real Brasileiro pctChange:-1.6 timestamp:1714694462 varBid:-0.0115]
+2024/05/02 22:34:11 [services.Currency] currency: ETH -> map[ask:15516.14 bid:15453.27 code:ETH codein:BRL create_date:2024-05-02 22:33:55 high:15681.91 low:15184.31 name:Ethereum/Real Brasileiro pctChange:-0.1 timestamp:1714700035 varBid:-15.79]
+2024/05/02 22:34:11 [services.Currency] currency: CAD -> map[ask:3.8085 bid:3.7744 code:CAD codein:BRL create_date:2024-05-02 22:34:05 high:3.7915 low:3.7388 name:Dólar Canadense/Real Brasileiro pctChange:1.41 timestamp:1714700045 varBid:0.0526]
+2024/05/02 22:34:11 [services.Currency] currency: GBP -> map[ask:6.4226 bid:6.4061 code:GBP codein:BRL create_date:2024-05-02 22:33:14 high:6.4144 low:6.4021 name:Libra Esterlina/Real Brasileiro pctChange:0.11 timestamp:1714699994 varBid:0.0072]
+2024/05/02 22:34:11 [server] Starting server with config: &{Debug:true CurrencyURL:https://economia.awesomeapi.com.br/all ServerAddress:localhost ServerPort:8080 LogPath:log}
+2024/05/02 22:34:11 [server] Debug mode enabled
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /currency/:code           --> currencies/internal/handlers.(*Currency).GetByCode-fm (3 handlers)
+2024/05/02 22:34:11 [services.Currency] waiting 60 minutes to update
+[GIN-debug] GET    /currency/                --> currencies/internal/handlers.(*Currency).Get-fm (3 handlers)
+[GIN-debug] POST   /currency/update          --> currencies/internal/handlers.(*Currency).Update-fm (3 handlers)
+2024/05/02 22:34:11 [server] starting server on localhost:8080
+2024/05/02 22:34:25 [handlers.Currency] Updating...
+2024/05/02 22:34:25 [services.Currency] Updating currency
+2024/05/02 22:34:25 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:34:11-03:00
+2024/05/02 22:34:25 [handlers.Currency] Updated 16 currencies
+[GIN] 2024/05/02 - 22:34:25 |[97;42m 200 [0m|      69.361µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:34:26 [handlers.Currency] Updating...
+2024/05/02 22:34:26 [services.Currency] Updating currency
+2024/05/02 22:34:26 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:34:11-03:00
+2024/05/02 22:34:26 [handlers.Currency] Updated 16 currencies
+[GIN] 2024/05/02 - 22:34:26 |[97;42m 200 [0m|     131.448µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:34:26 [handlers.Currency] Updating...
+2024/05/02 22:34:26 [services.Currency] Updating currency
+2024/05/02 22:34:26 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:34:11-03:00
+2024/05/02 22:34:26 [handlers.Currency] Updated 16 currencies
+[GIN] 2024/05/02 - 22:34:26 |[97;42m 200 [0m|       53.17µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:34:27 [handlers.Currency] Updating...
+2024/05/02 22:34:27 [services.Currency] Updating currency
+2024/05/02 22:34:27 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:34:11-03:00
+2024/05/02 22:34:27 [handlers.Currency] Updated 16 currencies
+[GIN] 2024/05/02 - 22:34:27 |[97;42m 200 [0m|      54.067µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:34:27 [handlers.Currency] Updating...
+2024/05/02 22:34:27 [services.Currency] Updating currency
+2024/05/02 22:34:27 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:34:11-03:00
+2024/05/02 22:34:27 [handlers.Currency] Updated 16 currencies
+[GIN] 2024/05/02 - 22:34:27 |[97;42m 200 [0m|      66.484µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:34:28 [handlers.Currency] Updating...
+2024/05/02 22:34:28 [services.Currency] Updating currency
+2024/05/02 22:34:28 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:34:11-03:00
+2024/05/02 22:34:28 [handlers.Currency] Updated 16 currencies
+[GIN] 2024/05/02 - 22:34:28 |[97;42m 200 [0m|     221.048µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:34:28 [handlers.Currency] Updating...
+2024/05/02 22:34:28 [services.Currency] Updating currency
+2024/05/02 22:34:28 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:34:11-03:00
+2024/05/02 22:34:28 [handlers.Currency] Updated 16 currencies
+[GIN] 2024/05/02 - 22:34:28 |[97;42m 200 [0m|      72.044µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:34:29 [handlers.Currency] Updating...
+2024/05/02 22:34:29 [services.Currency] Updating currency
+2024/05/02 22:34:29 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:34:11-03:00
+2024/05/02 22:34:29 [handlers.Currency] Updated 16 currencies
+[GIN] 2024/05/02 - 22:34:29 |[97;42m 200 [0m|      82.111µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:34:29 [handlers.Currency] Updating...
+2024/05/02 22:34:29 [services.Currency] Updating currency
+2024/05/02 22:34:29 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:34:11-03:00
+2024/05/02 22:34:29 [handlers.Currency] Updated 16 currencies
+[GIN] 2024/05/02 - 22:34:29 |[97;42m 200 [0m|       58.52µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:34:30 [handlers.Currency] Updating...
+2024/05/02 22:34:30 [services.Currency] Updating currency
+2024/05/02 22:34:30 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:34:11-03:00
+2024/05/02 22:34:30 [handlers.Currency] Updated 16 currencies
+[GIN] 2024/05/02 - 22:34:30 |[97;42m 200 [0m|      70.409µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:34:31 [handlers.Currency] Updating...
+2024/05/02 22:34:31 [services.Currency] Updating currency
+2024/05/02 22:34:31 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:34:11-03:00
+2024/05/02 22:34:31 [handlers.Currency] Updated 16 currencies
+[GIN] 2024/05/02 - 22:34:31 |[97;42m 200 [0m|      72.959µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:36:23 Stopping...
+2024/05/02 22:36:24 [main] Starting with config: {
+ "debug": true,
+ "currency_url": "https://economia.awesomeapi.com.br/all",
+ "server_address": "localhost",
+ "server_port": 8080,
+ "log_path": "log"
+}
+2024/05/02 22:36:24 ### CURRENCIES SERVICE ###
+2024/05/02 22:36:24 [services.Currency] Updating currency
+2024/05/02 22:36:24 [services.Currency] currency: EUR -> map[ask:5.5846 bid:5.5346 code:EUR codein:BRL create_date:2024-05-02 22:35:39 high:5.5596 low:5.4853 name:Euro/Real Brasileiro pctChange:1.35 timestamp:1714700139 varBid:0.0743]
+2024/05/02 22:36:24 [services.Currency] currency: CHF -> map[ask:5.7213 bid:5.6701 code:CHF codein:BRL create_date:2024-05-02 22:35:43 high:5.6957 low:5.6172 name:Franco Suíço/Real Brasileiro pctChange:1.4 timestamp:1714700143 varBid:0.0785]
+2024/05/02 22:36:24 [services.Currency] currency: CNY -> map[ask:0.7058 bid:0.7058 code:CNY codein:BRL create_date:2024-05-02 21:01:02 high:0.7058 low:0.7058 name:Yuan Chinês/Real Brasileiro pctChange:-1.6 timestamp:1714694462 varBid:-0.0115]
+2024/05/02 22:36:24 [services.Currency] currency: ETH -> map[ask:15544.94 bid:15468.67 code:ETH codein:BRL create_date:2024-05-02 22:35:23 high:15681.91 low:15184.31 name:Ethereum/Real Brasileiro pctChange:-0.1 timestamp:1714700123 varBid:-15.79]
+2024/05/02 22:36:24 [services.Currency] currency: XRP -> map[ask:2.68 bid:2.68 code:XRP codein:BRL create_date:2024-05-02 22:34:36 high:2.71 low:2.64 name:XRP/Real Brasileiro pctChange:-0.17 timestamp:1714700076 varBid:0]
+2024/05/02 22:36:24 [services.Currency] currency: USD -> map[ask:5.1111 bid:5.1109 code:USD codein:BRL create_date:2024-05-02 22:35:41 high:5.1164 low:5.111 name:Dólar Americano/Real Brasileiro pctChange:-0.01 timestamp:1714700141 varBid:-0.0003]
+2024/05/02 22:36:24 [services.Currency] currency: USDT -> map[ask:5.29 bid:4.99 code:USD codein:BRLT create_date:2024-05-02 16:37:00 high:5.215 low:5.125 name:Dólar Americano/Real Brasileiro Turismo pctChange:-1.44 timestamp:1714678620 varBid:-0.075]
+2024/05/02 22:36:24 [services.Currency] currency: GBP -> map[ask:6.4267 bid:6.4103 code:GBP codein:BRL create_date:2024-05-02 22:35:45 high:6.4185 low:6.4021 name:Libra Esterlina/Real Brasileiro pctChange:0.18 timestamp:1714700145 varBid:0.0113]
+2024/05/02 22:36:24 [services.Currency] currency: BTC -> map[ask:306040 bid:305689 code:BTC codein:BRL create_date:2024-05-02 22:33:47 high:307835 low:297140 name:Bitcoin/Real Brasileiro pctChange:2.58 timestamp:1714700027 varBid:7689]
+2024/05/02 22:36:24 [services.Currency] currency: AUD -> map[ask:3.4231 bid:3.3924 code:AUD codein:BRL create_date:2024-05-02 22:36:06 high:3.4078 low:3.3571 name:Dólar Australiano/Real Brasileiro pctChange:1.51 timestamp:1714700166 varBid:0.0507]
+2024/05/02 22:36:24 [services.Currency] currency: CAD -> map[ask:3.8085 bid:3.7744 code:CAD codein:BRL create_date:2024-05-02 22:35:41 high:3.7915 low:3.7388 name:Dólar Canadense/Real Brasileiro pctChange:1.41 timestamp:1714700141 varBid:0.0526]
+2024/05/02 22:36:24 [services.Currency] currency: LTC -> map[ask:427.68 bid:413.04 code:LTC codein:BRL create_date:2024-05-02 22:33:44 high:454 low:408.32 name:Litecoin/Real Brasileiro pctChange:1.13 timestamp:1714700024 varBid:4.62]
+2024/05/02 22:36:24 [services.Currency] currency: ILS -> map[ask:1.3724 bid:1.3724 code:ILS codein:BRL create_date:2024-05-02 22:36:04 high:1.3731 low:1.3719 name:Novo Shekel Israelense/Real Brasileiro pctChange:-0.88 timestamp:1714700164 varBid:-0.0122]
+2024/05/02 22:36:24 [services.Currency] currency: DOGE -> map[ask:0.6842 bid:0.6842 code:DOGE codein:BRL create_date:2024-05-02 22:26:36 high:0.6857 low:0.6463 name:Dogecoin/Real Brasileiro pctChange:2.98 timestamp:1714699596 varBid:0.0198]
+2024/05/02 22:36:24 [services.Currency] currency: ARS -> map[ask:0.0059 bid:0.0059 code:ARS codein:BRL create_date:2024-05-02 22:36:04 high:0.0059 low:0.0058 name:Peso Argentino/Real Brasileiro pctChange:1.72 timestamp:1714700164 varBid:0.0001]
+2024/05/02 22:36:24 [services.Currency] currency: JPY -> map[ask:0.03334 bid:0.03332 code:JPY codein:BRL create_date:2024-05-02 22:35:43 high:0.03342 low:0.03324 name:Iene Japonês/Real Brasileiro pctChange:0.3 timestamp:1714700143 varBid:0.0001]
+2024/05/02 22:36:24 [services.Currency] parsed data: [123 10 32 34 65 82 83 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 65 82 83 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 80 101 115 111 32 65 114 103 101 110 116 105 110 111 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 48 46 48 48 53 57 44 10 32 32 34 108 111 119 34 58 32 48 46 48 48 53 56 44 10 32 32 34 118 97 114 66 105 100 34 58 32 48 46 48 48 48 49 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 49 46 55 50 44 10 32 32 34 98 105 100 34 58 32 48 46 48 48 53 57 44 10 32 32 34 97 115 107 34 58 32 48 46 48 48 53 57 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 55 48 48 49 54 52 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 50 58 51 54 58 48 52 34 10 32 125 44 10 32 34 65 85 68 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 65 85 68 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 68 195 179 108 97 114 32 65 117 115 116 114 97 108 105 97 110 111 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 51 46 52 48 55 56 44 10 32 32 34 108 111 119 34 58 32 51 46 51 53 55 49 44 10 32 32 34 118 97 114 66 105 100 34 58 32 48 46 48 53 48 55 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 49 46 53 49 44 10 32 32 34 98 105 100 34 58 32 51 46 51 57 50 52 44 10 32 32 34 97 115 107 34 58 32 51 46 52 50 51 49 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 55 48 48 49 54 54 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 50 58 51 54 58 48 54 34 10 32 125 44 10 32 34 66 84 67 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 66 84 67 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 66 105 116 99 111 105 110 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 51 48 55 56 51 53 44 10 32 32 34 108 111 119 34 58 32 50 57 55 49 52 48 44 10 32 32 34 118 97 114 66 105 100 34 58 32 55 54 56 57 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 50 46 53 56 44 10 32 32 34 98 105 100 34 58 32 51 48 53 54 56 57 44 10 32 32 34 97 115 107 34 58 32 51 48 54 48 52 48 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 55 48 48 48 50 55 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 50 58 51 51 58 52 55 34 10 32 125 44 10 32 34 67 65 68 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 67 65 68 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 68 195 179 108 97 114 32 67 97 110 97 100 101 110 115 101 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 51 46 55 57 49 53 44 10 32 32 34 108 111 119 34 58 32 51 46 55 51 56 56 44 10 32 32 34 118 97 114 66 105 100 34 58 32 48 46 48 53 50 54 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 49 46 52 49 44 10 32 32 34 98 105 100 34 58 32 51 46 55 55 52 52 44 10 32 32 34 97 115 107 34 58 32 51 46 56 48 56 53 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 55 48 48 49 52 49 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 50 58 51 53 58 52 49 34 10 32 125 44 10 32 34 67 72 70 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 67 72 70 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 70 114 97 110 99 111 32 83 117 195 173 195 167 111 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 53 46 54 57 53 55 44 10 32 32 34 108 111 119 34 58 32 53 46 54 49 55 50 44 10 32 32 34 118 97 114 66 105 100 34 58 32 48 46 48 55 56 53 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 49 46 52 44 10 32 32 34 98 105 100 34 58 32 53 46 54 55 48 49 44 10 32 32 34 97 115 107 34 58 32 53 46 55 50 49 51 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 55 48 48 49 52 51 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 50 58 51 53 58 52 51 34 10 32 125 44 10 32 34 67 78 89 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 67 78 89 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 89 117 97 110 32 67 104 105 110 195 170 115 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 48 46 55 48 53 56 44 10 32 32 34 108 111 119 34 58 32 48 46 55 48 53 56 44 10 32 32 34 118 97 114 66 105 100 34 58 32 45 48 46 48 49 49 53 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 45 49 46 54 44 10 32 32 34 98 105 100 34 58 32 48 46 55 48 53 56 44 10 32 32 34 97 115 107 34 58 32 48 46 55 48 53 56 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 54 57 52 52 54 50 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 49 58 48 49 58 48 50 34 10 32 125 44 10 32 34 68 79 71 69 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 68 79 71 69 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 68 111 103 101 99 111 105 110 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 48 46 54 56 53 55 44 10 32 32 34 108 111 119 34 58 32 48 46 54 52 54 51 44 10 32 32 34 118 97 114 66 105 100 34 58 32 48 46 48 49 57 56 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 50 46 57 56 44 10 32 32 34 98 105 100 34 58 32 48 46 54 56 52 50 44 10 32 32 34 97 115 107 34 58 32 48 46 54 56 52 50 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 54 57 57 53 57 54 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 50 58 50 54 58 51 54 34 10 32 125 44 10 32 34 69 84 72 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 69 84 72 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 69 116 104 101 114 101 117 109 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 49 53 54 56 49 46 57 49 44 10 32 32 34 108 111 119 34 58 32 49 53 49 56 52 46 51 49 44 10 32 32 34 118 97 114 66 105 100 34 58 32 45 49 53 46 55 57 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 45 48 46 49 44 10 32 32 34 98 105 100 34 58 32 49 53 52 54 56 46 54 55 44 10 32 32 34 97 115 107 34 58 32 49 53 53 52 52 46 57 52 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 55 48 48 49 50 51 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 50 58 51 53 58 50 51 34 10 32 125 44 10 32 34 69 85 82 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 69 85 82 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 69 117 114 111 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 53 46 53 53 57 54 44 10 32 32 34 108 111 119 34 58 32 53 46 52 56 53 51 44 10 32 32 34 118 97 114 66 105 100 34 58 32 48 46 48 55 52 51 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 49 46 51 53 44 10 32 32 34 98 105 100 34 58 32 53 46 53 51 52 54 44 10 32 32 34 97 115 107 34 58 32 53 46 53 56 52 54 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 55 48 48 49 51 57 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 50 58 51 53 58 51 57 34 10 32 125 44 10 32 34 71 66 80 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 71 66 80 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 76 105 98 114 97 32 69 115 116 101 114 108 105 110 97 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 54 46 52 49 56 53 44 10 32 32 34 108 111 119 34 58 32 54 46 52 48 50 49 44 10 32 32 34 118 97 114 66 105 100 34 58 32 48 46 48 49 49 51 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 48 46 49 56 44 10 32 32 34 98 105 100 34 58 32 54 46 52 49 48 51 44 10 32 32 34 97 115 107 34 58 32 54 46 52 50 54 55 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 55 48 48 49 52 53 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 50 58 51 53 58 52 53 34 10 32 125 44 10 32 34 73 76 83 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 73 76 83 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 78 111 118 111 32 83 104 101 107 101 108 32 73 115 114 97 101 108 101 110 115 101 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 49 46 51 55 51 49 44 10 32 32 34 108 111 119 34 58 32 49 46 51 55 49 57 44 10 32 32 34 118 97 114 66 105 100 34 58 32 45 48 46 48 49 50 50 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 45 48 46 56 56 44 10 32 32 34 98 105 100 34 58 32 49 46 51 55 50 52 44 10 32 32 34 97 115 107 34 58 32 49 46 51 55 50 52 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 55 48 48 49 54 52 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 50 58 51 54 58 48 52 34 10 32 125 44 10 32 34 74 80 89 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 74 80 89 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 73 101 110 101 32 74 97 112 111 110 195 170 115 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 48 46 48 51 51 52 50 44 10 32 32 34 108 111 119 34 58 32 48 46 48 51 51 50 52 44 10 32 32 34 118 97 114 66 105 100 34 58 32 48 46 48 48 48 49 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 48 46 51 44 10 32 32 34 98 105 100 34 58 32 48 46 48 51 51 51 50 44 10 32 32 34 97 115 107 34 58 32 48 46 48 51 51 51 52 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 55 48 48 49 52 51 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 50 58 51 53 58 52 51 34 10 32 125 44 10 32 34 76 84 67 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 76 84 67 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 76 105 116 101 99 111 105 110 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 52 53 52 44 10 32 32 34 108 111 119 34 58 32 52 48 56 46 51 50 44 10 32 32 34 118 97 114 66 105 100 34 58 32 52 46 54 50 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 49 46 49 51 44 10 32 32 34 98 105 100 34 58 32 52 49 51 46 48 52 44 10 32 32 34 97 115 107 34 58 32 52 50 55 46 54 56 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 55 48 48 48 50 52 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 50 58 51 51 58 52 52 34 10 32 125 44 10 32 34 85 83 68 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 85 83 68 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 68 195 179 108 97 114 32 65 109 101 114 105 99 97 110 111 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 53 46 49 49 54 52 44 10 32 32 34 108 111 119 34 58 32 53 46 49 49 49 44 10 32 32 34 118 97 114 66 105 100 34 58 32 45 48 46 48 48 48 51 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 45 48 46 48 49 44 10 32 32 34 98 105 100 34 58 32 53 46 49 49 48 57 44 10 32 32 34 97 115 107 34 58 32 53 46 49 49 49 49 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 55 48 48 49 52 49 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 50 58 51 53 58 52 49 34 10 32 125 44 10 32 34 85 83 68 84 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 85 83 68 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 84 34 44 10 32 32 34 110 97 109 101 34 58 32 34 68 195 179 108 97 114 32 65 109 101 114 105 99 97 110 111 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 32 84 117 114 105 115 109 111 34 44 10 32 32 34 104 105 103 104 34 58 32 53 46 50 49 53 44 10 32 32 34 108 111 119 34 58 32 53 46 49 50 53 44 10 32 32 34 118 97 114 66 105 100 34 58 32 45 48 46 48 55 53 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 45 49 46 52 52 44 10 32 32 34 98 105 100 34 58 32 52 46 57 57 44 10 32 32 34 97 115 107 34 58 32 53 46 50 57 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 54 55 56 54 50 48 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 49 54 58 51 55 58 48 48 34 10 32 125 44 10 32 34 88 82 80 34 58 32 123 10 32 32 34 99 111 100 101 34 58 32 34 88 82 80 34 44 10 32 32 34 99 111 100 101 105 110 34 58 32 34 66 82 76 34 44 10 32 32 34 110 97 109 101 34 58 32 34 88 82 80 47 82 101 97 108 32 66 114 97 115 105 108 101 105 114 111 34 44 10 32 32 34 104 105 103 104 34 58 32 50 46 55 49 44 10 32 32 34 108 111 119 34 58 32 50 46 54 52 44 10 32 32 34 112 99 116 67 104 97 110 103 101 34 58 32 45 48 46 49 55 44 10 32 32 34 98 105 100 34 58 32 50 46 54 56 44 10 32 32 34 97 115 107 34 58 32 50 46 54 56 44 10 32 32 34 116 105 109 101 115 116 97 109 112 34 58 32 34 49 55 49 52 55 48 48 48 55 54 34 44 10 32 32 34 99 114 101 97 116 101 95 100 97 116 101 34 58 32 34 50 48 50 52 45 48 53 45 48 50 32 50 50 58 51 52 58 51 54 34 10 32 125 10 125]
+2024/05/02 22:36:24 [server] Starting server with config: &{Debug:true CurrencyURL:https://economia.awesomeapi.com.br/all ServerAddress:localhost ServerPort:8080 LogPath:log}
+2024/05/02 22:36:24 [server] Debug mode enabled
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /currency/:code           --> currencies/internal/handlers.(*Currency).GetByCode-fm (3 handlers)
+[GIN-debug] GET    /currency/                --> currencies/internal/handlers.(*Currency).Get-fm (3 handlers)
+[GIN-debug] POST   /currency/update          --> currencies/internal/handlers.(*Currency).Update-fm (3 handlers)
+2024/05/02 22:36:24 [services.Currency] waiting 60 minutes to update
+2024/05/02 22:36:24 [server] starting server on localhost:8080
+2024/05/02 22:36:50 Stopping...
+2024/05/02 22:36:52 [main] Starting with config: {
+ "debug": true,
+ "currency_url": "https://economia.awesomeapi.com.br/all",
+ "server_address": "localhost",
+ "server_port": 8080,
+ "log_path": "log"
+}
+2024/05/02 22:36:52 ### CURRENCIES SERVICE ###
+2024/05/02 22:36:52 [services.Currency] Updating currency
+2024/05/02 22:36:52 [services.Currency] currency: CAD -> map[ask:3.8085 bid:3.7744 code:CAD codein:BRL create_date:2024-05-02 22:36:34 high:3.7915 low:3.7388 name:Dólar Canadense/Real Brasileiro pctChange:1.41 timestamp:1714700194 varBid:0.0526]
+2024/05/02 22:36:52 [services.Currency] currency: CNY -> map[ask:0.7058 bid:0.7058 code:CNY codein:BRL create_date:2024-05-02 21:01:02 high:0.7058 low:0.7058 name:Yuan Chinês/Real Brasileiro pctChange:-1.6 timestamp:1714694462 varBid:-0.0115]
+2024/05/02 22:36:52 [services.Currency] currency: ILS -> map[ask:1.3724 bid:1.3724 code:ILS codein:BRL create_date:2024-05-02 22:36:04 high:1.3731 low:1.3719 name:Novo Shekel Israelense/Real Brasileiro pctChange:-0.88 timestamp:1714700164 varBid:-0.0122]
+2024/05/02 22:36:52 [services.Currency] currency: USDT -> map[ask:5.29 bid:4.99 code:USD codein:BRLT create_date:2024-05-02 16:37:00 high:5.215 low:5.125 name:Dólar Americano/Real Brasileiro Turismo pctChange:-1.44 timestamp:1714678620 varBid:-0.075]
+2024/05/02 22:36:52 [services.Currency] currency: USD -> map[ask:5.1111 bid:5.1109 code:USD codein:BRL create_date:2024-05-02 22:36:41 high:5.1164 low:5.111 name:Dólar Americano/Real Brasileiro pctChange:-0.01 timestamp:1714700201 varBid:-0.0003]
+2024/05/02 22:36:52 [services.Currency] currency: CHF -> map[ask:5.7213 bid:5.6701 code:CHF codein:BRL create_date:2024-05-02 22:36:38 high:5.6957 low:5.6172 name:Franco Suíço/Real Brasileiro pctChange:1.4 timestamp:1714700198 varBid:0.0785]
+2024/05/02 22:36:52 [services.Currency] currency: XRP -> map[ask:2.69 bid:2.68 code:XRP codein:BRL create_date:2024-05-02 22:36:32 high:2.71 low:2.64 name:XRP/Real Brasileiro pctChange:-0.17 timestamp:1714700192 varBid:0]
+2024/05/02 22:36:52 [services.Currency] currency: DOGE -> map[ask:0.6855 bid:0.6855 code:DOGE codein:BRL create_date:2024-05-02 22:36:37 high:0.6857 low:0.6463 name:Dogecoin/Real Brasileiro pctChange:3.18 timestamp:1714700197 varBid:0.0212]
+2024/05/02 22:36:52 [services.Currency] currency: EUR -> map[ask:5.5846 bid:5.5346 code:EUR codein:BRL create_date:2024-05-02 22:36:34 high:5.5596 low:5.4853 name:Euro/Real Brasileiro pctChange:1.35 timestamp:1714700194 varBid:0.0743]
+2024/05/02 22:36:52 [services.Currency] currency: ARS -> map[ask:0.0059 bid:0.0059 code:ARS codein:BRL create_date:2024-05-02 22:36:42 high:0.0059 low:0.0058 name:Peso Argentino/Real Brasileiro pctChange:1.72 timestamp:1714700202 varBid:0.0001]
+2024/05/02 22:36:52 [services.Currency] currency: BTC -> map[ask:306093 bid:305689 code:BTC codein:BRL create_date:2024-05-02 22:36:20 high:307835 low:297140 name:Bitcoin/Real Brasileiro pctChange:2.72 timestamp:1714700180 varBid:8093]
+2024/05/02 22:36:52 [services.Currency] currency: LTC -> map[ask:427.68 bid:413.04 code:LTC codein:BRL create_date:2024-05-02 22:33:44 high:454 low:408.32 name:Litecoin/Real Brasileiro pctChange:1.13 timestamp:1714700024 varBid:4.62]
+2024/05/02 22:36:52 [services.Currency] currency: JPY -> map[ask:0.03334 bid:0.03332 code:JPY codein:BRL create_date:2024-05-02 22:36:38 high:0.03342 low:0.03324 name:Iene Japonês/Real Brasileiro pctChange:0.3 timestamp:1714700198 varBid:0.0001]
+2024/05/02 22:36:52 [services.Currency] currency: AUD -> map[ask:3.4231 bid:3.3924 code:AUD codein:BRL create_date:2024-05-02 22:36:27 high:3.4078 low:3.3571 name:Dólar Australiano/Real Brasileiro pctChange:1.51 timestamp:1714700187 varBid:0.0507]
+2024/05/02 22:36:52 [services.Currency] currency: ETH -> map[ask:15544.94 bid:15468.67 code:ETH codein:BRL create_date:2024-05-02 22:35:23 high:15681.91 low:15184.31 name:Ethereum/Real Brasileiro pctChange:-0.1 timestamp:1714700123 varBid:-15.79]
+2024/05/02 22:36:52 [services.Currency] currency: GBP -> map[ask:6.4267 bid:6.4103 code:GBP codein:BRL create_date:2024-05-02 22:36:40 high:6.4185 low:6.4021 name:Libra Esterlina/Real Brasileiro pctChange:0.18 timestamp:1714700200 varBid:0.0113]
+2024/05/02 22:36:52 [server] Starting server with config: &{Debug:true CurrencyURL:https://economia.awesomeapi.com.br/all ServerAddress:localhost ServerPort:8080 LogPath:log}
+2024/05/02 22:36:52 [server] Debug mode enabled
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /currency/:code           --> currencies/internal/handlers.(*Currency).GetByCode-fm (3 handlers)
+[GIN-debug] GET    /currency/                --> currencies/internal/handlers.(*Currency).Get-fm (3 handlers)
+2024/05/02 22:36:52 [services.Currency] waiting 60 minutes to update
+[GIN-debug] POST   /currency/update          --> currencies/internal/handlers.(*Currency).Update-fm (3 handlers)
+2024/05/02 22:36:52 [server] starting server on localhost:8080
+2024/05/02 22:37:00 Stopping...
+2024/05/02 22:37:01 [main] Starting with config: {
+ "debug": true,
+ "currency_url": "https://economia.awesomeapi.com.br/all",
+ "server_address": "localhost",
+ "server_port": 8080,
+ "log_path": "log"
+}
+2024/05/02 22:37:01 ### CURRENCIES SERVICE ###
+2024/05/02 22:37:01 [services.Currency] Updating currency
+2024/05/02 22:37:01 [services.Currency] currency: USD -> map[ask:5.1111 bid:5.1109 code:USD codein:BRL create_date:2024-05-02 22:36:41 high:5.1164 low:5.111 name:Dólar Americano/Real Brasileiro pctChange:-0.01 timestamp:1714700201 varBid:-0.0003]
+2024/05/02 22:37:01 [services.Currency] currency: CNY -> map[ask:0.7058 bid:0.7058 code:CNY codein:BRL create_date:2024-05-02 21:01:02 high:0.7058 low:0.7058 name:Yuan Chinês/Real Brasileiro pctChange:-1.6 timestamp:1714694462 varBid:-0.0115]
+2024/05/02 22:37:01 [services.Currency] currency: CAD -> map[ask:3.8085 bid:3.7744 code:CAD codein:BRL create_date:2024-05-02 22:36:34 high:3.7915 low:3.7388 name:Dólar Canadense/Real Brasileiro pctChange:1.41 timestamp:1714700194 varBid:0.0526]
+2024/05/02 22:37:01 [services.Currency] currency: ARS -> map[ask:0.0059 bid:0.0059 code:ARS codein:BRL create_date:2024-05-02 22:36:42 high:0.0059 low:0.0058 name:Peso Argentino/Real Brasileiro pctChange:1.72 timestamp:1714700202 varBid:0.0001]
+2024/05/02 22:37:01 [services.Currency] currency: BTC -> map[ask:306093 bid:305689 code:BTC codein:BRL create_date:2024-05-02 22:36:20 high:307835 low:297140 name:Bitcoin/Real Brasileiro pctChange:2.72 timestamp:1714700180 varBid:8093]
+2024/05/02 22:37:01 [services.Currency] currency: EUR -> map[ask:5.5846 bid:5.5346 code:EUR codein:BRL create_date:2024-05-02 22:36:34 high:5.5596 low:5.4853 name:Euro/Real Brasileiro pctChange:1.35 timestamp:1714700194 varBid:0.0743]
+2024/05/02 22:37:01 [services.Currency] currency: ILS -> map[ask:1.3724 bid:1.3724 code:ILS codein:BRL create_date:2024-05-02 22:36:04 high:1.3731 low:1.3719 name:Novo Shekel Israelense/Real Brasileiro pctChange:-0.88 timestamp:1714700164 varBid:-0.0122]
+2024/05/02 22:37:01 [services.Currency] currency: USDT -> map[ask:5.29 bid:4.99 code:USD codein:BRLT create_date:2024-05-02 16:37:00 high:5.215 low:5.125 name:Dólar Americano/Real Brasileiro Turismo pctChange:-1.44 timestamp:1714678620 varBid:-0.075]
+2024/05/02 22:37:01 [services.Currency] currency: CHF -> map[ask:5.7213 bid:5.6701 code:CHF codein:BRL create_date:2024-05-02 22:36:38 high:5.6957 low:5.6172 name:Franco Suíço/Real Brasileiro pctChange:1.4 timestamp:1714700198 varBid:0.0785]
+2024/05/02 22:37:01 [services.Currency] currency: AUD -> map[ask:3.4231 bid:3.3924 code:AUD codein:BRL create_date:2024-05-02 22:36:27 high:3.4078 low:3.3571 name:Dólar Australiano/Real Brasileiro pctChange:1.51 timestamp:1714700187 varBid:0.0507]
+2024/05/02 22:37:01 [services.Currency] currency: GBP -> map[ask:6.4267 bid:6.4103 code:GBP codein:BRL create_date:2024-05-02 22:36:40 high:6.4185 low:6.4021 name:Libra Esterlina/Real Brasileiro pctChange:0.18 timestamp:1714700200 varBid:0.0113]
+2024/05/02 22:37:01 [services.Currency] currency: LTC -> map[ask:427.68 bid:413.04 code:LTC codein:BRL create_date:2024-05-02 22:33:44 high:454 low:408.32 name:Litecoin/Real Brasileiro pctChange:1.13 timestamp:1714700024 varBid:4.62]
+2024/05/02 22:37:01 [services.Currency] currency: JPY -> map[ask:0.03334 bid:0.03332 code:JPY codein:BRL create_date:2024-05-02 22:36:38 high:0.03342 low:0.03324 name:Iene Japonês/Real Brasileiro pctChange:0.3 timestamp:1714700198 varBid:0.0001]
+2024/05/02 22:37:01 [services.Currency] currency: ETH -> map[ask:15544.94 bid:15468.67 code:ETH codein:BRL create_date:2024-05-02 22:35:23 high:15681.91 low:15184.31 name:Ethereum/Real Brasileiro pctChange:-0.1 timestamp:1714700123 varBid:-15.79]
+2024/05/02 22:37:01 [services.Currency] currency: XRP -> map[ask:2.69 bid:2.68 code:XRP codein:BRL create_date:2024-05-02 22:36:32 high:2.71 low:2.64 name:XRP/Real Brasileiro pctChange:-0.17 timestamp:1714700192 varBid:0]
+2024/05/02 22:37:01 [services.Currency] currency: DOGE -> map[ask:0.6855 bid:0.6855 code:DOGE codein:BRL create_date:2024-05-02 22:36:37 high:0.6857 low:0.6463 name:Dogecoin/Real Brasileiro pctChange:3.18 timestamp:1714700197 varBid:0.0212]
+2024/05/02 22:37:01 [server] Starting server with config: &{Debug:true CurrencyURL:https://economia.awesomeapi.com.br/all ServerAddress:localhost ServerPort:8080 LogPath:log}
+2024/05/02 22:37:01 [server] Debug mode enabled
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /currency/:code           --> currencies/internal/handlers.(*Currency).GetByCode-fm (3 handlers)
+[GIN-debug] GET    /currency/                --> currencies/internal/handlers.(*Currency).Get-fm (3 handlers)
+[GIN-debug] POST   /currency/update          --> currencies/internal/handlers.(*Currency).Update-fm (3 handlers)
+2024/05/02 22:37:01 [services.Currency] waiting 60 minutes to update
+2024/05/02 22:37:01 [server] starting server on localhost:8080
+[GIN-debug] redirecting request 301: /currency/ --> /currency/
+2024/05/02 22:37:17 [handlers.Currency] currencies: map[ARS:{
+ "code": "ARS",
+ "codein": "BRL",
+ "name": "Peso Argentino/Real Brasileiro",
+ "high": 0.0059,
+ "low": 0.0058,
+ "varBid": 0.0001,
+ "pctChange": 1.72,
+ "bid": 0.0059,
+ "ask": 0.0059,
+ "timestamp": "1714700202",
+ "create_date": "2024-05-02 22:36:42"
+} AUD:{
+ "code": "AUD",
+ "codein": "BRL",
+ "name": "Dólar Australiano/Real Brasileiro",
+ "high": 3.4078,
+ "low": 3.3571,
+ "varBid": 0.0507,
+ "pctChange": 1.51,
+ "bid": 3.3924,
+ "ask": 3.4231,
+ "timestamp": "1714700187",
+ "create_date": "2024-05-02 22:36:27"
+} BTC:{
+ "code": "BTC",
+ "codein": "BRL",
+ "name": "Bitcoin/Real Brasileiro",
+ "high": 307835,
+ "low": 297140,
+ "varBid": 8093,
+ "pctChange": 2.72,
+ "bid": 305689,
+ "ask": 306093,
+ "timestamp": "1714700180",
+ "create_date": "2024-05-02 22:36:20"
+} CAD:{
+ "code": "CAD",
+ "codein": "BRL",
+ "name": "Dólar Canadense/Real Brasileiro",
+ "high": 3.7915,
+ "low": 3.7388,
+ "varBid": 0.0526,
+ "pctChange": 1.41,
+ "bid": 3.7744,
+ "ask": 3.8085,
+ "timestamp": "1714700194",
+ "create_date": "2024-05-02 22:36:34"
+} CHF:{
+ "code": "CHF",
+ "codein": "BRL",
+ "name": "Franco Suíço/Real Brasileiro",
+ "high": 5.6957,
+ "low": 5.6172,
+ "varBid": 0.0785,
+ "pctChange": 1.4,
+ "bid": 5.6701,
+ "ask": 5.7213,
+ "timestamp": "1714700198",
+ "create_date": "2024-05-02 22:36:38"
+} CNY:{
+ "code": "CNY",
+ "codein": "BRL",
+ "name": "Yuan Chinês/Real Brasileiro",
+ "high": 0.7058,
+ "low": 0.7058,
+ "varBid": -0.0115,
+ "pctChange": -1.6,
+ "bid": 0.7058,
+ "ask": 0.7058,
+ "timestamp": "1714694462",
+ "create_date": "2024-05-02 21:01:02"
+} DOGE:{
+ "code": "DOGE",
+ "codein": "BRL",
+ "name": "Dogecoin/Real Brasileiro",
+ "high": 0.6857,
+ "low": 0.6463,
+ "varBid": 0.0212,
+ "pctChange": 3.18,
+ "bid": 0.6855,
+ "ask": 0.6855,
+ "timestamp": "1714700197",
+ "create_date": "2024-05-02 22:36:37"
+} ETH:{
+ "code": "ETH",
+ "codein": "BRL",
+ "name": "Ethereum/Real Brasileiro",
+ "high": 15681.91,
+ "low": 15184.31,
+ "varBid": -15.79,
+ "pctChange": -0.1,
+ "bid": 15468.67,
+ "ask": 15544.94,
+ "timestamp": "1714700123",
+ "create_date": "2024-05-02 22:35:23"
+} EUR:{
+ "code": "EUR",
+ "codein": "BRL",
+ "name": "Euro/Real Brasileiro",
+ "high": 5.5596,
+ "low": 5.4853,
+ "varBid": 0.0743,
+ "pctChange": 1.35,
+ "bid": 5.5346,
+ "ask": 5.5846,
+ "timestamp": "1714700194",
+ "create_date": "2024-05-02 22:36:34"
+} GBP:{
+ "code": "GBP",
+ "codein": "BRL",
+ "name": "Libra Esterlina/Real Brasileiro",
+ "high": 6.4185,
+ "low": 6.4021,
+ "varBid": 0.0113,
+ "pctChange": 0.18,
+ "bid": 6.4103,
+ "ask": 6.4267,
+ "timestamp": "1714700200",
+ "create_date": "2024-05-02 22:36:40"
+} ILS:{
+ "code": "ILS",
+ "codein": "BRL",
+ "name": "Novo Shekel Israelense/Real Brasileiro",
+ "high": 1.3731,
+ "low": 1.3719,
+ "varBid": -0.0122,
+ "pctChange": -0.88,
+ "bid": 1.3724,
+ "ask": 1.3724,
+ "timestamp": "1714700164",
+ "create_date": "2024-05-02 22:36:04"
+} JPY:{
+ "code": "JPY",
+ "codein": "BRL",
+ "name": "Iene Japonês/Real Brasileiro",
+ "high": 0.03342,
+ "low": 0.03324,
+ "varBid": 0.0001,
+ "pctChange": 0.3,
+ "bid": 0.03332,
+ "ask": 0.03334,
+ "timestamp": "1714700198",
+ "create_date": "2024-05-02 22:36:38"
+} LTC:{
+ "code": "LTC",
+ "codein": "BRL",
+ "name": "Litecoin/Real Brasileiro",
+ "high": 454,
+ "low": 408.32,
+ "varBid": 4.62,
+ "pctChange": 1.13,
+ "bid": 413.04,
+ "ask": 427.68,
+ "timestamp": "1714700024",
+ "create_date": "2024-05-02 22:33:44"
+} USD:{
+ "code": "USD",
+ "codein": "BRL",
+ "name": "Dólar Americano/Real Brasileiro",
+ "high": 5.1164,
+ "low": 5.111,
+ "varBid": -0.0003,
+ "pctChange": -0.01,
+ "bid": 5.1109,
+ "ask": 5.1111,
+ "timestamp": "1714700201",
+ "create_date": "2024-05-02 22:36:41"
+} USDT:{
+ "code": "USD",
+ "codein": "BRLT",
+ "name": "Dólar Americano/Real Brasileiro Turismo",
+ "high": 5.215,
+ "low": 5.125,
+ "varBid": -0.075,
+ "pctChange": -1.44,
+ "bid": 4.99,
+ "ask": 5.29,
+ "timestamp": "1714678620",
+ "create_date": "2024-05-02 16:37:00"
+} XRP:{
+ "code": "XRP",
+ "codein": "BRL",
+ "name": "XRP/Real Brasileiro",
+ "high": 2.71,
+ "low": 2.64,
+ "pctChange": -0.17,
+ "bid": 2.68,
+ "ask": 2.69,
+ "timestamp": "1714700192",
+ "create_date": "2024-05-02 22:36:32"
+}]
+[GIN] 2024/05/02 - 22:37:17 |[97;42m 200 [0m|     232.447µs |       127.0.0.1 |[97;44m GET     [0m "/currency/"
+2024/05/02 22:39:33 [handlers.Currency] currency: USD -> {
+ "code": "USD",
+ "codein": "BRL",
+ "name": "Dólar Americano/Real Brasileiro",
+ "high": 5.1164,
+ "low": 5.111,
+ "varBid": -0.0003,
+ "pctChange": -0.01,
+ "bid": 5.1109,
+ "ask": 5.1111,
+ "timestamp": "1714700201",
+ "create_date": "2024-05-02 22:36:41"
+}
+[GIN] 2024/05/02 - 22:39:33 |[97;42m 200 [0m|     138.523µs |       127.0.0.1 |[97;44m GET     [0m "/currency/USD"
+2024/05/02 22:41:11 Stopping...
+2024/05/02 22:41:12 [main] Starting with config: {
+ "debug": true,
+ "currency_url": "https://economia.awesomeapi.com.br/all",
+ "server_address": "localhost",
+ "server_port": 8080,
+ "log_path": "log"
+}
+2024/05/02 22:41:12 ### CURRENCIES SERVICE ###
+2024/05/02 22:41:12 [services.Currency] Updating currency
+2024/05/02 22:41:12 [services.Currency] currency: USD -> map[ask:5.1111 bid:5.1109 code:USD codein:BRL create_date:2024-05-02 22:40:21 high:5.1164 low:5.111 name:Dólar Americano/Real Brasileiro pctChange:-0.01 timestamp:1714700421 varBid:-0.0003]
+2024/05/02 22:41:12 [services.Currency] currency: CAD -> map[ask:3.8085 bid:3.7744 code:CAD codein:BRL create_date:2024-05-02 22:40:44 high:3.7915 low:3.7388 name:Dólar Canadense/Real Brasileiro pctChange:1.41 timestamp:1714700444 varBid:0.0526]
+2024/05/02 22:41:12 [services.Currency] currency: ETH -> map[ask:15538.63 bid:15463.33 code:ETH codein:BRL create_date:2024-05-02 22:40:33 high:15681.91 low:15184.31 name:Ethereum/Real Brasileiro pctChange:0.2 timestamp:1714700433 varBid:30.96]
+2024/05/02 22:41:12 [services.Currency] currency: BTC -> map[ask:306039 bid:305502 code:BTC codein:BRL create_date:2024-05-02 22:40:52 high:307835 low:297534 name:Bitcoin/Real Brasileiro pctChange:2.71 timestamp:1714700452 varBid:8063]
+2024/05/02 22:41:12 [services.Currency] currency: CNY -> map[ask:0.7058 bid:0.7058 code:CNY codein:BRL create_date:2024-05-02 21:01:02 high:0.7058 low:0.7058 name:Yuan Chinês/Real Brasileiro pctChange:-1.6 timestamp:1714694462 varBid:-0.0115]
+2024/05/02 22:41:12 [services.Currency] currency: ARS -> map[ask:0.0059 bid:0.0059 code:ARS codein:BRL create_date:2024-05-02 22:40:34 high:0.0059 low:0.0058 name:Peso Argentino/Real Brasileiro pctChange:1.72 timestamp:1714700434 varBid:0.0001]
+2024/05/02 22:41:12 [services.Currency] currency: DOGE -> map[ask:0.6855 bid:0.6855 code:DOGE codein:BRL create_date:2024-05-02 22:36:37 high:0.6857 low:0.6463 name:Dogecoin/Real Brasileiro pctChange:3.18 timestamp:1714700197 varBid:0.0212]
+2024/05/02 22:41:12 [services.Currency] currency: ILS -> map[ask:1.3724 bid:1.3724 code:ILS codein:BRL create_date:2024-05-02 22:40:05 high:1.3731 low:1.3719 name:Novo Shekel Israelense/Real Brasileiro pctChange:-0.88 timestamp:1714700405 varBid:-0.0122]
+2024/05/02 22:41:12 [services.Currency] currency: USDT -> map[ask:5.29 bid:4.99 code:USD codein:BRLT create_date:2024-05-02 16:37:00 high:5.215 low:5.125 name:Dólar Americano/Real Brasileiro Turismo pctChange:-1.44 timestamp:1714678620 varBid:-0.075]
+2024/05/02 22:41:12 [services.Currency] currency: GBP -> map[ask:6.4267 bid:6.4103 code:GBP codein:BRL create_date:2024-05-02 22:40:19 high:6.4185 low:6.4021 name:Libra Esterlina/Real Brasileiro pctChange:0.18 timestamp:1714700419 varBid:0.0113]
+2024/05/02 22:41:12 [services.Currency] currency: LTC -> map[ask:427.53 bid:413.43 code:LTC codein:BRL create_date:2024-05-02 22:40:54 high:454 low:408.34 name:Litecoin/Real Brasileiro pctChange:1.13 timestamp:1714700454 varBid:4.62]
+2024/05/02 22:41:12 [services.Currency] currency: EUR -> map[ask:5.5846 bid:5.5346 code:EUR codein:BRL create_date:2024-05-02 22:40:32 high:5.5596 low:5.4853 name:Euro/Real Brasileiro pctChange:1.35 timestamp:1714700432 varBid:0.0743]
+2024/05/02 22:41:12 [services.Currency] currency: JPY -> map[ask:0.03334 bid:0.03332 code:JPY codein:BRL create_date:2024-05-02 22:40:17 high:0.03342 low:0.03324 name:Iene Japonês/Real Brasileiro pctChange:0.3 timestamp:1714700417 varBid:0.0001]
+2024/05/02 22:41:12 [services.Currency] currency: CHF -> map[ask:5.7213 bid:5.6701 code:CHF codein:BRL create_date:2024-05-02 22:40:30 high:5.6957 low:5.6172 name:Franco Suíço/Real Brasileiro pctChange:1.4 timestamp:1714700430 varBid:0.0785]
+2024/05/02 22:41:12 [services.Currency] currency: AUD -> map[ask:3.4231 bid:3.3924 code:AUD codein:BRL create_date:2024-05-02 22:40:20 high:3.4078 low:3.3571 name:Dólar Australiano/Real Brasileiro pctChange:1.51 timestamp:1714700420 varBid:0.0507]
+2024/05/02 22:41:12 [services.Currency] currency: XRP -> map[ask:2.69 bid:2.68 code:XRP codein:BRL create_date:2024-05-02 22:40:10 high:2.71 low:2.64 name:XRP/Real Brasileiro pctChange:-0.17 timestamp:1714700410 varBid:0]
+2024/05/02 22:41:12 [server] Starting server with config: &{Debug:true CurrencyURL:https://economia.awesomeapi.com.br/all ServerAddress:localhost ServerPort:8080 LogPath:log}
+2024/05/02 22:41:12 [server] Debug mode enabled
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /currency/:code           --> currencies/internal/handlers.(*Currency).GetByCode-fm (3 handlers)
+[GIN-debug] GET    /currency/                --> currencies/internal/handlers.(*Currency).Get-fm (3 handlers)
+[GIN-debug] POST   /currency/update          --> currencies/internal/handlers.(*Currency).Update-fm (3 handlers)
+2024/05/02 22:41:12 [server] starting server on localhost:8080
+2024/05/02 22:41:12 [services.Currency] waiting 60 minutes to update
+[GIN-debug] redirecting request 301: /currency/ --> /currency/
+[GIN] 2024/05/02 - 22:41:17 |[97;42m 200 [0m|     154.751µs |       127.0.0.1 |[97;44m GET     [0m "/currency/"
+2024/05/02 22:41:24 [handlers.Currency] currency: USD -> {
+ "code": "USD",
+ "codein": "BRL",
+ "name": "Dólar Americano/Real Brasileiro",
+ "high": 5.1164,
+ "low": 5.111,
+ "varBid": -0.0003,
+ "pctChange": -0.01,
+ "bid": 5.1109,
+ "ask": 5.1111,
+ "timestamp": "1714700421",
+ "create_date": "2024-05-02 22:40:21"
+}
+[GIN] 2024/05/02 - 22:41:24 |[97;42m 200 [0m|      79.518µs |       127.0.0.1 |[97;44m GET     [0m "/currency/USD"
+2024/05/02 22:41:44 Stopping...
+2024/05/02 22:41:45 [main] Starting with config: {
+ "debug": true,
+ "currency_url": "https://economia.awesomeapi.com.br/all",
+ "server_address": "localhost",
+ "server_port": 8080,
+ "log_path": "log"
+}
+2024/05/02 22:41:45 ### CURRENCIES SERVICE ###
+2024/05/02 22:41:45 [services.Currency] Updating currency
+2024/05/02 22:41:45 [services.Currency] currency: ARS -> map[ask:0.0059 bid:0.0059 code:ARS codein:BRL create_date:2024-05-02 22:41:08 high:0.0059 low:0.0058 name:Peso Argentino/Real Brasileiro pctChange:1.72 timestamp:1714700468 varBid:0.0001]
+2024/05/02 22:41:45 [services.Currency] currency: LTC -> map[ask:427.53 bid:413.46 code:LTC codein:BRL create_date:2024-05-02 22:41:21 high:454 low:408.34 name:Litecoin/Real Brasileiro pctChange:1.13 timestamp:1714700481 varBid:4.62]
+2024/05/02 22:41:45 [services.Currency] currency: CHF -> map[ask:5.7213 bid:5.6701 code:CHF codein:BRL create_date:2024-05-02 22:41:04 high:5.6957 low:5.6172 name:Franco Suíço/Real Brasileiro pctChange:1.4 timestamp:1714700464 varBid:0.0785]
+2024/05/02 22:41:45 [services.Currency] currency: AUD -> map[ask:3.4231 bid:3.3924 code:AUD codein:BRL create_date:2024-05-02 22:41:15 high:3.4078 low:3.3571 name:Dólar Australiano/Real Brasileiro pctChange:1.51 timestamp:1714700475 varBid:0.0507]
+2024/05/02 22:41:45 [services.Currency] currency: ILS -> map[ask:1.3724 bid:1.3724 code:ILS codein:BRL create_date:2024-05-02 22:40:05 high:1.3731 low:1.3719 name:Novo Shekel Israelense/Real Brasileiro pctChange:-0.88 timestamp:1714700405 varBid:-0.0122]
+2024/05/02 22:41:45 [services.Currency] currency: XRP -> map[ask:2.68 bid:2.68 code:XRP codein:BRL create_date:2024-05-02 22:41:09 high:2.71 low:2.64 name:XRP/Real Brasileiro pctChange:-0.17 timestamp:1714700469 varBid:0]
+2024/05/02 22:41:45 [services.Currency] currency: USDT -> map[ask:5.29 bid:4.99 code:USD codein:BRLT create_date:2024-05-02 16:37:00 high:5.215 low:5.125 name:Dólar Americano/Real Brasileiro Turismo pctChange:-1.44 timestamp:1714678620 varBid:-0.075]
+2024/05/02 22:41:45 [services.Currency] currency: EUR -> map[ask:5.5846 bid:5.5346 code:EUR codein:BRL create_date:2024-05-02 22:41:07 high:5.5596 low:5.4853 name:Euro/Real Brasileiro pctChange:1.35 timestamp:1714700467 varBid:0.0743]
+2024/05/02 22:41:45 [services.Currency] currency: USD -> map[ask:5.1111 bid:5.1109 code:USD codein:BRL create_date:2024-05-02 22:41:21 high:5.1164 low:5.111 name:Dólar Americano/Real Brasileiro pctChange:-0.01 timestamp:1714700481 varBid:-0.0003]
+2024/05/02 22:41:45 [services.Currency] currency: CAD -> map[ask:3.8085 bid:3.7744 code:CAD codein:BRL create_date:2024-05-02 22:41:22 high:3.7915 low:3.7388 name:Dólar Canadense/Real Brasileiro pctChange:1.41 timestamp:1714700482 varBid:0.0526]
+2024/05/02 22:41:45 [services.Currency] currency: GBP -> map[ask:6.4226 bid:6.4061 code:GBP codein:BRL create_date:2024-05-02 22:41:15 high:6.4185 low:6.4021 name:Libra Esterlina/Real Brasileiro pctChange:0.11 timestamp:1714700475 varBid:0.0072]
+2024/05/02 22:41:45 [services.Currency] currency: JPY -> map[ask:0.03334 bid:0.03332 code:JPY codein:BRL create_date:2024-05-02 22:41:13 high:0.03342 low:0.03324 name:Iene Japonês/Real Brasileiro pctChange:0.3 timestamp:1714700473 varBid:0.0001]
+2024/05/02 22:41:45 [services.Currency] currency: CNY -> map[ask:0.7058 bid:0.7058 code:CNY codein:BRL create_date:2024-05-02 21:01:02 high:0.7058 low:0.7058 name:Yuan Chinês/Real Brasileiro pctChange:-1.6 timestamp:1714694462 varBid:-0.0115]
+2024/05/02 22:41:45 [services.Currency] currency: DOGE -> map[ask:0.6855 bid:0.6855 code:DOGE codein:BRL create_date:2024-05-02 22:36:37 high:0.6857 low:0.6463 name:Dogecoin/Real Brasileiro pctChange:3.18 timestamp:1714700197 varBid:0.0212]
+2024/05/02 22:41:45 [services.Currency] currency: BTC -> map[ask:306089 bid:305502 code:BTC codein:BRL create_date:2024-05-02 22:41:23 high:307835 low:297534 name:Bitcoin/Real Brasileiro pctChange:2.52 timestamp:1714700483 varBid:7502]
+2024/05/02 22:41:45 [services.Currency] currency: ETH -> map[ask:15546.45 bid:15463.33 code:ETH codein:BRL create_date:2024-05-02 22:41:23 high:15681.91 low:15184.31 name:Ethereum/Real Brasileiro pctChange:0.2 timestamp:1714700483 varBid:30.96]
+2024/05/02 22:41:45 [server] Starting server with config: &{Debug:true CurrencyURL:https://economia.awesomeapi.com.br/all ServerAddress:localhost ServerPort:8080 LogPath:log}
+2024/05/02 22:41:45 [server] Debug mode enabled
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /currency/:code           --> currencies/internal/handlers.(*Currency).GetByCode-fm (3 handlers)
+[GIN-debug] GET    /currency/                --> currencies/internal/handlers.(*Currency).Get-fm (3 handlers)
+[GIN-debug] POST   /currency/update          --> currencies/internal/handlers.(*Currency).Update-fm (3 handlers)
+2024/05/02 22:41:45 [services.Currency] waiting 60 minutes to update
+2024/05/02 22:41:45 [server] starting server on localhost:8080
+2024/05/02 22:41:47 [handlers.Currency] currency: USD -> {
+ "code": "USD",
+ "codein": "BRL",
+ "name": "Dólar Americano/Real Brasileiro",
+ "high": 5.1164,
+ "low": 5.111,
+ "varBid": -0.0003,
+ "pctChange": -0.01,
+ "bid": 5.1109,
+ "ask": 5.1111,
+ "timestamp": "1714700481",
+ "create_date": "2024-05-02 22:41:21"
+}
+[GIN] 2024/05/02 - 22:41:47 |[97;42m 200 [0m|     102.965µs |       127.0.0.1 |[97;44m GET     [0m "/currency/USD"
+[GIN-debug] redirecting request 301: /currency/ --> /currency/
+[GIN] 2024/05/02 - 22:41:59 |[97;42m 200 [0m|     133.778µs |       127.0.0.1 |[97;44m GET     [0m "/currency/"
+2024/05/02 22:42:40 [handlers.Currency] Updating...
+2024/05/02 22:42:40 [services.Currency] Updating currency
+2024/05/02 22:42:40 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:41:45-03:00
+[GIN] 2024/05/02 - 22:42:40 |[97;42m 200 [0m|      58.818µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:42:42 [handlers.Currency] Updating...
+2024/05/02 22:42:42 [services.Currency] Updating currency
+2024/05/02 22:42:42 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:41:45-03:00
+[GIN] 2024/05/02 - 22:42:42 |[97;42m 200 [0m|      72.324µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:42:44 [handlers.Currency] Updating...
+2024/05/02 22:42:44 [services.Currency] Updating currency
+2024/05/02 22:42:44 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:41:45-03:00
+[GIN] 2024/05/02 - 22:42:44 |[97;42m 200 [0m|      75.164µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"
+2024/05/02 22:42:45 [handlers.Currency] Updating...
+2024/05/02 22:42:45 [services.Currency] Updating currency
+2024/05/02 22:42:45 [services.Currency] Minimal interval not reached, wait for 2024-05-02T23:41:45-03:00
+[GIN] 2024/05/02 - 22:42:45 |[97;42m 200 [0m|     179.122µs |       127.0.0.1 |[97;46m POST    [0m "/currency/update"

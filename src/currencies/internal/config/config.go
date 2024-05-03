@@ -2,6 +2,7 @@ package config
 
 import (
 	"encoding/json"
+	"log"
 	"os"
 )
 
@@ -10,6 +11,7 @@ type Config struct {
 	CurrencyURL   string `json:"currency_url"`
 	ServerAddress string `json:"server_address"`
 	ServerPort    int    `json:"server_port"`
+	LogPath       string `json:"log_path"`
 }
 
 func NewConfig() *Config {
@@ -22,15 +24,18 @@ func ConfigFromJSON(data string) (*Config, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	log.Printf("[config] loaded config: %+v", config)
+
 	return config, nil
 }
 
-func (c *Config) ToJSON() (string, error) {
+func (c *Config) ToJSON() string {
 	data, err := json.MarshalIndent(c, "", " ")
 	if err != nil {
-		return "", err
+		return ""
 	}
-	return string(data), nil
+	return string(data)
 }
 
 func ConfigClientFromFile(filename string) (*Config, error) {

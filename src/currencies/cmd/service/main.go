@@ -34,6 +34,8 @@ func main() {
 		log.SetOutput(os.Stdout)
 	}
 
+	log.Printf("[main] Starting with config: %s", cfg.ToJSON())
+
 	PrintLogo()
 	fmt.Printf("\nStarting...\n")
 
@@ -54,7 +56,7 @@ func initLogger(path string) error {
 	}
 
 	writer, err := rotatelogs.New(
-		fmt.Sprintf("%s/client-%s.log", path, "%Y%m%d"),
+		fmt.Sprintf("%s/currencies-%s.log", path, "%Y%m%d"),
 		rotatelogs.WithMaxAge(24*time.Hour),
 		rotatelogs.WithRotationTime(time.Hour),
 		rotatelogs.WithRotationCount(30), //30 days
@@ -68,5 +70,5 @@ func initLogger(path string) error {
 }
 
 func PrintLogo() {
-	fmt.Print(`### CURRENCIES SERVICE ###`)
+	log.Print(`### CURRENCIES SERVICE ###`)
 }
