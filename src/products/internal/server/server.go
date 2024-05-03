@@ -24,12 +24,12 @@ func NewServer(config *config.Config) *Server {
 	s := &Server{
 		engine:  gin.Default(),
 		config:  config,
-		service: services.NewClient(config),
+		service: services.NewProduct(config),
 	}
 
 	log.Printf("[server] Starting server with config: %+v", config)
 
-	s.handler = handlers.NewClient(config)
+	s.handler = handlers.NewProduct(config)
 
 	gin.ForceConsoleColor()
 	gin.DefaultWriter = log.Writer()
@@ -43,10 +43,10 @@ func NewServer(config *config.Config) *Server {
 	}
 
 	s.engine = gin.Default()
-	s.engine.GET("/clients/:id", s.handler.GetById)
-	s.engine.GET("/clients/", s.handler.Get)
-	s.engine.POST("/clients/", s.handler.Insert)
-	s.engine.PUT("/clients/", s.handler.Update)
+	s.engine.GET("/products/:id", s.handler.GetById)
+	s.engine.GET("/products/", s.handler.Get)
+	s.engine.POST("/products/", s.handler.Insert)
+	s.engine.PUT("/products/", s.handler.Update)
 
 	s.srv = &http.Server{
 		Addr:    s.makeAddress(),
