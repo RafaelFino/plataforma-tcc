@@ -7,14 +7,15 @@ import (
 )
 
 type Config struct {
-	Debug         bool   `json:"debug,omitempty"`
-	ServerAddress string `json:"server_address"`
-	ServerPort    int    `json:"server_port"`
-	LogPath       string `json:"log_path"`
-	DBPath        string `json:"db_path"`
-	ProductsURL   string `json:"products_url"`
-	CurrenciesURL string `json:"currencies_url"`
-	ClientsURL    string `json:"clients_url"`
+	Debug              bool   `json:"debug,omitempty"`
+	ServerAddress      string `json:"server_address"`
+	ServerPort         int    `json:"server_port"`
+	LogPath            string `json:"log_path"`
+	DBPath             string `json:"db_path"`
+	ProductsURL        string `json:"products_url"`
+	CurrenciesURL      string `json:"currencies_url"`
+	ClientsURL         string `json:"clients_url"`
+	CurrenciesInterval int    `json:"currencies_interval"`
 }
 
 func NewConfig() *Config {

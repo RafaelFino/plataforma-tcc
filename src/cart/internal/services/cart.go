@@ -73,7 +73,7 @@ func (c *Cart) httpGet(url string) (string, int, error) {
 		return "", res.StatusCode, err
 	}
 
-	if s.Config.Debug {
+	if c.Config.Debug {
 		log.Printf("[services.Cart] HTTP-GET %d Response: %s", res.StatusCode, body)
 	}
 
@@ -107,12 +107,25 @@ func (c *Cart) UpdateCurrencies() error {
 	c.currencies = data.Currencies
 
 	for _, currency := range c.currencies {
+		c.currencies[currency.Code] = currency
 		log.Printf("[services.Cart] currency: %s -> %+v", currency.Code, currency)
 	}
 
 	c.last = time.Now()
 
 	return nil
+}
+
+func (c *Cart) GetCurrencies() map[string]*domain.Currency {
+	if time.Since(c.last).Minutes() > float64(c.Config.CurrenciesInterval) {
+		err := c.UpdateCurrencies()
+
+		if err != nil {
+			log.Printf("[services.Cart] Error updating currencies: %s", err)
+		}
+	}
+
+	return c.currencies
 }
 
 func (c *Cart) SetClientDetails(cart *domain.Cart) error {
@@ -153,6 +166,39 @@ func (c *Cart) SetClientDetails(cart *domain.Cart) error {
 	return nil
 }
 
+func (c *Cart) GetProductInfo(productID string) (*domain.Product, error) {
+	log.Printf("[services.Cart] Getting product info for product: %s", productID)
+
+	body, status, err := c.httpGet(c.Config.ProductsURL)
+
+	if err != nil {
+		log.Printf("[services.Cart] Error getting product info: %s", err)
+		return nil, err
+	}
+
+	if status != http.StatusOK {
+		log.Printf("[services.Cart] Error getting product info: %d", status)
+		return nil, err
+	}
+
+	data := &ProductData{}
+
+	err = json.Unmarshal([]byte(body), data)
+
+	if err != nil {
+		log.Printf("[services.Cart] Error parsing product info: %s", err)
+		return nil, err
+	}
+
+	if data.Product == nil {
+		log.Printf("[services.Cart] Product is nil")
+		return nil, errors.New("product is nil")
+	}
+
+	log.Printf("[services.Cart] Product info: %+v", data.Product)
+
+	return data.Product, nil
+}
 func (c *Cart) Close() error {
 	log.Printf("[services.Cart] Closing storage")
 	return c.storage.Close()
