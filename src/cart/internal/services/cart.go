@@ -102,17 +102,47 @@ func (c *Cart) UpdateCurrencies() error {
 	return nil
 }
 
-func (c *Cart) GetClientDetails(cart *domain.Cart) error {
-	log.Printf("[services.Cart] Getting client details: %+v", cart)
+func (c *Cart) SetClientDetails(cart *domain.Cart) error {
+	log.Printf("[services.Cart] Getting client details for cart: %s", cart.ClientID)
 
-	client, err := c.storage.GetClient(cart.ClientID)
+	body, status, err := c.httpGet(c.Config.ClientsURL)
 
 	if err != nil {
-		log.Printf("[services.Cart] Error getting client: %s", err)
+		log.Printf("[services.Cart] Error getting client details: %s", err)
 		return err
 	}
 
-	cart.Client = client
+	if status != http.StatusOK {
+		log.Printf("[services.Cart] Error getting client details: %d", status)
+		return err
+	}
+
+	jsonData := make(map[string]interface{})
+
+	err = json.Unmarshal([]byte(body), &jsonData)
+
+	if err != nil {
+		log.Printf("[services.Cart] Error parsing client details: %s", err)
+		return err
+	}
+
+	if data, ok := jsonData["client"].(map[string]interface{}); ok {
+		log.Printf("[services.Cart] Parsing client details: %+v", data)
+
+		if val, ok := data["name"].(string); ok {
+			cart.ClientName = val
+		}
+
+		if val, ok := data["email"].(string); ok {
+			cart.ClientEmail = val
+		}
+
+		if val, ok := data["surname"].(string); ok {
+			cart.ClientSurname = val
+		}
+
+		log.Printf("[services.Cart] Client details: %+v", cart)
+	}
 
 	return nil
 }
