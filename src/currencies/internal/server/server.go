@@ -15,21 +15,21 @@ type Server struct {
 	engine *gin.Engine
 	srv    *http.Server
 
-	config          *config.Config
-	currencyHandler *handlers.Currency
-	currencyService *services.Currency
+	config  *config.Config
+	handler *handlers.Currency
+	service *services.Currency
 }
 
 func NewServer(config *config.Config) *Server {
 	s := &Server{
-		engine:          gin.Default(),
-		config:          config,
-		currencyService: services.NewCurrency(config.CurrencyURL),
+		engine:  gin.Default(),
+		config:  config,
+		service: services.NewCurrency(config.CurrencyURL),
 	}
 
 	log.Printf("[server] Starting server with config: %+v", config)
 
-	s.currencyHandler = handlers.NewCurrency(s.currencyService)
+	s.handler = handlers.NewCurrency(s.service)
 
 	gin.ForceConsoleColor()
 	gin.DefaultWriter = log.Writer()
@@ -43,10 +43,10 @@ func NewServer(config *config.Config) *Server {
 	}
 
 	s.engine = gin.Default()
-	s.engine.GET("/currency/:code", s.currencyHandler.GetByCode)
-	s.engine.GET("/currency/", s.currencyHandler.Get)
-	s.engine.POST("/currency/", s.currencyHandler.Update)
-	s.engine.PUT("/currency/", s.currencyHandler.Update)
+	s.engine.GET("/currency/:code", s.handler.GetByCode)
+	s.engine.GET("/currency/", s.handler.Get)
+	s.engine.POST("/currency/", s.handler.Update)
+	s.engine.PUT("/currency/", s.handler.Update)
 
 	s.srv = &http.Server{
 		Addr:    s.makeAddress(),
@@ -66,7 +66,15 @@ func (s *Server) Run() {
 }
 
 func (s *Server) Stop() error {
-	return s.srv.Close()
+	log.Printf("[server] stopping service")
+
+	err := s.srv.Close()
+
+	if err != nil {
+		log.Printf("[server] error stopping server: %s", err)
+	}
+
+	return err
 }
 
 func (s *Server) makeAddress() string {

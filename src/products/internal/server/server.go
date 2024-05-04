@@ -67,7 +67,20 @@ func (s *Server) Run() {
 }
 
 func (s *Server) Stop() error {
-	return s.srv.Close()
+	log.Printf("[server] stopping service")
+	err := s.service.Close()
+
+	if err != nil {
+		log.Printf("[server] error stopping server: %s", err)
+	}
+
+	err = s.srv.Close()
+
+	if err != nil {
+		log.Printf("[server] error stopping server: %s", err)
+	}
+
+	return err
 }
 
 func (s *Server) makeAddress() string {

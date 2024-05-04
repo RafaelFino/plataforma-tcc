@@ -25,7 +25,7 @@ type Product struct {
 	Description string  `json:"description"`
 	Price       float64 `json:"price"`
 	Currency    string  `json:"currency"`
-	Quantity    int     `json:"quantity"`
+	Quantity    float64 `json:"quantity"`
 }
 
 type CartStatus int
@@ -45,12 +45,13 @@ func (c CartStatus) EnumIndex() int {
 	return int(c)
 }
 
-func NewCart(clientId string) *Cart {
+func NewCart(clientId string, currencies map[string]float64) *Cart {
 	c := &Cart{
-		Products: make(map[string]*Product),
-		Status:   Started,
-		ID:       CreateID(),
-		ClientID: clientId,
+		Products:   make(map[string]*Product),
+		Status:     Started,
+		ID:         CreateID(),
+		ClientID:   clientId,
+		Currencies: currencies,
 	}
 
 	return c
@@ -78,16 +79,6 @@ func (c *Cart) GetProduct(id string) *Product {
 
 func (c *Cart) GetProducts() map[string]*Product {
 	return c.Products
-}
-
-func (c *Cart) SetCurrency(currency string, value float64) {
-	c.Currencies[currency] = value
-}
-
-func (c *Cart) AddCurrencies(currencies map[string]float64) {
-	for k, v := range currencies {
-		c.Currencies[k] = v
-	}
 }
 
 func (c *Cart) CalcTotal() float64 {

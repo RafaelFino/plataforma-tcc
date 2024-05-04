@@ -21,6 +21,11 @@ func NewProduct(config *config.Config) *Product {
 	}
 }
 
+func (c *Product) Close() error {
+	log.Printf("[services.Product] Closing storage")
+	return c.storage.Close()
+}
+
 func (c *Product) GetById(id string) (*domain.Product, error) {
 	log.Printf("[services.Product] Getting product with ID: %s", id)
 	ret, err := c.storage.Get(id)
