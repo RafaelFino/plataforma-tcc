@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"time"
 
-	"currencies/internal/domain"
+	"currencies/pkg/currencies/domain"
 )
 
 type Currency struct {

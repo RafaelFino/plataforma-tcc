@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"clients/internal/config"
-	"clients/internal/domain"
 	"clients/internal/services"
+	"clients/pkg/clients/domain"
 	"log"
 	"net/http"
 	"time"

@@ -4,7 +4,7 @@ import (
 	"errors"
 	"log"
 
-	"products/internal/domain"
+	"products/pkg/products/domain"
 )
 
 type Product struct {

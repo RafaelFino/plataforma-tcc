@@ -5,29 +5,23 @@ import (
 	"log"
 	"time"
 
+	"products/pkg/currencies/domain"
+	"products/pkg/products/domain"
+
 	"github.com/oklog/ulid"
 )
 
 type Cart struct {
-	ID            string              `json:"id"`
-	ClientID      string              `json:"client_id"`
-	ClientName    string              `json:"client_name"`
-	ClientSurname string              `json:"client_surname"`
-	ClientEmail   string              `json:"client_email"`
-	CreatedAt     time.Time           `json:"created_at"`
-	UpdatedAt     time.Time           `json:"updated_at"`
-	Products      map[string]*Product `json:"products"`
-	Currencies    map[string]float64  `json:"currencies"`
-	Status        CartStatus          `json:"status"`
-}
-
-type Product struct {
-	ID          string  `json:"id"`
-	Name        string  `json:"name"`
-	Description string  `json:"description"`
-	Price       float64 `json:"price"`
-	Currency    string  `json:"currency"`
-	Quantity    float64 `json:"quantity"`
+	ID            string                        `json:"id"`
+	ClientID      string                        `json:"client_id"`
+	ClientName    string                        `json:"client_name"`
+	ClientSurname string                        `json:"client_surname"`
+	ClientEmail   string                        `json:"client_email"`
+	CreatedAt     time.Time                     `json:"created_at"`
+	UpdatedAt     time.Time                     `json:"updated_at"`
+	Products      map[string]*domain.Product    `json:"products"`
+	Currencies    map[string]*domain.Currencies `json:"currencies"`
+	Status        CartStatus                    `json:"status"`
 }
 
 type CartStatus int
@@ -49,7 +43,7 @@ func (c CartStatus) EnumIndex() int {
 
 func NewCart(clientId string, currencies map[string]float64) *Cart {
 	c := &Cart{
-		Products:   make(map[string]*Product),
+		Products:   make(map[string]*domain.Product),
 		Status:     Started,
 		ID:         CreateID(),
 		ClientID:   clientId,
@@ -63,7 +57,7 @@ func (c *Cart) GetID() string {
 	return c.ID
 }
 
-func (c *Cart) AddProduct(p *Product) {
+func (c *Cart) AddProduct(p *domain.Product) {
 	c.Products[p.ID] = p
 }
 
@@ -71,15 +65,15 @@ func (c *Cart) RemoveProduct(id string) {
 	delete(c.Products, id)
 }
 
-func (c *Cart) UpdateProduct(p *Product) {
+func (c *Cart) UpdateProduct(p *domain.Product) {
 	c.Products[p.ID] = p
 }
 
-func (c *Cart) GetProduct(id string) *Product {
+func (c *Cart) GetProduct(id string) *domain.Product {
 	return c.Products[id]
 }
 
-func (c *Cart) GetProducts() map[string]*Product {
+func (c *Cart) GetProducts() map[string]*domain.Product {
 	return c.Products
 }
 

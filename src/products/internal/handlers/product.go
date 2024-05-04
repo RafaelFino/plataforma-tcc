@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 	"products/internal/config"
-	"products/internal/domain"
 	"products/internal/services"
+	"products/pkg/products/domain"
 	"time"
 
 	"github.com/gin-gonic/gin"

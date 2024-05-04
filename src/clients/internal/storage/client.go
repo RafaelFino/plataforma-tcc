@@ -1,7 +1,7 @@
 package storage
 
 import (
-	"clients/internal/domain"
+	"clients/pkg/clients/domain"
 	"errors"
 	"log"
 )

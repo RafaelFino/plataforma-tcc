@@ -2,8 +2,8 @@ package services
 
 import (
 	"clients/internal/config"
-	"clients/internal/domain"
 	"clients/internal/storage"
+	"clients/pkg/clients/domain"
 	"crypto/rand"
 	"errors"
 	"log"
