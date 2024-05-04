@@ -5,9 +5,12 @@ import (
 	"cart/internal/domain"
 	"cart/internal/storage"
 	"io"
+	"json"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/goccy/go-json"
 )
 
 type Cart struct {
@@ -57,8 +60,61 @@ func (c *Cart) httpGet(url string) (string, int, error) {
 func (c *Cart) UpdateCurrencies() error {
 	log.Printf("[services.Cart] Getting currencies")
 
+	body, status, err := c.httpGet(c.Config.CurrenciesURL)
+
+	if err != nil {
+		log.Printf("[services.Cart] Error getting currencies: %s", err)
+		return err
+	}
+
+	if status != http.StatusOK {
+		log.Printf("[services.Cart] Error getting currencies: %d", status)
+		return err
+	}
+
+	jsonData := make(map[string]interface{})
+
+	err = json.Unmarshal([]byte(body), &jsonData)
+
+	if err != nil {
+		log.Printf("[services.Cart] Error parsing currencies: %s", err)
+		return err
+	}
+
+	if data, ok := jsonData["currencies"].(map[string]interface{}); ok {
+		log.Printf("[services.Cart] Parsing currencies: %+v", data)
+
+		for _, item := range data {
+			log.Printf("[services.Cart] Parsing item: %+v", item)
+			curr := item.(map[string]interface{})
+
+			if val, ok := curr["code"].(string); ok {
+				c.currencies[val] = curr["value"].(float64)
+				log.Printf("[services.Cart] Add currency: %s -> %+v", val, c.currencies[val])
+			} else {
+				log.Printf("[services.Cart] Error parsing currency code -> %+v", curr)
+			}
+		}
+	}
+
 	c.last = time.Now()
 
+	return nil
+}
+
+func (c *Cart) GetClientDetails(cart *domain.Cart) error {
+	log.Printf("[services.Cart] Getting client details: %+v", cart)
+
+	client, err := c.storage.GetClient(cart.ClientID)
+
+	if err != nil {
+		log.Printf("[services.Cart] Error getting client: %s", err)
+		return err
+	}
+
+	cart.Client = client
+
+	return nil
 }
 
 func (c *Cart) Close() error {

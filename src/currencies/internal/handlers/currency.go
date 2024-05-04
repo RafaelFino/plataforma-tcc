@@ -57,8 +57,6 @@ func (c *Currency) Get(ctx *gin.Context) {
 		}
 	}
 
-	log.Printf("[handlers.Currency] All currencies: %+v", ret)
-
 	ctx.IndentedJSON(http.StatusOK, gin.H{
 		"currencies": ret,
 		"elapsed":    time.Since(start).Milliseconds(),
