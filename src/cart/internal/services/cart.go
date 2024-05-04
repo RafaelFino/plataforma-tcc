@@ -4,6 +4,7 @@ import (
 	"cart/internal/config"
 	"cart/internal/domain"
 	"cart/internal/storage"
+	"errors"
 	"io"
 	"json"
 	"log"
@@ -11,13 +12,35 @@ import (
 	"time"
 
 	"github.com/goccy/go-json"
+
+	"clients/pkg/clients/domain"
+	"currencies/pkg/currencies/domain"
+	"products/pkg/products/domain"
 )
 
 type Cart struct {
 	storage    *storage.Cart
-	currencies map[string]float64
+	currencies map[string]*domain.Currency
 	Config     *config.Config
 	last       time.Time
+}
+
+type CurrencieData struct {
+	Currencies []*domain.Currency `json:"currencies"`
+	Elapsed    float64            `json:"elapsed"`
+	Timestamp  time.Time          `json:"timestamp"`
+}
+
+type ClientData struct {
+	Client    *domain.Client `json:"client"`
+	Elapsed   float64        `json:"elapsed"`
+	Timestamp time.Time      `json:"timestamp"`
+}
+
+type ProductData struct {
+	Product   *domain.Product `json:"product"`
+	Elapsed   float64         `json:"elapsed"`
+	Timestamp time.Time       `json:"timestamp"`
 }
 
 func NewCart(config *config.Config) *Cart {
@@ -72,29 +95,19 @@ func (c *Cart) UpdateCurrencies() error {
 		return err
 	}
 
-	jsonData := make(map[string]interface{})
+	data := &CurrencieData{}
 
-	err = json.Unmarshal([]byte(body), &jsonData)
+	err = json.Unmarshal([]byte(body), data)
 
 	if err != nil {
 		log.Printf("[services.Cart] Error parsing currencies: %s", err)
 		return err
 	}
 
-	if data, ok := jsonData["currencies"].(map[string]interface{}); ok {
-		log.Printf("[services.Cart] Parsing currencies: %+v", data)
+	c.currencies = data.Currencies
 
-		for _, item := range data {
-			log.Printf("[services.Cart] Parsing item: %+v", item)
-			curr := item.(map[string]interface{})
-
-			if val, ok := curr["code"].(string); ok {
-				c.currencies[val] = curr["value"].(float64)
-				log.Printf("[services.Cart] Add currency: %s -> %+v", val, c.currencies[val])
-			} else {
-				log.Printf("[services.Cart] Error parsing currency code -> %+v", curr)
-			}
-		}
+	for _, currency := range c.currencies {
+		log.Printf("[services.Cart] currency: %s -> %+v", currency.Code, currency)
 	}
 
 	c.last = time.Now()
@@ -117,32 +130,25 @@ func (c *Cart) SetClientDetails(cart *domain.Cart) error {
 		return err
 	}
 
-	jsonData := make(map[string]interface{})
+	data := &ClientData{}
 
-	err = json.Unmarshal([]byte(body), &jsonData)
+	err = json.Unmarshal([]byte(body), data)
 
 	if err != nil {
 		log.Printf("[services.Cart] Error parsing client details: %s", err)
 		return err
 	}
 
-	if data, ok := jsonData["client"].(map[string]interface{}); ok {
-		log.Printf("[services.Cart] Parsing client details: %+v", data)
-
-		if val, ok := data["name"].(string); ok {
-			cart.ClientName = val
-		}
-
-		if val, ok := data["email"].(string); ok {
-			cart.ClientEmail = val
-		}
-
-		if val, ok := data["surname"].(string); ok {
-			cart.ClientSurname = val
-		}
-
-		log.Printf("[services.Cart] Client details: %+v", cart)
+	if data.Client == nil {
+		log.Printf("[services.Cart] Client is nil")
+		return errors.New("client is nil")
 	}
+
+	cart.ClientName = data.Client.Name
+	cart.ClientEmail = data.Client.Email
+	cart.ClientSurname = data.Client.Surname
+
+	log.Printf("[services.Cart] Client details: %+v", cart)
 
 	return nil
 }
