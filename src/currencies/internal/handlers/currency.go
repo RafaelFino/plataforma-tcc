@@ -47,11 +47,17 @@ func (c *Currency) Get(ctx *gin.Context) {
 	start := time.Now()
 
 	data := c.service.Get()
-	ret := make([]*domain.CurrencyData, len(data))
+	ret := make([]*domain.CurrencyData, 0)
 
 	for _, d := range data {
-		ret = append(ret, d.GetData())
+		item := d.GetData()
+
+		if item != nil {
+			ret = append(ret, item)
+		}
 	}
+
+	log.Printf("[handlers.Currency] All currencies: %+v", ret)
 
 	ctx.IndentedJSON(http.StatusOK, gin.H{
 		"currencies": ret,
