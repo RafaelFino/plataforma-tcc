@@ -68,7 +68,7 @@ func initLogger(path string) error {
 
 	multi := io.MultiWriter(writer, os.Stdout)
 	log.SetOutput(multi)
-
+		
 	return nil
 }
 
