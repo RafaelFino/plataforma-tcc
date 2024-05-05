@@ -51,11 +51,11 @@ func (c *CartItem) GetTotal() float64 {
 
 func NewCart(clientId string) *Cart {
 	c := &Cart{
-		Items:    make(map[string]*CartItem),
-		Status:   Started,
-		ID:       CreateID(),
-		ClientID: clientId,
-		Total:    0,
+		Items:  make(map[string]*CartItem),
+		Status: Started,
+		ID:     CreateID(),
+		Client: &domain.Client{ID: clientId},
+		Total:  0,
 	}
 
 	return c
