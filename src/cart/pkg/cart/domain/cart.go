@@ -12,16 +12,13 @@ import (
 )
 
 type Cart struct {
-	ID            string               `json:"id"`
-	ClientID      string               `json:"client_id"`
-	ClientName    string               `json:"client_name"`
-	ClientSurname string               `json:"client_surname"`
-	ClientEmail   string               `json:"client_email"`
-	CreatedAt     time.Time            `json:"created_at"`
-	UpdatedAt     time.Time            `json:"updated_at"`
-	Items         map[string]*CartItem `json:"items"`
-	Total         float64              `json:"total"`
-	Status        CartStatus           `json:"status"`
+	ID        string               `json:"id"`
+	Client    *domain.Client       `json:"client"`
+	CreatedAt time.Time            `json:"created_at"`
+	UpdatedAt time.Time            `json:"updated_at"`
+	Items     map[string]*CartItem `json:"items"`
+	Total     float64              `json:"total"`
+	Status    CartStatus           `json:"status"`
 }
 
 type CartItem struct {

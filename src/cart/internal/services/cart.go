@@ -3,6 +3,7 @@ package services
 import (
 	"cart/internal/config"
 	"cart/internal/storage"
+	"cart/pkg/cart/domain"
 	"log"
 )
 
@@ -38,14 +39,23 @@ func (c *Cart) Close() error {
 	return c.storage.Close()
 }
 
-/*
-	s.engine.POST("/cart/", s.handler.CreateCart)
-	s.engine.GET("/cart/:cart_id", s.handler.Get)
-	s.engine.DELETE("/cart/:cart_id", s.handler.DeleteCart)
+func (c *Cart) CreateCart(clientId string) (string, error) {
+}
 
-	s.engine.POST("/cart/:cart_id", s.handler.AddProduct)
-	s.engine.DELETE("/cart/:cart_id/:product_id", s.handler.RemoveProduct)
+func (c *Cart) Get(cartId string) (*domain.Cart, error) {
+}
 
-	s.engine.GET("/client/:client_id", s.handler.GetByClient)
-	s.engine.PUT("/cart/:cart_id", s.handler.Checkout)
-*/
+func (c *Cart) DeleteCart(cartId string) error {
+}
+
+func (c *Cart) AddProduct(cartId string, productId string, quantity int) error {
+}
+
+func (c *Cart) RemoveProduct(cartId string, productId string) error {
+}
+
+func (c *Cart) GetByClient(clientId string) ([]*domain.Cart, error) {
+}
+
+func (c *Cart) Checkout(cartId string) error {
+}
