@@ -35,3 +35,4 @@ src/clients/data/*
 src/products/data/*
 src/currency/data/*
 src/cart/data/*
+vendor/*
