@@ -60,8 +60,6 @@ func (c *Currencies) Update() error {
 		return err
 	}
 
-	c.data = data.Currencies
-
 	for _, currency := range data.Currencies {
 		c.data[currency.Code] = currency
 		log.Printf("[services.Cart] currency: %s -> %+v", currency.Code, currency)

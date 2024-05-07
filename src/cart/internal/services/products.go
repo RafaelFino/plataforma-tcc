@@ -30,7 +30,7 @@ func NewProducts(config *config.Config) *Products {
 func (p *Products) Get(id string) (*domain.Product, error) {
 	log.Printf("[services.Products] Get product info for ID: %s", id)
 
-	body, status, err := HttpGet(c.url)
+	body, status, err := HttpGet(p.url)
 
 	if err != nil {
 		log.Printf("[services.Products] Error getting product info: %s", err)

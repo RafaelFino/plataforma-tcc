@@ -20,9 +20,5 @@ func HttpGet(url string) (string, int, error) {
 		return "", res.StatusCode, err
 	}
 
-	if c.Config.Debug {
-		log.Printf("[services.Util] HTTP-GET %d Response: %s", res.StatusCode, body)
-	}
-
 	return string(body), res.StatusCode, nil
 }

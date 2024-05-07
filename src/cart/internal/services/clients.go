@@ -52,7 +52,7 @@ func (c *Clients) Get(id string) (*domain.Client, error) {
 
 	if data.Client == nil {
 		log.Printf("[services.Clients] Client is nil")
-		return errors.New("client is nil")
+		return nil, errors.New("client is nil")
 	}
 
 	log.Printf("[services.Clients] Client details: %+v", data.Client)

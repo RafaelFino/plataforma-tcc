@@ -24,7 +24,7 @@ func NewCart(conn *DbConnection) *Cart {
 }
 
 func (c *Cart) Init() error {
-
+	return nil
 }
 
 func (c *Cart) Close() error {
