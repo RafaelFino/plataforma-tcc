@@ -4,7 +4,7 @@ import (
 	"errors"
 	"log"
 
-	domain "github.com/rafaelfino/plataforma-tcc/src/clients/pkg/domain"
+	"clients/pkg/domain"
 )
 
 type Client struct {
@@ -25,7 +25,6 @@ func NewClient(conn *DbConnection) *Client {
 
 	return ret
 }
-
 func (c *Client) Init() error {
 	create := `
 CREATE TABLE IF NOT EXISTS clients (
