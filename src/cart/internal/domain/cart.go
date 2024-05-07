@@ -6,43 +6,7 @@ import (
 	"time"
 
 	"github.com/oklog/ulid"
-	"golang.org/x/vuln/client"
 )
-
-type Client struct {
-	ID        string    `json:"id"`
-	Name      string    `json:"name"`
-	Surname   string    `json:"surname"`
-	Email     string    `json:"email"`
-	BirthDate string    `json:"birth_date"`
-	Enable    bool      `json:"enable"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdateAt  time.Time `json:"updated_at"`
-}
-
-type Product struct {
-	ID          string    `json:"id"`
-	Name        string    `json:"name"`
-	Description string    `json:"description"`
-	Price       float64   `json:"price"`
-	Stock       int       `json:"stock"`
-	CreatedAt   time.Time `json:"created_at"`
-	UpdatedAt   time.Time `json:"updated_at"`
-}
-
-type Currency struct {
-	Code       string  `json:"code"`
-	Codein     string  `json:"codein"`
-	Name       string  `json:"name"`
-	High       float64 `json:"high,omitempty"`
-	Low        float64 `json:"low,omitempty"`
-	VarBid     float64 `json:"varBid,omitempty"`
-	PctChange  float64 `json:"pctChange,omitempty"`
-	Bid        float64 `json:"bid,omitempty"`
-	Ask        float64 `json:"ask,omitempty"`
-	Timestamp  string  `json:"timestamp,omitempty"`
-	CreateDate string  `json:"create_date,omitempty"`
-}
 
 type Cart struct {
 	ID        string               `json:"id"`
@@ -87,7 +51,7 @@ func NewCart(clientId string) *Cart {
 		Items:  make(map[string]*CartItem),
 		Status: Started,
 		ID:     CreateID(),
-		Client: &client.Client{ID: clientId},
+		Client: &Client{ID: clientId},
 		Total:  0,
 	}
 

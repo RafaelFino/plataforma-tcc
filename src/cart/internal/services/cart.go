@@ -2,8 +2,8 @@ package services
 
 import (
 	"cart/internal/config"
+	"cart/internal/domain"
 	"cart/internal/storage"
-	"cart/pkg/cart/domain"
 	"log"
 )
 

@@ -2,7 +2,7 @@ package services
 
 import (
 	"cart/internal/config"
-	"clients/internal/domain"
+	"cart/internal/domain"
 	"errors"
 	"log"
 	"net/http"

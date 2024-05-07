@@ -2,9 +2,9 @@ package services
 
 import (
 	"cart/internal/config"
+	"cart/internal/domain"
 	"log"
 	"net/http"
-	"products/internal/domain"
 	"time"
 
 	"github.com/goccy/go-json"
