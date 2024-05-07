@@ -141,7 +141,7 @@ func (c *Cart) GetByClient(clientId string) ([]*domain.Cart, error) {
 		cartIds = append(cartIds, result["carts"].([]string)...)
 	}
 
-	cursor, err = c.conn.GetCollection("carts")
+	collection, err = c.conn.GetCollection("carts")
 
 	if err != nil {
 		log.Printf("[storage.Cart] Error getting collection: %s (carts)", err)
@@ -162,7 +162,7 @@ func (c *Cart) GetByClient(clientId string) ([]*domain.Cart, error) {
 			return nil, err
 		}
 
-		carts = append(carts, cart)
+		carts = append(carts, &cart)
 	}
 
 	log.Printf("[storage.Cart] Carts found: %d", len(carts))

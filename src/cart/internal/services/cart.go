@@ -60,8 +60,16 @@ func (c *Cart) Get(cartId string) (*domain.Cart, error) {
 
 func (c *Cart) DeleteCart(cartId string) error {
 	log.Printf("[services.Cart] Deleting cart with ID: %s", cartId)
-	cart.Status = CartStatus.Canceled
-	return c.storage.UpdateCart(cartId)
+	cart, err := c.Get(cartId)
+
+	if err != nil {
+		log.Printf("[services.Cart] Error getting cart: %s (id: %s)", err, cartId)
+		return err
+	}
+
+	cart.Status = domain.Canceled
+
+	return c.storage.UpdateCart(cart)
 }
 
 func (c *Cart) AddProduct(cartId string, productId string, quantity float64) error {
@@ -91,7 +99,7 @@ func (c *Cart) AddProduct(cartId string, productId string, quantity float64) err
 	}
 
 	cart.AddItem(item)
-	cart.Status = CartStatus.Progress
+	cart.Status = domain.Progress
 
 	return c.storage.UpdateCart(cart)
 }
@@ -124,7 +132,7 @@ func (c *Cart) Checkout(cartId string, currency string) error {
 	}
 
 	cart.CalcTotal(c.currencies.GetCurrencies())
-	cart.Status = CartStatus.Done
+	cart.Status = domain.Done
 
 	return c.storage.UpdateCart(cart)
 }
