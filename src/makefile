@@ -1,16 +1,16 @@
 build:
-	@cd clients && make build && cd ..
-	@cd currencies && make build && cd ..
-	@cd products/cart && make build && cd ..
-	@cd cart && make build && cd ..
+	@echo " >> Building clients..." && cd clients && make build && cd ..
+	@echo " >> Building currencies..." && cd currencies && make build && cd ..
+	@echo " >> Building products..." && cd products && make build & cd ..
+	@echo " >> Building cart..." && cd cart && make build && cd ..
 all:
-	@cd clients && make clean && make all && cd ..
-	@cd currencies && make clean && make all && cd ..
-	@cd products/cart && make clean && make all && cd ..
-	@cd cart && make clean && make all && cd ..
+	@echo " >> Building clients..." && cd clients && make all && cd ..
+	@echo " >> Building currencies..." && cd currencies && make all && cd ..
+	@echo " >> Building products..." && cd products && make all & cd ..
+	@echo " >> Building cart..." && cd cart && make all && cd ..
 
 clean:
-	@cd clients && make clean && cd ..
-	@cd currencies && make clean && cd ..
-	@cd products/cart && make clean && cd ..
-	@cd cart && make clean && cd ..
+	@echo " >> Building clients..." && cd clients && make clean && cd ..
+	@echo " >> Building currencies..." && cd currencies && make clean && cd ..
+	@echo " >> Building products..." && cd products && make clean & cd ..
+	@echo " >> Building cart..." && cd cart && make clean && cd ..

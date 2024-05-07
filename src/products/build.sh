@@ -1,6 +1,10 @@
 #!/bin/bash
 par=$1
 
+
+echo " " 
+echo " >> Building..."
+
 if [ "$par" == "clean" ]; then
     echo "Cleaning bin directory"
     rm -rf bin
