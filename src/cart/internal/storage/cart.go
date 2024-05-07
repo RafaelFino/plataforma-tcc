@@ -92,26 +92,6 @@ func (c *Cart) Get(cartId string) (*domain.Cart, error) {
 	return &cart, nil
 }
 
-func (c *Cart) DeleteCart(cartId string) error {
-	collection, err := c.conn.GetCollection("carts")
-
-	if err != nil {
-		log.Printf("[storage.Cart] Error getting collection: %s", err)
-		return err
-	}
-
-	delResult, err := collection.DeleteOne(context.Background(), domain.Cart{ID: cartId})
-
-	if err != nil {
-		log.Printf("[storage.Cart] Error deleting cart: %s", err)
-		return err
-	}
-
-	log.Printf("[storage.Cart] Cart deleted: %d (ID: %s)", delResult.DeletedCount, cartId)
-
-	return nil
-}
-
 func (c *Cart) UpdateCart(cart *domain.Cart) error {
 	collection, err := c.conn.GetCollection("carts")
 
@@ -127,8 +107,7 @@ func (c *Cart) UpdateCart(cart *domain.Cart) error {
 		return err
 	}
 
-	log.Printf("[storage.Cart] Cart updated: %s", cart.ID)
-
+	log.Printf("[storage.Cart] Cart updated: %s -> %+v", cart.ID, cart)
 	return nil
 }
 
@@ -136,7 +115,7 @@ func (c *Cart) GetByClient(clientId string) ([]*domain.Cart, error) {
 	collection, err := c.conn.GetCollection("client_carts")
 
 	if err != nil {
-		log.Printf("[storage.Cart] Error getting collection: %s", err)
+		log.Printf("[storage.Cart] Error getting collection: %s (client_carts)", err)
 		return nil, err
 	}
 
@@ -162,13 +141,24 @@ func (c *Cart) GetByClient(clientId string) ([]*domain.Cart, error) {
 		cartIds = append(cartIds, result["carts"].([]string)...)
 	}
 
+	cursor, err = c.conn.GetCollection("carts")
+
+	if err != nil {
+		log.Printf("[storage.Cart] Error getting collection: %s (carts)", err)
+		return nil, err
+	}
+
+	cursor, err = collection.Find(context.Background(), bson.M{"_id": bson.M{"$in": cartIds}})
+
 	carts := []*domain.Cart{}
+	
+	for cursor.Next(context.Background()) {
+		var cart domain.Cart
 
-	for _, cartId := range cartIds {
-		cart, err := c.Get(cartId)
-
+		err = cursor.Decode(&cart)
+		
 		if err != nil {
-			log.Printf("[storage.Cart] Error getting cart: %s", err)
+			log.Printf("[storage.Cart] Error parsing cart: %s", err)
 			return nil, err
 		}
 
