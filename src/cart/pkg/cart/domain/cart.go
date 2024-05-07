@@ -5,15 +5,17 @@ import (
 	"log"
 	"time"
 
-	"products/pkg/currencies/domain"
-	"products/pkg/products/domain"
+	products "products/pkg/products/domain"
+
+	clients "clients/pkg/clients/domain"
 
 	"github.com/oklog/ulid"
+	"golang.org/x/vuln/client"
 )
 
 type Cart struct {
 	ID        string               `json:"id"`
-	Client    *domain.Client       `json:"client"`
+	Client    *clients.Client      `json:"client"`
 	CreatedAt time.Time            `json:"created_at"`
 	UpdatedAt time.Time            `json:"updated_at"`
 	Items     map[string]*CartItem `json:"items"`
@@ -22,10 +24,10 @@ type Cart struct {
 }
 
 type CartItem struct {
-	Product  *domain.Product `json:"product"`
-	Quantity float64         `json:"quantity"`
-	Currency string          `json:"currency"`
-	Quote    float64         `json:"quote"`
+	Product  *products.Product `json:"product"`
+	Quantity float64           `json:"quantity"`
+	Currency string            `json:"currency"`
+	Quote    float64           `json:"quote"`
 }
 
 type CartStatus int
@@ -54,7 +56,7 @@ func NewCart(clientId string) *Cart {
 		Items:  make(map[string]*CartItem),
 		Status: Started,
 		ID:     CreateID(),
-		Client: &domain.Client{ID: clientId},
+		Client: &client.Client{ID: clientId},
 		Total:  0,
 	}
 

@@ -28,3 +28,5 @@ src/clients/logs/*
 src/products/logs/*
 src/currency/logs/*
 src/cart/logs/*
+
+vendor/*

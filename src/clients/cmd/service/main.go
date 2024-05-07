@@ -1,7 +1,6 @@
 package main
 
 import (
-	"clients/internal/server"
 	"fmt"
 	"io"
 	"log"
@@ -12,7 +11,8 @@ import (
 
 	rotatelogs "github.com/lestrrat/go-file-rotatelogs"
 
-	"clients/internal/config"
+	config "github.com/rafaelfino/plataforma-tcc/clients/internal/config"
+	server "github.com/rafaelfino/plataforma-tcc/clients/internal/server"
 )
 
 func main() {
@@ -68,7 +68,7 @@ func initLogger(path string) error {
 
 	multi := io.MultiWriter(writer, os.Stdout)
 	log.SetOutput(multi)
-		
+
 	return nil
 }
 

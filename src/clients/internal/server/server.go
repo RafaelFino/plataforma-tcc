@@ -1,12 +1,13 @@
 package server
 
 import (
-	"clients/internal/config"
-	"clients/internal/handlers"
-	"clients/internal/services"
 	"fmt"
 	"log"
 	"net/http"
+
+	config "github.com/rafaelfino/plataforma-tcc/clients/internal/config"
+	handlers "github.com/rafaelfino/plataforma-tcc/clients/internal/handlers"
+	services "github.com/rafaelfino/plataforma-tcc/clients/internal/services"
 
 	"github.com/gin-gonic/gin"
 )
