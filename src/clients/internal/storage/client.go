@@ -4,7 +4,7 @@ import (
 	"errors"
 	"log"
 
-	"clients/pkg/clients/domain"
+	"clients/internal/domain"
 )
 
 type Client struct {

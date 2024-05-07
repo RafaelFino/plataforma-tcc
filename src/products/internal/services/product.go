@@ -5,8 +5,8 @@ import (
 	"errors"
 	"log"
 	"products/internal/config"
+	"products/internal/domain"
 	"products/internal/storage"
-	"products/pkg/products/domain"
 
 	"github.com/oklog/ulid"
 )

@@ -4,7 +4,7 @@ import (
 	"cart/internal/config"
 	"log"
 	"net/http"
-	"products/pkg/products/domain"
+	"products/internal/domain"
 	"time"
 
 	"github.com/goccy/go-json"

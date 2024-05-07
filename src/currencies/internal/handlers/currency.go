@@ -1,8 +1,8 @@
 package handlers
 
 import (
+	"currencies/internal/domain"
 	"currencies/internal/services"
-	"currencies/pkg/currencies/domain"
 	"log"
 	"net/http"
 	"time"

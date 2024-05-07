@@ -1,10 +1,8 @@
 package handlers
 
 import (
-	"clients/pkg/clients/domain"
-
 	"clients/internal/config"
-
+	"clients/internal/domain"
 	"clients/internal/services"
 
 	"log"
