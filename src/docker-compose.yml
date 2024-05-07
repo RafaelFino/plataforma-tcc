@@ -35,10 +35,30 @@ services:
       - clients
       - products  
       - currencies
+      - cart-db
     links:
       - clients
       - products
       - currencies
+      - cart-db
+
+  cart-db:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: cartpass
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8090:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: cartpass
+      ME_CONFIG_MONGODB_URL: mongodb://root:cartpass@cart-db:27017/
+      ME_CONFIG_BASICAUTH: false      
 
   proxy:
     image: nginx
