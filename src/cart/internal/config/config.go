@@ -11,7 +11,8 @@ type Config struct {
 	ServerAddress      string `json:"server_address"`
 	ServerPort         int    `json:"server_port"`
 	LogPath            string `json:"log_path"`
-	DBPath             string `json:"db_path"`
+	DBURL              string `json:"db_url"`
+	DBName             string `json:"db_name"`
 	ProductsURL        string `json:"products_url"`
 	CurrenciesURL      string `json:"currencies_url"`
 	ClientsURL         string `json:"clients_url"`

@@ -9,20 +9,23 @@ import (
 )
 
 type Cart struct {
-	ID        string               `json:"id"`
-	Client    *Client              `json:"client"`
-	CreatedAt time.Time            `json:"created_at"`
-	UpdatedAt time.Time            `json:"updated_at"`
-	Items     map[string]*CartItem `json:"items"`
-	Total     float64              `json:"total"`
-	Status    CartStatus           `json:"status"`
+	ID        string               `json:"id" bson:"_id"`
+	Client    *Client              `json:"client" bson:"client"`
+	CreatedAt time.Time            `json:"created_at" bson:"created_at"`
+	UpdatedAt time.Time            `json:"updated_at" bson:"updated_at"`
+	Items     map[string]*CartItem `json:"items" bson:"items"`
+	Total     map[string]float64   `json:"currency" bson:"currency"`
+	Status    CartStatus           `json:"status" bson:"status"`
+}
+
+type ClientCarts struct {
+	ClientID string   `json:"client_id" bson:"_id"`
+	Carts    []string `json:"carts" bson:"carts"`
 }
 
 type CartItem struct {
-	Product  *Product `json:"product"`
-	Quantity float64  `json:"quantity"`
-	Currency string   `json:"currency"`
-	Quote    float64  `json:"quote"`
+	Product  *Product `json:"product" bson:"product"`
+	Quantity float64  `json:"quantity" bson:"quantity"`
 }
 
 type CartStatus int
@@ -42,17 +45,17 @@ func (c CartStatus) EnumIndex() int {
 	return int(c)
 }
 
-func (c *CartItem) GetTotal() float64 {
-	return c.Product.Price * float64(c.Quantity) * c.Quote
-}
-
 func NewCart(clientId string) *Cart {
 	c := &Cart{
-		Items:  make(map[string]*CartItem),
-		Status: Started,
-		ID:     CreateID(),
-		Client: &Client{ID: clientId},
-		Total:  0,
+		Items:     make(map[string]*CartItem),
+		Status:    Started,
+		ID:        CreateID(),
+		Client:    &Client{ID: clientId},
+		CreatedAt: time.Now().Local(),
+		UpdatedAt: time.Now().Local(),
+		Total: map[string]float64{
+			"BRL": 0.0,
+		},
 	}
 
 	return c
@@ -68,27 +71,21 @@ func (c *Cart) AddItem(p *CartItem) {
 	} else {
 		c.Items[p.Product.ID] = p
 	}
-
-	c.CalcTotal()
 }
 
 func (c *Cart) RemoveItem(id string) {
 	delete(c.Items, id)
-	c.CalcTotal()
 }
 
 func (c *Cart) UpdateItem(productId string, qty float64) {
 	if _, ok := c.Items[productId]; ok {
 		c.Items[productId].Quantity = qty
-		c.CalcTotal()
 	}
-
 }
 
 func (c *Cart) AddItemQty(productId string, qty float64) {
 	if _, ok := c.Items[productId]; ok {
 		c.Items[productId].Quantity += qty
-		c.CalcTotal()
 	}
 }
 
@@ -100,13 +97,16 @@ func (c *Cart) GetItem(id string) *CartItem {
 	return c.Items[id]
 }
 
-func (c *Cart) CalcTotal() {
-	c.Total = 0
+func (c *Cart) CalcTotal(currencies map[string]float64) {
+	Total := 0.0
 	for _, p := range c.Items {
-		c.Total += p.GetTotal()
+		Total += p.Quantity * p.Product.Price
 	}
 
-	log.Printf("[domain.Cart] Total: %f", c.Total)
+	for k, v := range currencies {
+		c.Total[k] = Total * v
+		log.Printf("[domain.Cart] Total[%s]: %f -> %f", k, Total, c.Total[k])
+	}
 }
 func CreateID() string {
 	return ulid.MustNew(ulid.Now(), ulid.Monotonic(rand.Reader, 0)).String()

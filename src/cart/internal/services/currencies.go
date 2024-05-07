@@ -104,3 +104,15 @@ func (c *Currencies) Get(code string) *domain.Currency {
 		Ask:       1,
 	}
 }
+
+func (c *Currencies) GetCurrencies() map[string]float64 {
+	ret := make(map[string]float64)
+
+	ret["BRL"] = 1
+
+	for code, currency := range c.data {
+		ret[code] = currency.Bid
+	}
+
+	return ret
+}

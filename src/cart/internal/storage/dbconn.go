@@ -1,95 +1,82 @@
 package storage
 
 import (
-	"database/sql"
-	"fmt"
+	"cart/internal/config"
+	"context"
 	"log"
 
-	_ "modernc.org/sqlite"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 type DbConnection struct {
-	conn *sql.DB
-	path string
+	client        *mongo.Client
+	clientOptions *options.ClientOptions
+	url           string
+	DBName        string
 }
 
-func NewDbConnection(path string) *DbConnection {
+func NewDbConnection(config *config.Config) *DbConnection {
 	return &DbConnection{
-		path: path,
+		url:    config.DBURL,
+		DBName: config.DBName,
 	}
 }
 
-func (d *DbConnection) makeDBPath() string {
-	return fmt.Sprintf("%s/client.db", d.path)
-}
-func (d *DbConnection) GetConn() (*sql.DB, error) {
-	path := d.makeDBPath()
-
-	if d.conn == nil {
-		log.Printf("[DbConnection] Opening connection to %s", path)
-		conn, err := sql.Open("sqlite", path)
-		if err != nil {
-			log.Printf("[DbConnection] Error connecting to database: %s", err)
-			return nil, err
-		}
-		d.conn = conn
+func (d *DbConnection) Connect() error {
+	if d.client != nil {
+		return nil
 	}
 
-	return d.conn, nil
+	log.Printf("[DbConnection] Connecting to %s", d.url)
+
+	clientOptions := options.Client().ApplyURI(d.url)
+
+	client, err := mongo.Connect(context.Background(), clientOptions)
+
+	if err != nil {
+		log.Printf("[DbConnection] Error connecting to database: %s", err)
+		return err
+	}
+
+	d.client = client
+	d.clientOptions = clientOptions
+
+	return nil
 }
 
 func (d *DbConnection) Close() error {
-	if d.conn == nil {
+	if d.client == nil {
 		log.Printf("[DbConnection] Database is already closed")
 		return nil
 	}
 
-	err := d.conn.Close()
+	err := d.client.Disconnect(context.Background())
 
 	if err != nil {
 		log.Printf("[DbConnection] Error closing connection: %s", err)
 		return err
 	}
 
-	d.conn = nil
+	d.client = nil
+	d.clientOptions = nil
 
-	log.Printf("[DbConnection] Connection closed for %s", d.makeDBPath())
+	log.Printf("[DbConnection] Connection closed for %s", d.url)
 
 	return nil
 }
 
-func (d *DbConnection) Exec(query string, args ...interface{}) error {
-	conn, err := d.GetConn()
+func (d *DbConnection) GetCollection(name string) (*mongo.Collection, error) {
+	if d.client == nil {
+		log.Printf("[DbConnection] Database is not connected")
 
-	if err != nil {
-		log.Printf("[DbConnection] Error getting connection: %s", err)
-		return err
-	}
-
-	res, err := conn.Exec(query, args...)
-
-	if err != nil {
-		log.Printf("[DbConnection] Error executing query: %s", err)
-		return err
-	}
-
-	if res != nil {
-		affected, err := res.RowsAffected()
+		err := d.Connect()
 
 		if err != nil {
-			log.Printf("[DbConnection] Error getting rows affected: %s", err)
-			return err
+			log.Printf("[DbConnection] Error connecting to database: %s", err)
+			return nil, err
 		}
-
-		lastId, err := res.LastInsertId()
-
-		if err != nil {
-			log.Printf("[DbConnection] Error getting last id: %s", err)
-			return err
-		}
-
-		log.Printf("[DbConnection] Query executed successfully: %d rows affected -> lastId: %d", affected, lastId)
 	}
 
-	return nil
+	return d.client.Database(d.DBName).Collection(name), nil
 }
