@@ -4,7 +4,7 @@ import (
 	"errors"
 	"log"
 
-	domain "github.com/rafaelfino/plataforma-tcc/clients/pkg/domain"
+	domain "github.com/rafaelfino/plataforma-tcc/src/clients/pkg/domain"
 )
 
 type Client struct {

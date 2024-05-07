@@ -1,9 +1,9 @@
 package handlers
 
 import (
-	config "github.com/rafaelfino/plataforma-tcc/clients/internal/config"
-	services "github.com/rafaelfino/plataforma-tcc/clients/internal/services"
-	domain "github.com/rafaelfino/plataforma-tcc/clients/pkg/domain"
+	config "github.com/rafaelfino/plataforma-tcc/src/clients/internal/config"
+	services "github.com/rafaelfino/plataforma-tcc/src/clients/internal/services"
+	domain "github.com/rafaelfino/plataforma-tcc/src/clients/pkg/domain"
 
 	"log"
 	"net/http"

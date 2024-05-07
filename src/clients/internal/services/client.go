@@ -1,9 +1,9 @@
 package services
 
 import (
-	config "github.com/rafaelfino/plataforma-tcc/clients/internal/config"
-	storage "github.com/rafaelfino/plataforma-tcc/clients/internal/storage"
-	domain "github.com/rafaelfino/plataforma-tcc/clients/pkg/domain"
+	config "github.com/rafaelfino/plataforma-tcc/src/clients/internal/config"
+	storage "github.com/rafaelfino/plataforma-tcc/src/clients/internal/storage"
+	domain "github.com/rafaelfino/plataforma-tcc/src/clients/pkg/domain"
 
 	"crypto/rand"
 	"errors"

@@ -11,8 +11,8 @@ import (
 
 	rotatelogs "github.com/lestrrat/go-file-rotatelogs"
 
-	config "github.com/rafaelfino/plataforma-tcc/clients/internal/config"
-	server "github.com/rafaelfino/plataforma-tcc/clients/internal/server"
+	config "github.com/rafaelfino/plataforma-tcc/src/clients/internal/config"
+	server "github.com/rafaelfino/plataforma-tcc/src/clients/internal/server"
 )
 
 func main() {

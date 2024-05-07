@@ -1,4 +1,4 @@
-module github.com/rafaelfino/plataforma-tcc/clients
+module github.com/rafaelfino/plataforma-tcc/src/clients
 
 go 1.22.2
 
