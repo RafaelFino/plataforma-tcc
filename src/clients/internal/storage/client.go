@@ -1,9 +1,10 @@
 package storage
 
 import (
-	"clients/pkg/clients/domain"
 	"errors"
 	"log"
+
+	domain "github.com/rafaelfino/plataforma-tcc/clients/pkg/domain"
 )
 
 type Client struct {
