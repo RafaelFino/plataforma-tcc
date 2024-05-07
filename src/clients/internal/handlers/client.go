@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"clients/pkg/domain"
+	"clients/pkg/clients/domain"
 
 	"clients/internal/config"
 

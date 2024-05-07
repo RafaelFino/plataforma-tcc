@@ -1,7 +1,7 @@
 package services
 
 import (
-	"clients/pkg/domain"
+	"clients/pkg/clients/domain"
 
 	"clients/internal/storage"
 
