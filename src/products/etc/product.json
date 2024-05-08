@@ -1,6 +1,6 @@
 {
-    "name": "Queijo",
-    "price": 5.0,
-    "description": "Queijo mussarela",
-    "stock": 10 
+    "name": "Presunto",
+    "price": 8.0,
+    "description": "Presunto Cozido do bom",
+    "stock": 50 
 }
