@@ -58,7 +58,6 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: cartpass
       ME_CONFIG_MONGODB_URL: mongodb://root:cartpass@cart-db:27017/
-      ME_CONFIG_BASICAUTH: false      
 
   proxy:
     image: nginx

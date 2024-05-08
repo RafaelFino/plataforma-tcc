@@ -43,10 +43,10 @@ func NewServer(config *config.Config) *Server {
 	}
 
 	s.engine = gin.Default()
-	s.engine.GET("/currency/:code", s.handler.GetByCode)
-	s.engine.GET("/currency/", s.handler.Get)
-	s.engine.POST("/currency/", s.handler.Update)
-	s.engine.PUT("/currency/", s.handler.Update)
+	s.engine.GET("/currencies/:code", s.handler.GetByCode)
+	s.engine.GET("/currencies/", s.handler.Get)
+	s.engine.POST("/currencies/", s.handler.Update)
+	s.engine.PUT("/currencies/", s.handler.Update)
 
 	s.srv = &http.Server{
 		Addr:    s.makeAddress(),

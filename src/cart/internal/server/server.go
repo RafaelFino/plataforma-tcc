@@ -51,7 +51,7 @@ func NewServer(config *config.Config) *Server {
 	s.engine.POST("/cart/:cart_id", s.handler.AddProduct)
 	s.engine.DELETE("/cart/:cart_id/:product_id", s.handler.RemoveProduct)
 
-	s.engine.GET("/client/:client_id", s.handler.GetByClient)
+	s.engine.GET("/cart/client/:client_id", s.handler.GetByClient)
 	s.engine.PUT("/cart/:cart_id", s.handler.Checkout)
 
 	s.srv = &http.Server{
